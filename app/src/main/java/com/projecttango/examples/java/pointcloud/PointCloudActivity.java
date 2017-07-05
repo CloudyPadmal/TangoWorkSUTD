@@ -470,32 +470,6 @@ public class PointCloudActivity extends Activity {
     private void postData() {
         try {
             if (lastCloud != null && lastPose != null) {
-                final JSONObject body = new JSONObject();
-                try {
-                    body.put("user_id", "Padmal");
-                    body.put("pose",
-                            String.valueOf(lastPose.getTranslationAsFloats()[0]) + "," +
-                                    String.valueOf(lastPose.getTranslationAsFloats()[1]) + "," +
-                                    String.valueOf(lastPose.getTranslationAsFloats()[2]) + "," +
-                                    String.valueOf(lastPose.getRotationAsFloats()[0]) + "," +
-                                    String.valueOf(lastPose.getRotationAsFloats()[0]) + "," +
-                                    String.valueOf(lastPose.getRotationAsFloats()[0]) + "," +
-                                    String.valueOf(lastPose.getRotationAsFloats()[0]) + ","
-                    );
-                    body.put("tango_time", System.currentTimeMillis());
-                    StringBuilder cloudString = new StringBuilder();
-                    cloudString.append(lastCloud.points.remaining() / 4);
-                    cloudString.append(",");
-                    for (int i = 0; i < lastCloud.points.remaining(); i++) {
-                        cloudString.append(lastCloud.points.get(i));
-                        cloudString.append(",");
-                    }
-                    cloudString.deleteCharAt(cloudString.length() - 1);
-                    body.put("point_cloud", cloudString.toString());
-                    Log.d("Padmal json", body.toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
                 // Tag used to cancel the request
                 String tag_json_obj = "tango";
 
@@ -515,13 +489,45 @@ public class PointCloudActivity extends Activity {
 
                 ) {
                     @Override
-                    public byte[] getBody() throws AuthFailureError {
-                        return body.toString().getBytes();
-                    }
-
-                    @Override
-                    public String getBodyContentType() {
-                        return "application/json";
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> body = new HashMap<>();
+                        try {
+                            body.put("user_id", "Padmal");
+                            body.put("pose",
+                                    String.valueOf(lastPose.getTranslationAsFloats()[0]) + "," +
+                                            String.valueOf(lastPose.getTranslationAsFloats()[1]) + "," +
+                                            String.valueOf(lastPose.getTranslationAsFloats()[2]) + "," +
+                                            String.valueOf(lastPose.getRotationAsFloats()[0]) + "," +
+                                            String.valueOf(lastPose.getRotationAsFloats()[1]) + "," +
+                                            String.valueOf(lastPose.getRotationAsFloats()[2]) + "," +
+                                            String.valueOf(lastPose.getRotationAsFloats()[3])
+                            );
+                            body.put("tango_time", String.valueOf(System.currentTimeMillis()));
+                            DecimalFormat df = new DecimalFormat("0.0000");
+                            StringBuilder cloudString = new StringBuilder();
+                            cloudString.append(lastCloud.numPoints);
+                            Log.d("Pad points", "numPoints - " + lastCloud.numPoints + " remaining " + lastCloud.points.remaining());
+                            cloudString.append(",");
+                            int place = 0;
+                            int remainingPoints = lastCloud.points.remaining();
+                            for (int i = 0; i < remainingPoints; i++) {
+                                /*if (i % 4 == 0) {
+                                    cloudString.append(place);
+                                    cloudString.append(",");
+                                    place++;
+                                }*/ // Counting removed
+                                cloudString.append(df.format(lastCloud.points.get(i)));
+                                cloudString.append(",");
+                            }
+                            cloudString.deleteCharAt(cloudString.length() - 1);
+                            body.put("point_cloud", cloudString.toString());
+                            Log.d("Padmal json", body.toString());
+                            lastCloud = null;
+                            lastPose = null;
+                            return body;
+                        } catch (NullPointerException e) {
+                            return null;
+                        }
                     }
                 };
                 CloudPoster.getInstance(getApplicationContext()).addToRequestQueue(stringRequest, tag_json_obj);
@@ -544,8 +550,6 @@ public class PointCloudActivity extends Activity {
                 cancel(true);
             } else {
                 postData();
-                lastCloud = null;
-                lastPose = null;
             }
             return null;
         }
