@@ -17,6 +17,7 @@
 package com.projecttango.examples.java.pointcloud;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -60,9 +61,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.BufferUnderflowException;
 import java.nio.FloatBuffer;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -87,7 +90,7 @@ public class PointCloudActivity extends Activity {
 
     private static final int SECS_TO_MILLISECS = 1000;
     private static final DecimalFormat FORMAT_THREE_DECIMAL = new DecimalFormat("0.000");
-    private static final double UPDATE_INTERVAL_MS = 100.0;
+    private static final double UPDATE_INTERVAL_MS = 50.0;
 
     private Tango mTango;
     private TangoConfig mConfig;
@@ -110,11 +113,9 @@ public class PointCloudActivity extends Activity {
     // Holders for POST data
     private TangoPoseData lastPose;
     private TangoPointCloudData lastCloud;
-
-    private int count = 1;
-    private int filesize = 0;
-    private int t = Calendar.getInstance().get(Calendar.SECOND);
-    private boolean wrote = true;
+    // Time counter
+    private long lastTime = System.currentTimeMillis();
+    private final long INTERVAL = 500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -225,11 +226,9 @@ public class PointCloudActivity extends Activity {
             @Override
             public void onPoseAvailable(TangoPoseData pose) {
                 lastPose = pose;
-                new POSTMAN().execute();
                 // Passing in the pose data to UX library produce exceptions.
                 if (mTangoUx != null) {
                     mTangoUx.updatePoseStatus(pose.statusCode);
-                    //Log.d("Padmal pose", "Available " + pose.getTranslationAsFloats()[0] + " " + pose.getTranslationAsFloats()[1]);
                 }
             }
 
@@ -237,21 +236,6 @@ public class PointCloudActivity extends Activity {
             @Override
             public void onPointCloudAvailable(TangoPointCloudData pointCloud) {
                 lastCloud = pointCloud;
-                new POSTMAN().execute();
-                /*
-                try {
-                    for (int i = 0; i < pointCloud.points.remaining(); i++) {
-                        byte[] data = String.valueOf(pointCloud.points.get(i)).getBytes();
-                        float vall = pointCloud.points.get(i);
-                        filesize += data.length;
-                    }
-                    //postData();
-                    new POSTMAN().execute();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                */
-
                 if (mTangoUx != null) {
                     mTangoUx.updatePointCloud(pointCloud);
                 }
@@ -268,12 +252,16 @@ public class PointCloudActivity extends Activity {
                 if (mPointCloudTimeToNextUpdate < 0.0) {
                     mPointCloudTimeToNextUpdate = UPDATE_INTERVAL_MS;
                     final String pointCountString = Integer.toString(pointCloud.numPoints);
-
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             mPointCountTextView.setText(pointCountString);
                             mAverageZTextView.setText(FORMAT_THREE_DECIMAL.format(averageDepth));
+                            //new POSTMAN().execute();
+                            if (System.currentTimeMillis() - lastTime > INTERVAL) {
+                                lastTime = System.currentTimeMillis();
+                                postData();
+                            }
                         }
                     });
                 }
@@ -503,29 +491,26 @@ public class PointCloudActivity extends Activity {
                                             String.valueOf(lastPose.getRotationAsFloats()[3])
                             );
                             body.put("tango_time", String.valueOf(System.currentTimeMillis()));
-                            DecimalFormat df = new DecimalFormat("0.0000");
+                            //DecimalFormat df = new DecimalFormat("0.0000");
                             StringBuilder cloudString = new StringBuilder();
                             cloudString.append(lastCloud.numPoints);
-                            Log.d("Pad points", "numPoints - " + lastCloud.numPoints + " remaining " + lastCloud.points.remaining());
                             cloudString.append(",");
-                            int place = 0;
                             int remainingPoints = lastCloud.points.remaining();
                             for (int i = 0; i < remainingPoints; i++) {
-                                /*if (i % 4 == 0) {
-                                    cloudString.append(place);
+                                /*if ((i+1) % 4 == 0) {
+                                    cloudString.append(lastCloud.points.get());
                                     cloudString.append(",");
-                                    place++;
-                                }*/ // Counting removed
-                                cloudString.append(df.format(lastCloud.points.get(i)));
-                                cloudString.append(",");
+                                } else {
+                                    cloudString.append(df.format(lastCloud.points.get()));
+                                    cloudString.append(",");
+                                }*/
+                                cloudString.append(lastCloud.points.get(i)).append(",");
                             }
                             cloudString.deleteCharAt(cloudString.length() - 1);
                             body.put("point_cloud", cloudString.toString());
                             Log.d("Padmal json", body.toString());
-                            lastCloud = null;
-                            lastPose = null;
                             return body;
-                        } catch (NullPointerException e) {
+                        } catch (Exception e) {
                             return null;
                         }
                     }
@@ -546,11 +531,7 @@ public class PointCloudActivity extends Activity {
 
         @Override
         protected Void doInBackground(Void... params) {
-            if (lastCloud == null || lastPose == null) {
-                cancel(true);
-            } else {
-                postData();
-            }
+            postData();
             return null;
         }
 
