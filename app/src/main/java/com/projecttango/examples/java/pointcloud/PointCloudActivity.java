@@ -90,7 +90,7 @@ public class PointCloudActivity extends Activity {
 
     private static final int SECS_TO_MILLISECS = 1000;
     private static final DecimalFormat FORMAT_THREE_DECIMAL = new DecimalFormat("0.000");
-    private static final double UPDATE_INTERVAL_MS = 50.0;
+    private static final double UPDATE_INTERVAL_MS = 100.0;
 
     private Tango mTango;
     private TangoConfig mConfig;
@@ -261,6 +261,7 @@ public class PointCloudActivity extends Activity {
                             if (System.currentTimeMillis() - lastTime > INTERVAL) {
                                 lastTime = System.currentTimeMillis();
                                 postData();
+                                mAverageZTextView.setText(String.valueOf(lastTime) + " Updated");
                             }
                         }
                     });
@@ -509,6 +510,8 @@ public class PointCloudActivity extends Activity {
                             cloudString.deleteCharAt(cloudString.length() - 1);
                             body.put("point_cloud", cloudString.toString());
                             Log.d("Padmal json", body.toString());
+                            lastCloud = null;
+                            lastPose = null;
                             return body;
                         } catch (Exception e) {
                             return null;
