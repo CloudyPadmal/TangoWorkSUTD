@@ -19,11 +19,13 @@ package com.projecttango.examples.java.pointcloud;
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.atap.tangoservice.Tango;
 import com.google.atap.tangoservice.TangoConfig;
 import com.google.atap.tangoservice.TangoCoordinateFramePair;
@@ -36,6 +38,7 @@ import com.google.atap.tangoservice.TangoPoseData;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.hardware.display.DisplayManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -43,6 +46,7 @@ import android.os.Environment;
 import android.os.SystemClock;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.util.TimingLogger;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
@@ -89,8 +93,8 @@ public class PointCloudActivity extends Activity {
     private static final String UX_EXCEPTION_EVENT_RESOLVED = "Exception Resolved: ";
 
     private static final int SECS_TO_MILLISECS = 1000;
-    private static final DecimalFormat FORMAT_THREE_DECIMAL = new DecimalFormat("0.000");
-    private static final double UPDATE_INTERVAL_MS = 100.0;
+    //private static final DecimalFormat FORMAT_THREE_DECIMAL = new DecimalFormat("0.000");
+    private static final double UPDATE_INTERVAL_MS = 200.0;
 
     private Tango mTango;
     private TangoConfig mConfig;
@@ -115,7 +119,11 @@ public class PointCloudActivity extends Activity {
     private TangoPointCloudData lastCloud;
     // Time counter
     private long lastTime = System.currentTimeMillis();
-    private final long INTERVAL = 500;
+    private long lastRequestReceived = System.currentTimeMillis();
+    private final long INTERVAL = 1000;
+    private int perSecond = 0;
+
+    private RequestQueue queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,6 +133,7 @@ public class PointCloudActivity extends Activity {
         mPointCountTextView = (TextView) findViewById(R.id.point_count_textview);
         mAverageZTextView = (TextView) findViewById(R.id.average_z_textview);
         mSurfaceView = (RajawaliSurfaceView) findViewById(R.id.gl_surface_view);
+        queue = Volley.newRequestQueue(this);
 
         mPointCloudManager = new TangoPointCloudManager();
         mTangoUx = setupTangoUxAndLayout();
@@ -256,13 +265,16 @@ public class PointCloudActivity extends Activity {
                         @Override
                         public void run() {
                             mPointCountTextView.setText(pointCountString);
-                            mAverageZTextView.setText(FORMAT_THREE_DECIMAL.format(averageDepth));
+                            //mAverageZTextView.setText(FORMAT_THREE_DECIMAL.format(averageDepth));
                             //new POSTMAN().execute();
                             if (System.currentTimeMillis() - lastTime > INTERVAL) {
+                                if (lastCloud != null && lastPose != null && lastCloud.numPoints > 0) {
+                                    postData();
+                                }
                                 lastTime = System.currentTimeMillis();
-                                postData();
-                                mAverageZTextView.setText(String.valueOf(lastTime) + " Updated");
                             }
+                            mAverageZTextView.setBackgroundColor(Color.WHITE);
+                            mAverageZTextView.setText("Waiting");
                         }
                     });
                 }
@@ -458,70 +470,87 @@ public class PointCloudActivity extends Activity {
 
     private void postData() {
         try {
-            if (lastCloud != null && lastPose != null) {
-                // Tag used to cancel the request
-                String tag_json_obj = "tango";
+            // Tag used to cancel the request
+            String tag_json_obj = "tango";
 
-                String url = "http://202.94.70.33/tango/insert_tango_point_cloud.php";
+            String url = "http://202.94.70.33/tango/insert_tango_point_cloud.php";
 
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Log.d("Padmal SR", response);
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.d("Padmal EL", error.getMessage());
-                    }
-                }
-
-                ) {
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> body = new HashMap<>();
-                        try {
-                            body.put("user_id", "Padmal");
-                            body.put("pose",
-                                    String.valueOf(lastPose.getTranslationAsFloats()[0]) + "," +
-                                            String.valueOf(lastPose.getTranslationAsFloats()[1]) + "," +
-                                            String.valueOf(lastPose.getTranslationAsFloats()[2]) + "," +
-                                            String.valueOf(lastPose.getRotationAsFloats()[0]) + "," +
-                                            String.valueOf(lastPose.getRotationAsFloats()[1]) + "," +
-                                            String.valueOf(lastPose.getRotationAsFloats()[2]) + "," +
-                                            String.valueOf(lastPose.getRotationAsFloats()[3])
-                            );
-                            body.put("tango_time", String.valueOf(System.currentTimeMillis()));
-                            //DecimalFormat df = new DecimalFormat("0.0000");
-                            StringBuilder cloudString = new StringBuilder();
-                            cloudString.append(lastCloud.numPoints);
-                            cloudString.append(",");
-                            int remainingPoints = lastCloud.points.remaining();
-                            for (int i = 0; i < remainingPoints; i++) {
-                                /*if ((i+1) % 4 == 0) {
-                                    cloudString.append(lastCloud.points.get());
-                                    cloudString.append(",");
-                                } else {
-                                    cloudString.append(df.format(lastCloud.points.get()));
-                                    cloudString.append(",");
-                                }*/
-                                cloudString.append(lastCloud.points.get(i)).append(",");
-                            }
-                            cloudString.deleteCharAt(cloudString.length() - 1);
-                            body.put("point_cloud", cloudString.toString());
-                            Log.d("Padmal json", body.toString());
-                            lastCloud = null;
-                            lastPose = null;
-                            return body;
-                        } catch (Exception e) {
-                            return null;
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Log.d("Padmal server", response);
+                    if (!response.contains("\"success\":0")) {
+                        if (System.currentTimeMillis() - lastRequestReceived < 1000) {
+                            perSecond++;
+                        } else {
+                            Log.d("Padmal Rate", (perSecond + 1) + "");
+                            perSecond = 0;
+                            lastRequestReceived = System.currentTimeMillis();
                         }
                     }
-                };
-                CloudPoster.getInstance(getApplicationContext()).addToRequestQueue(stringRequest, tag_json_obj);
+                    String displayText = (response.contains("Data successfully created")) ? "Success" : "Pending";
+                    mAverageZTextView.setText(displayText);
+                    mAverageZTextView.setBackgroundColor(displayText.contains("Success") ? Color.GREEN : Color.RED);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    //Log.d("Padmal EL", error.getMessage());
+                }
             }
-        } catch (NullPointerException | IndexOutOfBoundsException e) {
-            e.printStackTrace();
+
+            ) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> body = new HashMap<>();
+                    try {
+                        body.put("user_id", "Padmal");
+                        body.put("pose",
+                                String.valueOf(lastPose.getTranslationAsFloats()[0]) + "," +
+                                        String.valueOf(lastPose.getTranslationAsFloats()[1]) + "," +
+                                        String.valueOf(lastPose.getTranslationAsFloats()[2]) + "," +
+                                        String.valueOf(lastPose.getRotationAsFloats()[0]) + "," +
+                                        String.valueOf(lastPose.getRotationAsFloats()[1]) + "," +
+                                        String.valueOf(lastPose.getRotationAsFloats()[2]) + "," +
+                                        String.valueOf(lastPose.getRotationAsFloats()[3])
+                        );
+                        body.put("tango_time", String.valueOf(System.currentTimeMillis()));
+                        StringBuilder cloudString = new StringBuilder();
+                        cloudString.append(lastCloud.numPoints);
+                        cloudString.append(",");
+                        int remainingPoints = lastCloud.points.remaining();
+                        TangoPointCloudData DATA = lastCloud;
+                        //long startTime = System.currentTimeMillis();
+                        for (int i = 0; i < remainingPoints; i++) {
+                            if ((i + 1) % 4 == 0) {
+                                cloudString.append(DATA.points.get(i));
+                                cloudString.append(",");
+                            } else {
+                                double pnt = Math.floor(DATA.points.get(i) * 10000) / 10000;
+                                cloudString.append(pnt);
+                                cloudString.append(",");
+                            }
+                            //cloudString.append(lastCloud.points.get(i));
+                            //cloudString.append(df.format(lastCloud.points.get()));
+                            //cloudString.append(",");
+                        }
+                        //Log.d("Padmal", "Time taken -> " + (System.currentTimeMillis() - startTime));
+                        cloudString.deleteCharAt(cloudString.length() - 1);
+                        body.put("point_cloud", cloudString.toString());
+                        Log.d("Padmal json", body.toString());
+                        //lastCloud = null;
+                        lastPose = null;
+                        return body;
+                    } catch (Exception e) {
+                        return null;
+                    }
+                }
+            };
+            stringRequest.setRetryPolicy(new DefaultRetryPolicy(10000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES - 1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+            //CloudPoster.getInstance(getApplicationContext()).addToRequestQueue(stringRequest, tag_json_obj);
+            queue.add(stringRequest);
+        } catch (Exception e) {
+            /**/
         }
     }
 

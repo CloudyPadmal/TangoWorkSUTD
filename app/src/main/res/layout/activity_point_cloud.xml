@@ -39,13 +39,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/average_z" />
+                android:text="Status :" />
 
             <TextView
                 android:id="@+id/average_z_textview"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" 
-                android:text="@string/na" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
         
          <LinearLayout
