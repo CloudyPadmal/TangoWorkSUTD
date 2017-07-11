@@ -42,6 +42,7 @@ import android.graphics.Color;
 import android.hardware.display.DisplayManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Environment;
 import android.os.SystemClock;
 import android.telephony.TelephonyManager;
@@ -75,6 +76,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.google.atap.tangoservice.TangoXyzIjData;
 import com.projecttango.examples.java.pointcloud.WebCalls.CloudPoster;
@@ -121,7 +124,9 @@ public class PointCloudActivity extends Activity {
     private long lastTime = System.currentTimeMillis();
     private long lastRequestReceived = System.currentTimeMillis();
     private final long INTERVAL = 1000;
+    private final int MM = 10000;
     private int perSecond = 0;
+    private Timer timer;
 
     private RequestQueue queue;
 
@@ -159,6 +164,13 @@ public class PointCloudActivity extends Activity {
                 }
             }, null);
         }
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                postData();
+            }
+        }, 1000, 1000);
     }
 
     @Override
@@ -267,14 +279,14 @@ public class PointCloudActivity extends Activity {
                             mPointCountTextView.setText(pointCountString);
                             //mAverageZTextView.setText(FORMAT_THREE_DECIMAL.format(averageDepth));
                             //new POSTMAN().execute();
-                            if (System.currentTimeMillis() - lastTime > INTERVAL) {
+                            /*if (System.currentTimeMillis() - lastTime > INTERVAL) {
                                 if (lastCloud != null && lastPose != null && lastCloud.numPoints > 0) {
                                     postData();
                                 }
                                 lastTime = System.currentTimeMillis();
-                            }
+                            }*/
                             mAverageZTextView.setBackgroundColor(Color.WHITE);
-                            mAverageZTextView.setText("Waiting");
+                            //mAverageZTextView.setText("Waiting");
                         }
                     });
                 }
@@ -520,25 +532,16 @@ public class PointCloudActivity extends Activity {
                         cloudString.append(",");
                         int remainingPoints = lastCloud.points.remaining();
                         TangoPointCloudData DATA = lastCloud;
-                        //long startTime = System.currentTimeMillis();
                         for (int i = 0; i < remainingPoints; i++) {
-                            if ((i + 1) % 4 == 0) {
-                                cloudString.append(DATA.points.get(i));
-                                cloudString.append(",");
-                            } else {
+                            if ((i + 1) % 4 != 0) {
                                 double pnt = Math.floor(DATA.points.get(i) * 10000) / 10000;
-                                cloudString.append(pnt);
+                                cloudString.append(((int) (pnt * MM)));
                                 cloudString.append(",");
                             }
-                            //cloudString.append(lastCloud.points.get(i));
-                            //cloudString.append(df.format(lastCloud.points.get()));
-                            //cloudString.append(",");
                         }
-                        //Log.d("Padmal", "Time taken -> " + (System.currentTimeMillis() - startTime));
                         cloudString.deleteCharAt(cloudString.length() - 1);
                         body.put("point_cloud", cloudString.toString());
                         Log.d("Padmal json", body.toString());
-                        //lastCloud = null;
                         lastPose = null;
                         return body;
                     } catch (Exception e) {
@@ -547,7 +550,6 @@ public class PointCloudActivity extends Activity {
                 }
             };
             stringRequest.setRetryPolicy(new DefaultRetryPolicy(10000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES - 1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-            //CloudPoster.getInstance(getApplicationContext()).addToRequestQueue(stringRequest, tag_json_obj);
             queue.add(stringRequest);
         } catch (Exception e) {
             /**/
