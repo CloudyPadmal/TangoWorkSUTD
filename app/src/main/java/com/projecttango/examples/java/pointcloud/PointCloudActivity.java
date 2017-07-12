@@ -16,14 +16,24 @@
 
 package com.projecttango.examples.java.pointcloud;
 
+import android.app.Activity;
+import android.graphics.Color;
+import android.hardware.display.DisplayManager;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Display;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.atap.tangoservice.Tango;
@@ -35,59 +45,21 @@ import com.google.atap.tangoservice.TangoInvalidException;
 import com.google.atap.tangoservice.TangoOutOfDateException;
 import com.google.atap.tangoservice.TangoPointCloudData;
 import com.google.atap.tangoservice.TangoPoseData;
-
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Color;
-import android.hardware.display.DisplayManager;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Environment;
-import android.os.SystemClock;
-import android.telephony.TelephonyManager;
-import android.util.Log;
-import android.util.TimingLogger;
-import android.view.Display;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.rajawali3d.math.vector.Vector3;
-import org.rajawali3d.scene.ASceneFrameCallback;
-import org.rajawali3d.surface.RajawaliSurfaceView;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.BufferUnderflowException;
-import java.nio.FloatBuffer;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import com.google.atap.tangoservice.TangoXyzIjData;
-import com.projecttango.examples.java.pointcloud.WebCalls.CloudPoster;
 import com.projecttango.tangosupport.TangoPointCloudManager;
 import com.projecttango.tangosupport.TangoSupport;
 import com.projecttango.tangosupport.ux.TangoUx;
 import com.projecttango.tangosupport.ux.UxExceptionEvent;
 import com.projecttango.tangosupport.ux.UxExceptionEventListener;
 
-import static android.provider.Telephony.Mms.Part.FILENAME;
+import org.rajawali3d.scene.ASceneFrameCallback;
+import org.rajawali3d.surface.RajawaliSurfaceView;
+
+import java.nio.FloatBuffer;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class PointCloudActivity extends Activity {
     private static final String TAG = PointCloudActivity.class.getSimpleName();
@@ -96,7 +68,6 @@ public class PointCloudActivity extends Activity {
     private static final String UX_EXCEPTION_EVENT_RESOLVED = "Exception Resolved: ";
 
     private static final int SECS_TO_MILLISECS = 1000;
-    //private static final DecimalFormat FORMAT_THREE_DECIMAL = new DecimalFormat("0.000");
     private static final double UPDATE_INTERVAL_MS = 200.0;
 
     private Tango mTango;
@@ -117,17 +88,13 @@ public class PointCloudActivity extends Activity {
 
     private int mDisplayRotation = 0;
 
-    // Holders for POST data
+    // Custom variables
+    private final String URL = "http://202.94.70.33/tango/insert_tango_point_cloud.php";
     private TangoPoseData lastPose;
     private TangoPointCloudData lastCloud;
-    // Time counter
-    private long lastTime = System.currentTimeMillis();
-    private long lastRequestReceived = System.currentTimeMillis();
     private final long INTERVAL = 1000;
     private final int MM = 10000;
-    private int perSecond = 0;
-    private Timer timer;
-
+    private DefaultRetryPolicy retryPolicy;
     private RequestQueue queue;
 
     @Override
@@ -164,13 +131,14 @@ public class PointCloudActivity extends Activity {
                 }
             }, null);
         }
-        timer = new Timer();
+        retryPolicy = new DefaultRetryPolicy(10000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES - 1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 postData();
             }
-        }, 1000, 1000);
+        }, INTERVAL, INTERVAL);
     }
 
     @Override
@@ -265,9 +233,6 @@ public class PointCloudActivity extends Activity {
                 final double pointCloudFrameDelta =
                         (currentTimeStamp - mPointCloudPreviousTimeStamp) * SECS_TO_MILLISECS;
                 mPointCloudPreviousTimeStamp = currentTimeStamp;
-                final double averageDepth = getAveragedDepth(pointCloud.points,
-                        pointCloud.numPoints);
-
                 mPointCloudTimeToNextUpdate -= pointCloudFrameDelta;
 
                 if (mPointCloudTimeToNextUpdate < 0.0) {
@@ -277,16 +242,8 @@ public class PointCloudActivity extends Activity {
                         @Override
                         public void run() {
                             mPointCountTextView.setText(pointCountString);
-                            //mAverageZTextView.setText(FORMAT_THREE_DECIMAL.format(averageDepth));
-                            //new POSTMAN().execute();
-                            /*if (System.currentTimeMillis() - lastTime > INTERVAL) {
-                                if (lastCloud != null && lastPose != null && lastCloud.numPoints > 0) {
-                                    postData();
-                                }
-                                lastTime = System.currentTimeMillis();
-                            }*/
+                            mAverageZTextView.setText("Waiting");
                             mAverageZTextView.setBackgroundColor(Color.WHITE);
-                            //mAverageZTextView.setText("Waiting");
                         }
                     });
                 }
@@ -482,24 +439,10 @@ public class PointCloudActivity extends Activity {
 
     private void postData() {
         try {
-            // Tag used to cancel the request
-            String tag_json_obj = "tango";
-
-            String url = "http://202.94.70.33/tango/insert_tango_point_cloud.php";
-
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     Log.d("Padmal server", response);
-                    if (!response.contains("\"success\":0")) {
-                        if (System.currentTimeMillis() - lastRequestReceived < 1000) {
-                            perSecond++;
-                        } else {
-                            Log.d("Padmal Rate", (perSecond + 1) + "");
-                            perSecond = 0;
-                            lastRequestReceived = System.currentTimeMillis();
-                        }
-                    }
                     String displayText = (response.contains("Data successfully created")) ? "Success" : "Pending";
                     mAverageZTextView.setText(displayText);
                     mAverageZTextView.setBackgroundColor(displayText.contains("Success") ? Color.GREEN : Color.RED);
@@ -507,7 +450,7 @@ public class PointCloudActivity extends Activity {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    //Log.d("Padmal EL", error.getMessage());
+                    /**/
                 }
             }
 
@@ -516,17 +459,21 @@ public class PointCloudActivity extends Activity {
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> body = new HashMap<>();
                     try {
+                        // User ID *****************************************************************
                         body.put("user_id", "Padmal");
+                        // Pose Data ***************************************************************
                         body.put("pose",
                                 String.valueOf(lastPose.getTranslationAsFloats()[0]) + "," +
-                                        String.valueOf(lastPose.getTranslationAsFloats()[1]) + "," +
-                                        String.valueOf(lastPose.getTranslationAsFloats()[2]) + "," +
-                                        String.valueOf(lastPose.getRotationAsFloats()[0]) + "," +
-                                        String.valueOf(lastPose.getRotationAsFloats()[1]) + "," +
-                                        String.valueOf(lastPose.getRotationAsFloats()[2]) + "," +
-                                        String.valueOf(lastPose.getRotationAsFloats()[3])
+                                String.valueOf(lastPose.getTranslationAsFloats()[1]) + "," +
+                                String.valueOf(lastPose.getTranslationAsFloats()[2]) + "," +
+                                String.valueOf(lastPose.getRotationAsFloats()[0]) + "," +
+                                String.valueOf(lastPose.getRotationAsFloats()[1]) + "," +
+                                String.valueOf(lastPose.getRotationAsFloats()[2]) + "," +
+                                String.valueOf(lastPose.getRotationAsFloats()[3])
                         );
+                        // Tango Time **************************************************************
                         body.put("tango_time", String.valueOf(System.currentTimeMillis()));
+                        // Point Cloud *************************************************************
                         StringBuilder cloudString = new StringBuilder();
                         cloudString.append(lastCloud.numPoints);
                         cloudString.append(",");
@@ -541,6 +488,7 @@ public class PointCloudActivity extends Activity {
                         }
                         cloudString.deleteCharAt(cloudString.length() - 1);
                         body.put("point_cloud", cloudString.toString());
+                        // Posting *****************************************************************
                         Log.d("Padmal json", body.toString());
                         lastPose = null;
                         return body;
@@ -549,29 +497,10 @@ public class PointCloudActivity extends Activity {
                     }
                 }
             };
-            stringRequest.setRetryPolicy(new DefaultRetryPolicy(10000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES - 1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+            stringRequest.setRetryPolicy(retryPolicy);
             queue.add(stringRequest);
         } catch (Exception e) {
             /**/
-        }
-    }
-
-    public class POSTMAN extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected void onPreExecute() {
-
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            postData();
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-
         }
     }
 }
