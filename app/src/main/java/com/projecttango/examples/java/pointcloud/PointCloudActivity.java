@@ -16,15 +16,29 @@
 
 package com.projecttango.examples.java.pointcloud;
 
+import android.Manifest;
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.hardware.display.DisplayManager;
-import android.os.AsyncTask;
+import android.net.wifi.ScanResult;
+import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
+import android.util.StringBuilderPrinter;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,13 +64,19 @@ import com.projecttango.tangosupport.TangoSupport;
 import com.projecttango.tangosupport.ux.TangoUx;
 import com.projecttango.tangosupport.ux.UxExceptionEvent;
 import com.projecttango.tangosupport.ux.UxExceptionEventListener;
+import com.vistrav.ask.Ask;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.rajawali3d.scene.ASceneFrameCallback;
 import org.rajawali3d.surface.RajawaliSurfaceView;
+import org.w3c.dom.Node;
 
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -89,28 +109,64 @@ public class PointCloudActivity extends Activity {
     private int mDisplayRotation = 0;
 
     // Custom variables
-    private final String URL = "http://202.94.70.33/tango/insert_tango_point_cloud.php";
+    private TextView mTime;
+    private TextView mNodes;
+    private TextView mCurrently;
+    private Switch modeSwitch;
+
+    private Timer timer;
+
+    private final String CLOUD_URL = "http://202.94.70.33/tango/insert_tango_point_cloud.php";
+    private final String WIFI_URL = "http://202.94.70.33/tango/insert_tango_wifi_scan.php";
+    private final String MODE = "Mode";
+
     private TangoPoseData lastPose;
     private TangoPointCloudData lastCloud;
-    private final long INTERVAL = 1000;
+
+    private SharedPreferences logger;
+
+    private WifiManager wifiManager;
+    private List<ScanResult> scanResults;
+
+    private final long CLOUD_INTERVAL = 1000;
+    private final long WIFI_INTERVAL = 5000;
     private final int MM = 10000;
+
     private DefaultRetryPolicy retryPolicy;
     private RequestQueue queue;
+
+    private int NodeCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_point_cloud);
+        Ask.on(this).forPermissions(Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_WIFI_STATE,
+                Manifest.permission.CHANGE_WIFI_STATE).go();
 
         mPointCountTextView = (TextView) findViewById(R.id.point_count_textview);
         mAverageZTextView = (TextView) findViewById(R.id.average_z_textview);
+        mTime = (TextView) findViewById(R.id.average_time);
+        mNodes = (TextView) findViewById(R.id.nodes);
+        mCurrently = (TextView) findViewById(R.id.currently);
+        modeSwitch = (Switch) findViewById(R.id.wifi_or_pointcloud);
         mSurfaceView = (RajawaliSurfaceView) findViewById(R.id.gl_surface_view);
         queue = Volley.newRequestQueue(this);
+
+        logger = this.getSharedPreferences("Tango", Context.MODE_PRIVATE);
 
         mPointCloudManager = new TangoPointCloudManager();
         mTangoUx = setupTangoUxAndLayout();
         mRenderer = new PointCloudRajawaliRenderer(this);
         setupRenderer();
+
+        wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+        if (!wifiManager.isWifiEnabled()) {
+            Toast.makeText(getApplicationContext(), "Enabling WIFI", Toast.LENGTH_SHORT).show();
+            wifiManager.setWifiEnabled(true);
+        }
 
         DisplayManager displayManager = (DisplayManager) getSystemService(DISPLAY_SERVICE);
         if (displayManager != null) {
@@ -132,13 +188,33 @@ public class PointCloudActivity extends Activity {
             }, null);
         }
         retryPolicy = new DefaultRetryPolicy(10000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES - 1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
+        timer = new Timer();
+        boolean currentState = logger.getBoolean(MODE, false);
+        modeSwitch.setChecked(currentState);
+        mCurrently.setText(currentState ? "WiFi" : "Cloud");
+        if (!currentState) {
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    postCloudData();
+                }
+            }, CLOUD_INTERVAL, CLOUD_INTERVAL);
+        } else {
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    postWiFiData();
+                }
+            }, WIFI_INTERVAL, WIFI_INTERVAL);
+        }
+
+        modeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void run() {
-                postData();
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                logger.edit().putBoolean(MODE, isChecked).apply();
+                Toast.makeText(getApplicationContext(), "Restart!", Toast.LENGTH_LONG).show();
             }
-        }, INTERVAL, INTERVAL);
+        });
     }
 
     @Override
@@ -152,6 +228,7 @@ public class PointCloudActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
+        timer.cancel();
 
         // Synchronize against disconnecting while the service is being used in the OpenGL
         // thread or in the UI thread.
@@ -243,7 +320,7 @@ public class PointCloudActivity extends Activity {
                         public void run() {
                             mPointCountTextView.setText(pointCountString);
                             mAverageZTextView.setText("Waiting");
-                            mAverageZTextView.setBackgroundColor(Color.WHITE);
+                            mAverageZTextView.setBackgroundColor(Color.TRANSPARENT);
                         }
                     });
                 }
@@ -437,13 +514,14 @@ public class PointCloudActivity extends Activity {
         });
     }
 
-    private void postData() {
+    private void postCloudData() {
         try {
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, CLOUD_URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Log.d("Padmal server", response);
-                    String displayText = (response.contains("Data successfully created")) ? "Success" : "Pending";
+                    Calendar calendar = Calendar.getInstance();
+                    mTime.setText(String.valueOf(calendar.get(Calendar.SECOND)));
+                    String displayText = (response.contains("Data successfully created")) ? "Success" : "Failure";
                     mAverageZTextView.setText(displayText);
                     mAverageZTextView.setBackgroundColor(displayText.contains("Success") ? Color.GREEN : Color.RED);
                 }
@@ -464,12 +542,12 @@ public class PointCloudActivity extends Activity {
                         // Pose Data ***************************************************************
                         body.put("pose",
                                 String.valueOf(lastPose.getTranslationAsFloats()[0]) + "," +
-                                String.valueOf(lastPose.getTranslationAsFloats()[1]) + "," +
-                                String.valueOf(lastPose.getTranslationAsFloats()[2]) + "," +
-                                String.valueOf(lastPose.getRotationAsFloats()[0]) + "," +
-                                String.valueOf(lastPose.getRotationAsFloats()[1]) + "," +
-                                String.valueOf(lastPose.getRotationAsFloats()[2]) + "," +
-                                String.valueOf(lastPose.getRotationAsFloats()[3])
+                                        String.valueOf(lastPose.getTranslationAsFloats()[1]) + "," +
+                                        String.valueOf(lastPose.getTranslationAsFloats()[2]) + "," +
+                                        String.valueOf(lastPose.getRotationAsFloats()[0]) + "," +
+                                        String.valueOf(lastPose.getRotationAsFloats()[1]) + "," +
+                                        String.valueOf(lastPose.getRotationAsFloats()[2]) + "," +
+                                        String.valueOf(lastPose.getRotationAsFloats()[3])
                         );
                         // Tango Time **************************************************************
                         body.put("tango_time", String.valueOf(System.currentTimeMillis()));
@@ -489,7 +567,83 @@ public class PointCloudActivity extends Activity {
                         cloudString.deleteCharAt(cloudString.length() - 1);
                         body.put("point_cloud", cloudString.toString());
                         // Posting *****************************************************************
-                        Log.d("Padmal json", body.toString());
+                        lastPose = null;
+                        return body;
+                    } catch (Exception e) {
+                        return null;
+                    }
+                }
+            };
+            stringRequest.setRetryPolicy(retryPolicy);
+            queue.add(stringRequest);
+        } catch (Exception e) {
+            /**/
+        }
+    }
+
+    private void postWiFiData() {
+        try {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, WIFI_URL, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Log.d("padmal", response);
+                    Calendar calendar = Calendar.getInstance();
+                    mTime.setText(String.valueOf(calendar.get(Calendar.SECOND)));
+                    String displayText = (response.contains("Data successfully created")) ? "Success" : "Failure";
+                    mAverageZTextView.setText(displayText);
+                    mAverageZTextView.setBackgroundColor(displayText.contains("Success") ? Color.GREEN : Color.RED);
+                    String nodeText = NodeCount < 2 ? NodeCount + " node" : NodeCount + " nodes";
+                    mNodes.setText(nodeText);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    /**/
+                }
+            }
+
+            ) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> body = new HashMap<>();
+                    try {
+                        wifiManager.startScan();
+                        // User ID *****************************************************************
+                        body.put("user_id", "Padmal");
+                        // Pose Data ***************************************************************
+                        body.put("pose",
+                                String.valueOf(lastPose.getTranslationAsFloats()[0]) + "," +
+                                        String.valueOf(lastPose.getTranslationAsFloats()[1]) + "," +
+                                        String.valueOf(lastPose.getTranslationAsFloats()[2]) + "," +
+                                        String.valueOf(lastPose.getRotationAsFloats()[0]) + "," +
+                                        String.valueOf(lastPose.getRotationAsFloats()[1]) + "," +
+                                        String.valueOf(lastPose.getRotationAsFloats()[2]) + "," +
+                                        String.valueOf(lastPose.getRotationAsFloats()[3])
+                        );
+                        // Tango Time **************************************************************
+                        body.put("tango_time", String.valueOf(System.currentTimeMillis()));
+                        // Point Cloud *************************************************************
+                        scanResults = wifiManager.getScanResults();
+                        int APs = scanResults.size();
+                        NodeCount = APs;
+                        StringBuilder wifiString = new StringBuilder();
+                        wifiString.append("APs:");
+                        wifiString.append(APs);
+                        wifiString.append(",");
+                        JSONArray scanResultsArray = new JSONArray();
+                        for (ScanResult result : scanResults) {
+                            JSONObject Result = new JSONObject();
+                            Result.put("ID", scanResults.indexOf(result) + 1);
+                            Result.put("SSID", result.SSID);
+                            Result.put("Channel", result.frequency);
+                            Result.put("Signal", result.level + " dB");
+                            Result.put("BSSID", result.BSSID);
+                            scanResultsArray.put(Result);
+                        }
+                        wifiString.append(scanResultsArray.toString());
+                        body.put("wifi_scan", wifiString.toString());
+                        // Posting *****************************************************************
+                        Log.d("Padmal", body.toString());
                         lastPose = null;
                         return body;
                     } catch (Exception e) {

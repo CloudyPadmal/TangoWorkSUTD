@@ -24,7 +24,7 @@
         android:layout_gravity="top" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -32,39 +32,114 @@
         android:paddingLeft="5dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Status :" />
-
-            <TextView
-                android:id="@+id/average_z_textview"
-                android:layout_width="wrap_content"
-                android:padding="3dp"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="5dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/point_count" />
+                android:layout_weight="1"
+                android:text="Status :"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/average_z_textview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:padding="3dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Time :"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/average_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:padding="3dp"
+                android:text="N/A"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nodes :"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/nodes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:padding="3dp"
+                android:text="N/A"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Currently running :"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/currently"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="3dp"
+                android:text="WiFi"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/point_count"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/point_count_textview"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/na" />
+                android:layout_weight="2"
+                android:padding="3dp"
+                android:text="@string/na"
+                android:textSize="14sp" />
+
+            <Switch
+                android:id="@+id/wifi_or_pointcloud"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="@string/wifi_or_pointcloud"
+                android:textOff="Cloud"
+                android:textOn="WiFi"
+                android:textSize="14sp" />
         </LinearLayout>
 
     </LinearLayout>
