@@ -17,23 +17,19 @@
 package com.projecttango.examples.java.pointcloud;
 
 import android.Manifest;
-import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.hardware.display.DisplayManager;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
-import android.util.StringBuilderPrinter;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
@@ -66,14 +62,14 @@ import com.projecttango.tangosupport.ux.UxExceptionEvent;
 import com.projecttango.tangosupport.ux.UxExceptionEventListener;
 import com.vistrav.ask.Ask;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.apache.commons.math3.linear.MatrixUtils;
+import org.apache.commons.math3.linear.RealMatrix;
 import org.rajawali3d.scene.ASceneFrameCallback;
 import org.rajawali3d.surface.RajawaliSurfaceView;
-import org.w3c.dom.Node;
 
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -81,7 +77,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class PointCloudActivity extends Activity {
+public class PointCloudActivity extends Activity implements SensorEventListener {
     private static final String TAG = PointCloudActivity.class.getSimpleName();
 
     private static final String UX_EXCEPTION_EVENT_DETECTED = "Exception Detected: ";
@@ -108,11 +104,20 @@ public class PointCloudActivity extends Activity {
 
     private int mDisplayRotation = 0;
 
+    private SensorManager sensorManager;
+    private Sensor GyroSensor, AccelSensor, MagenetSensor;
+
+    private final float[] AccReading = new float[3];
+    private final float[] MagReading = new float[3];
+    private final float[] RotReading = new float[9];
+    private final float[] OriReading = new float[3];
+
     // Custom variables
     private TextView mTime;
     private TextView mNodes;
     private TextView mCurrently;
     private Switch modeSwitch;
+    private TextView Xv, Yv, Zv;
 
     private Timer timer;
 
@@ -150,6 +155,9 @@ public class PointCloudActivity extends Activity {
         mAverageZTextView = (TextView) findViewById(R.id.average_z_textview);
         mTime = (TextView) findViewById(R.id.average_time);
         mNodes = (TextView) findViewById(R.id.nodes);
+        Xv = (TextView) findViewById(R.id.x_vl);
+        Yv = (TextView) findViewById(R.id.y_vl);
+        Zv = (TextView) findViewById(R.id.z_vl);
         mCurrently = (TextView) findViewById(R.id.currently);
         modeSwitch = (Switch) findViewById(R.id.wifi_or_pointcloud);
         mSurfaceView = (RajawaliSurfaceView) findViewById(R.id.gl_surface_view);
@@ -167,6 +175,14 @@ public class PointCloudActivity extends Activity {
             Toast.makeText(getApplicationContext(), "Enabling WIFI", Toast.LENGTH_SHORT).show();
             wifiManager.setWifiEnabled(true);
         }
+
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        AccelSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        MagenetSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        GyroSensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+        sensorManager.registerListener(this, AccelSensor, SensorManager.SENSOR_DELAY_UI);
+        sensorManager.registerListener(this, MagenetSensor, SensorManager.SENSOR_DELAY_UI);
+        sensorManager.registerListener(this, GyroSensor, SensorManager.SENSOR_DELAY_UI);
 
         DisplayManager displayManager = (DisplayManager) getSystemService(DISPLAY_SERVICE);
         if (displayManager != null) {
@@ -192,6 +208,7 @@ public class PointCloudActivity extends Activity {
         boolean currentState = logger.getBoolean(MODE, false);
         modeSwitch.setChecked(currentState);
         mCurrently.setText(currentState ? "WiFi" : "Cloud");
+        /*
         if (!currentState) {
             timer.schedule(new TimerTask() {
                 @Override
@@ -206,7 +223,7 @@ public class PointCloudActivity extends Activity {
                     postWiFiData();
                 }
             }, WIFI_INTERVAL, WIFI_INTERVAL);
-        }
+        }*/
 
         modeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -223,6 +240,25 @@ public class PointCloudActivity extends Activity {
 
         mTangoUx.start();
         bindTangoService();
+        boolean currentState = logger.getBoolean(MODE, false);
+        modeSwitch.setChecked(currentState);
+        mCurrently.setText(currentState ? "WiFi" : "Cloud");
+        timer = new Timer();
+        if (!currentState) {
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    postCloudData();
+                }
+            }, CLOUD_INTERVAL, CLOUD_INTERVAL);
+        } else {
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    postWiFiData();
+                }
+            }, WIFI_INTERVAL, WIFI_INTERVAL);
+        }
     }
 
     @Override
@@ -321,6 +357,17 @@ public class PointCloudActivity extends Activity {
                             mPointCountTextView.setText(pointCountString);
                             mAverageZTextView.setText("Waiting");
                             mAverageZTextView.setBackgroundColor(Color.TRANSPARENT);
+                            try {
+                                double[] DATA = generate3x3Matrix(lastPose.getRotationAsFloats()[0], lastPose.getRotationAsFloats()[1], lastPose.getRotationAsFloats()[2], lastPose.getRotationAsFloats()[3]);
+                                String X = String.valueOf(DATA[1]);
+                                Xv.setText(X);
+                                String Y = String.valueOf(DATA[2]);
+                                Yv.setText(Y);
+                                String Z = String.valueOf(DATA[3]);
+                                Zv.setText(Z);
+                            } catch (Exception e) {
+                                Log.d("Padmal", "Error " + e.getMessage());
+                            }
                         }
                     });
                 }
@@ -627,20 +674,19 @@ public class PointCloudActivity extends Activity {
                         int APs = scanResults.size();
                         NodeCount = APs;
                         StringBuilder wifiString = new StringBuilder();
-                        wifiString.append("APs:");
                         wifiString.append(APs);
                         wifiString.append(",");
-                        JSONArray scanResultsArray = new JSONArray();
                         for (ScanResult result : scanResults) {
-                            JSONObject Result = new JSONObject();
-                            Result.put("ID", scanResults.indexOf(result) + 1);
-                            Result.put("SSID", result.SSID);
-                            Result.put("Channel", result.frequency);
-                            Result.put("Signal", result.level + " dB");
-                            Result.put("BSSID", result.BSSID);
-                            scanResultsArray.put(Result);
+                            wifiString.append(result.SSID);
+                            wifiString.append(",");
+                            wifiString.append(result.frequency);
+                            wifiString.append(",");
+                            wifiString.append(result.level);
+                            wifiString.append(",");
+                            wifiString.append(result.BSSID);
+                            wifiString.append(",");
                         }
-                        wifiString.append(scanResultsArray.toString());
+                        wifiString.deleteCharAt(wifiString.length() - 1);
                         body.put("wifi_scan", wifiString.toString());
                         // Posting *****************************************************************
                         Log.d("Padmal", body.toString());
@@ -656,5 +702,100 @@ public class PointCloudActivity extends Activity {
         } catch (Exception e) {
             /**/
         }
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
+    }
+
+    private double[] generate3x3Matrix(double x, double y, double w, double z) {
+        // Calculate intermediate variables
+        double wx = w * x;
+        double wy = w * y;
+        double wz = w * z;
+        double xx = x * x;
+        double xy = x * y;
+        double xz = x * z;
+        double yy = y * y;
+        double yz = y * z;
+        double zz = z * z;
+        // Calculate second level values
+        double R00 = 1.0 - 2.0 * (yy + zz);
+        double R01 = 2.0 * (xy - wz);
+        double R02 = 2.0 * (wy + xz);
+        // middle row
+        double R10 = 2.0 * (xy + wz);
+        double R11 = 1.0 - 2.0 * (xx + zz);
+        double R12 = 2 * (-wx + yz);
+        // bottom row
+        double R20 = 2 * (-wy + xz);
+        double R21 = 2 * (wx + yz);
+        double R22 = 1.0 - 2.0 * (xx + yy);
+        // Generate Matrix
+        double[][] matrixData = {{R00, R01, R02, x}, {R10, R11, R12, y}, {R20, R21, R22, z}, {0.0, 0.0, 0.0, 1.0}};
+        RealMatrix matrix = MatrixUtils.createRealMatrix(matrixData);
+        double[][] uwTss = {{1.0, 0.0, 0.0, 0.0}, {0.0, 1.0, 0.0, 0.0}, {0.0, 0.0, -1.0, 0.0}, {0.0, 0.0, 0.0, 1.0}};
+        RealMatrix UWTSS = MatrixUtils.createRealMatrix(uwTss);
+        double[][] dTuc = {{1.0, 0.0, 0.0, 0.0}, {0.0, 1.0, 0.0, 0.0}, {0.0, 0.0, -1.0, 0.0}, {0.0, 0.0, 0.0, 1.0}};
+        RealMatrix DTUC = MatrixUtils.createRealMatrix(dTuc);
+
+        // Multiply first two matrices
+        RealMatrix UWTD = UWTSS.multiply(matrix);
+        // Multiply that matrix by last matrix
+        RealMatrix UWTUC = UWTD.multiply(DTUC);
+
+        //double[][] data = UWTUC.getData();
+        double[][] data = matrix.getData();
+        StringBuilder matmaker = new StringBuilder();
+        for (double[] line: data) {
+            for (double l: line) {
+                matmaker.append(String.valueOf(l));
+                matmaker.append(",");
+            }
+            matmaker.append("---");
+        }
+        Log.d("Padmal", matmaker.toString());
+
+        double W, X, Y, Z;
+        double dW, dX, dY, dZ;
+
+        dW = 1.0 + data[0][0] + data[1][1] + data[2][2];
+        dX = 1.0 + data[0][0] - data[1][1] - data[2][2];
+        dY = 1.0 - data[0][0] + data[1][1] - data[2][2];
+        dZ = 1.0 - data[0][0] - data[1][1] + data[2][2];
+
+        double MaxDivisor = Math.max(Math.max(Math.max(dW, dX), dY), dZ);
+
+        if (MaxDivisor == dW) {
+            W = 0.5 * Math.sqrt(dW);
+            X = (data[1][2] - data[2][1]) / (4.0 * W);
+            Y = (data[2][0] - data[0][2]) / (4.0 * W);
+            Z = (data[0][1] - data[1][0]) / (4.0 * W);
+        } else if (MaxDivisor == dX) {
+            X = 0.5 * Math.sqrt(dX);
+            Y = (data[0][1] + data[1][0]) / (4.0 * X);
+            Z = (data[0][2] + data[2][0]) / (4.0 * X);
+            W = (data[1][2] - data[2][1]) / (4.0 * X);
+        } else if (MaxDivisor == dY) {
+            Y = 0.5 * Math.sqrt(dY);
+            X = (data[0][1] + data[1][0]) / (4.0 * Y);
+            Z = (data[1][2] + data[2][1]) / (4.0 * Y);
+            W = (data[2][0] - data[0][2]) / (4.0 * Y);
+        } else {
+            Z = 0.5 * Math.sqrt(dZ);
+            X = (data[0][2] + data[2][0]) / (4.0 * Z);
+            Y = (data[1][2] + data[2][1]) / (4.0 * Z);
+            W = (data[0][1] + data[1][0]) / (4.0 * Z);
+        }
+
+        Log.d("Padmal", " W = " + W + " X = " + X + " Y = " + Y + " Z = " + Z);
+        double[] returnDouble = {W, X, Y, Z};
+        return returnDouble;
     }
 }
