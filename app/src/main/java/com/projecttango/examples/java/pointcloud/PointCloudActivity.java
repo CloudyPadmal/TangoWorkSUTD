@@ -29,6 +29,7 @@ import android.hardware.display.DisplayManager;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
@@ -77,7 +78,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class PointCloudActivity extends Activity implements SensorEventListener {
+public class PointCloudActivity extends AppCompatActivity implements SensorEventListener {
     private static final String TAG = PointCloudActivity.class.getSimpleName();
 
     private static final String UX_EXCEPTION_EVENT_DETECTED = "Exception Detected: ";
@@ -358,7 +359,8 @@ public class PointCloudActivity extends Activity implements SensorEventListener 
                             mAverageZTextView.setText("Waiting");
                             mAverageZTextView.setBackgroundColor(Color.TRANSPARENT);
                             try {
-                                double[] DATA = generate3x3Matrix(lastPose.getRotationAsFloats()[0], lastPose.getRotationAsFloats()[1], lastPose.getRotationAsFloats()[2], lastPose.getRotationAsFloats()[3]);
+                                //double[] DATA = generate3x3Matrix(lastPose.getRotationAsFloats()[0], lastPose.getRotationAsFloats()[1], lastPose.getRotationAsFloats()[2], lastPose.getRotationAsFloats()[3]);
+                                double[] DATA = newMatrix(lastPose.getRotationAsFloats()[0], lastPose.getRotationAsFloats()[1], lastPose.getRotationAsFloats()[2], lastPose.getRotationAsFloats()[3]);
                                 String X = String.valueOf(DATA[1]);
                                 Xv.setText(X);
                                 String Y = String.valueOf(DATA[2]);
@@ -753,8 +755,8 @@ public class PointCloudActivity extends Activity implements SensorEventListener 
         //double[][] data = UWTUC.getData();
         double[][] data = matrix.getData();
         StringBuilder matmaker = new StringBuilder();
-        for (double[] line: data) {
-            for (double l: line) {
+        for (double[] line : data) {
+            for (double l : line) {
                 matmaker.append(String.valueOf(l));
                 matmaker.append(",");
             }
@@ -797,5 +799,105 @@ public class PointCloudActivity extends Activity implements SensorEventListener 
         Log.d("Padmal", " W = " + W + " X = " + X + " Y = " + Y + " Z = " + Z);
         double[] returnDouble = {W, X, Y, Z};
         return returnDouble;
+    }
+
+    private double[] newMatrix(double x, double y, double w, double z) {
+
+        double[] tempQuart = new double[4];
+        tempQuart[0] = x;
+        tempQuart[1] = y;
+        tempQuart[2] = z;
+        tempQuart[3] = w;
+
+        double[] mat = QuatToMatrix3(tempQuart);
+        double[] Leftmatrix = transformToLeftCoordinateSystem(mat);
+        return Matrix4ToEuler(Leftmatrix, tempQuart);
+    }
+
+    private double[] QuatToMatrix3(double[] quat) {
+
+        double x = quat[0];
+        double y = quat[1];
+        double z = quat[2];
+        double w = quat[3];
+        double d2 = x * x + y * y + z * z + w * w;
+        double s = 2.0 / d2;
+        double xs = x * s, ys = y * s, zs = z * s;
+        double wx = w * xs, wy = w * ys, wz = w * zs;
+        double xx = x * xs, xy = x * ys, xz = x * zs;
+        double yy = y * ys, yz = y * zs, zz = z * zs;
+
+        double[] mat = new double[9];
+
+        mat[0] = 1.0 - (yy + zz);
+        mat[1] = xy + wz;
+        mat[2] = xz - wy;
+
+        mat[3] = xy - wz;
+        mat[4] = 1.0 - (xx + zz);
+        mat[5] = yz + wx;
+
+        mat[6] = xz + wy;
+        mat[7] = yz - wx;
+        mat[8] = 1.0 - (xx + yy);
+
+        return mat;
+    }
+
+    private double[] transformToLeftCoordinateSystem(double[] mat) {
+
+        double[] Leftmat = new double[9];
+
+        Leftmat[0] = mat[4];
+        Leftmat[1] = -mat[5];
+        Leftmat[2] = -mat[3];
+
+        Leftmat[3] = -mat[7];
+        Leftmat[4] = mat[8];
+        Leftmat[5] = mat[6];
+
+        Leftmat[6] = -mat[1];
+        Leftmat[7] = mat[2];
+        Leftmat[8] = mat[0];
+
+        return Leftmat;
+    }
+
+    private double[] Matrix4ToEuler(double[] mat, double[] oldPose) {
+
+        double _trX, _trY;
+        double[] leftEuler = new double[3];
+
+        // Calculate Y-axis angle
+        if (mat[0] > 0.0) {
+            leftEuler[1] = Math.asin(mat[6]);
+        } else {
+            leftEuler[1] = Math.PI - Math.asin(mat[6]);
+        }
+
+        double C = Math.cos(leftEuler[1]);
+        if (Math.abs(C) > 0.005) {                 // Gimball lock?
+            _trX = mat[8] / C;             // No, so get X-axis angle
+            _trY = -mat[7] / C;
+            leftEuler[0] = Math.atan2(_trY, _trX);
+            _trX = mat[0] / C;              // Get Z-axis angle
+            _trY = -mat[3] / C;
+            leftEuler[2] = Math.atan2(_trY, _trX);
+        } else {                                    // Gimball lock has occurred
+            leftEuler[0] = 0.0;                       // Set X-axis angle to zero
+            _trX = mat[4];  //1                // And calculate Z-axis angle
+            _trY = mat[1];  //2
+            leftEuler[2] = Math.atan2(_trY, _trX);
+        }
+
+        double[] newPose = new double[6];
+        newPose[0] = leftEuler[0];
+        newPose[1] = leftEuler[1];
+        newPose[2] = leftEuler[2];
+        newPose[3] = oldPose[0];
+        newPose[4] = oldPose[1];
+        newPose[5] = oldPose[2];
+
+        return newPose;
     }
 }
