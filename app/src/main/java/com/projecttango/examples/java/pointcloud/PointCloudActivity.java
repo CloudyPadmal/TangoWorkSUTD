@@ -65,6 +65,7 @@ import com.vistrav.ask.Ask;
 
 import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.RealMatrix;
+import org.rajawali3d.math.Matrix4;
 import org.rajawali3d.scene.ASceneFrameCallback;
 import org.rajawali3d.surface.RajawaliSurfaceView;
 
@@ -118,7 +119,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private TextView mNodes;
     private TextView mCurrently;
     private Switch modeSwitch;
-    private TextView Xv, Yv, Zv;
+    private TextView Xv, Yv, Zv, Xtv, Ytv, Ztv;
 
     private Timer timer;
 
@@ -159,6 +160,9 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         Xv = (TextView) findViewById(R.id.x_vl);
         Yv = (TextView) findViewById(R.id.y_vl);
         Zv = (TextView) findViewById(R.id.z_vl);
+        Xtv = (TextView) findViewById(R.id.xt_vl);
+        Ytv = (TextView) findViewById(R.id.yt_vl);
+        Ztv = (TextView) findViewById(R.id.zt_vl);
         mCurrently = (TextView) findViewById(R.id.currently);
         modeSwitch = (Switch) findViewById(R.id.wifi_or_pointcloud);
         mSurfaceView = (RajawaliSurfaceView) findViewById(R.id.gl_surface_view);
@@ -359,14 +363,16 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                             mAverageZTextView.setText("Waiting");
                             mAverageZTextView.setBackgroundColor(Color.TRANSPARENT);
                             try {
-                                //double[] DATA = generate3x3Matrix(lastPose.getRotationAsFloats()[0], lastPose.getRotationAsFloats()[1], lastPose.getRotationAsFloats()[2], lastPose.getRotationAsFloats()[3]);
                                 double[] DATA = newMatrix(lastPose.getRotationAsFloats()[0], lastPose.getRotationAsFloats()[1], lastPose.getRotationAsFloats()[2], lastPose.getRotationAsFloats()[3]);
                                 String X = String.valueOf(DATA[1]);
                                 Xv.setText(X);
+                                Xtv.setText(String.valueOf(lastPose.getTranslationAsFloats()[0]));
                                 String Y = String.valueOf(DATA[2]);
                                 Yv.setText(Y);
+                                Ytv.setText(String.valueOf(lastPose.getTranslationAsFloats()[1]));
                                 String Z = String.valueOf(DATA[3]);
                                 Zv.setText(Z);
+                                Ztv.setText(String.valueOf(lastPose.getTranslationAsFloats()[2]));
                             } catch (Exception e) {
                                 Log.d("Padmal", "Error " + e.getMessage());
                             }
@@ -589,6 +595,10 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                         // User ID *****************************************************************
                         body.put("user_id", "Padmal");
                         // Pose Data ***************************************************************
+                        // orientation - As a quaternion of the pose of the target frame with
+                        // reference to the base frame
+                        // translation - ordered x, y, z of the pose of the target frame with
+                        // reference to the base frame
                         body.put("pose",
                                 String.valueOf(lastPose.getTranslationAsFloats()[0]) + "," +
                                         String.valueOf(lastPose.getTranslationAsFloats()[1]) + "," +

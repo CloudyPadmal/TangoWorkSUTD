@@ -206,6 +206,70 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/holo_red_light"
+                android:padding="2dp"
+                android:gravity="center"
+                android:text="Xt"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/xt_vl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:padding="3dp"
+                android:text="@string/na"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/holo_green_light"
+                android:padding="2dp"
+                android:gravity="center"
+                android:text="Yt"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/yt_vl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:padding="3dp"
+                android:text="@string/na"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:gravity="center"
+                android:background="@android:color/holo_blue_light"
+                android:text="Zt"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/zt_vl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:padding="3dp"
+                android:text="@string/na"
+                android:textSize="14sp" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <Button
