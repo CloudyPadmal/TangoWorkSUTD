@@ -363,14 +363,17 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                             mAverageZTextView.setText("Waiting");
                             mAverageZTextView.setBackgroundColor(Color.TRANSPARENT);
                             try {
-                                double[] DATA = newMatrix(lastPose.getRotationAsFloats()[0], lastPose.getRotationAsFloats()[1], lastPose.getRotationAsFloats()[2], lastPose.getRotationAsFloats()[3]);
-                                String X = String.valueOf(DATA[1]);
+                                double[] DATA = newMatrix(lastPose.getRotationAsFloats()[0],
+                                        lastPose.getRotationAsFloats()[1],
+                                        lastPose.getRotationAsFloats()[2],
+                                        lastPose.getRotationAsFloats()[3]);
+                                String X = String.valueOf(DATA[3]);
                                 Xv.setText(X);
                                 Xtv.setText(String.valueOf(lastPose.getTranslationAsFloats()[0]));
-                                String Y = String.valueOf(DATA[2]);
+                                String Y = String.valueOf(DATA[4]);
                                 Yv.setText(Y);
                                 Ytv.setText(String.valueOf(lastPose.getTranslationAsFloats()[1]));
-                                String Z = String.valueOf(DATA[3]);
+                                String Z = String.valueOf(DATA[5]);
                                 Zv.setText(Z);
                                 Ztv.setText(String.valueOf(lastPose.getTranslationAsFloats()[2]));
                             } catch (Exception e) {
@@ -821,7 +824,8 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
 
         double[] mat = QuatToMatrix3(tempQuart);
         double[] Leftmatrix = transformToLeftCoordinateSystem(mat);
-        return Matrix4ToEuler(Leftmatrix, tempQuart);
+        return Matrix4ToEuler(Leftmatrix, new double[] {lastPose.getTranslationAsFloats()[0],
+        lastPose.getTranslationAsFloats()[1], lastPose.getTranslationAsFloats()[2]});
     }
 
     private double[] QuatToMatrix3(double[] quat) {
@@ -901,12 +905,12 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         }
 
         double[] newPose = new double[6];
-        newPose[0] = leftEuler[0];
-        newPose[1] = leftEuler[1];
-        newPose[2] = leftEuler[2];
-        newPose[3] = oldPose[0];
-        newPose[4] = oldPose[1];
-        newPose[5] = oldPose[2];
+        newPose[0] = leftEuler[0]; // Rotation_X
+        newPose[1] = leftEuler[1]; // Rotation_Y
+        newPose[2] = leftEuler[2]; // Rotation_Z
+        newPose[3] = -oldPose[1]; // New X
+        newPose[4] = oldPose[2]; // New Y
+        newPose[5] = oldPose[0]; // New Z
 
         return newPose;
     }
