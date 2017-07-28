@@ -155,7 +155,8 @@
                 android:background="@android:color/holo_red_light"
                 android:padding="2dp"
                 android:gravity="center"
-                android:text="X"
+                android:textColor="@android:color/white"
+                android:text="U_X"
                 android:textSize="14sp" />
 
             <TextView
@@ -174,7 +175,8 @@
                 android:background="@android:color/holo_green_light"
                 android:padding="2dp"
                 android:gravity="center"
-                android:text="Y"
+                android:textColor="@android:color/white"
+                android:text="U_Y"
                 android:textSize="14sp" />
 
             <TextView
@@ -192,8 +194,9 @@
                 android:layout_weight="1"
                 android:padding="2dp"
                 android:gravity="center"
+                android:textColor="@android:color/white"
                 android:background="@android:color/holo_blue_light"
-                android:text="Z"
+                android:text="U_Z"
                 android:textSize="14sp" />
 
             <TextView
@@ -219,7 +222,8 @@
                 android:background="@android:color/holo_red_light"
                 android:padding="2dp"
                 android:gravity="center"
-                android:text="Xt"
+                android:textColor="@android:color/white"
+                android:text="T_X"
                 android:textSize="14sp" />
 
             <TextView
@@ -237,8 +241,9 @@
                 android:layout_weight="1"
                 android:background="@android:color/holo_green_light"
                 android:padding="2dp"
+                android:textColor="@android:color/white"
                 android:gravity="center"
-                android:text="Yt"
+                android:text="T_Y"
                 android:textSize="14sp" />
 
             <TextView
@@ -256,8 +261,9 @@
                 android:layout_weight="1"
                 android:padding="2dp"
                 android:gravity="center"
+                android:textColor="@android:color/white"
                 android:background="@android:color/holo_blue_light"
-                android:text="Zt"
+                android:text="T_Z"
                 android:textSize="14sp" />
 
             <TextView

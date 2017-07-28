@@ -70,6 +70,7 @@ import org.rajawali3d.scene.ASceneFrameCallback;
 import org.rajawali3d.surface.RajawaliSurfaceView;
 
 import java.nio.FloatBuffer;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -129,6 +130,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
 
     private TangoPoseData lastPose;
     private TangoPointCloudData lastCloud;
+    private double[] unityPose;
 
     private SharedPreferences logger;
 
@@ -168,6 +170,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         mSurfaceView = (RajawaliSurfaceView) findViewById(R.id.gl_surface_view);
         queue = Volley.newRequestQueue(this);
 
+        unityPose = new double[6];
         logger = this.getSharedPreferences("Tango", Context.MODE_PRIVATE);
 
         mPointCloudManager = new TangoPointCloudManager();
@@ -367,15 +370,16 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                                         lastPose.getRotationAsFloats()[1],
                                         lastPose.getRotationAsFloats()[2],
                                         lastPose.getRotationAsFloats()[3]);
-                                String X = String.valueOf(DATA[3]);
+                                unityPose = DATA;
+                                String X = String.format("%.7f", DATA[3]);
                                 Xv.setText(X);
-                                Xtv.setText(String.valueOf(lastPose.getTranslationAsFloats()[0]));
-                                String Y = String.valueOf(DATA[4]);
+                                Xtv.setText(String.format("%.7f",lastPose.getTranslationAsFloats()[0]));
+                                String Y = String.format("%.7f", DATA[4]);
                                 Yv.setText(Y);
-                                Ytv.setText(String.valueOf(lastPose.getTranslationAsFloats()[1]));
-                                String Z = String.valueOf(DATA[5]);
+                                Ytv.setText(String.format("%.7f", lastPose.getTranslationAsFloats()[1]));
+                                String Z = String.format("%.7f", DATA[5]);
                                 Zv.setText(Z);
-                                Ztv.setText(String.valueOf(lastPose.getTranslationAsFloats()[2]));
+                                Ztv.setText(String.format("%.7f", lastPose.getTranslationAsFloats()[2]));
                             } catch (Exception e) {
                                 Log.d("Padmal", "Error " + e.getMessage());
                             }
@@ -602,15 +606,19 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                         // reference to the base frame
                         // translation - ordered x, y, z of the pose of the target frame with
                         // reference to the base frame
-                        body.put("pose",
+                        String UnityPose = Arrays.toString(unityPose);
+                        body.put("pose", UnityPose.substring(1, UnityPose.length() - 1)
+                                /*
+                                String.valueOf(unityPose[0]) + "," +
                                 String.valueOf(lastPose.getTranslationAsFloats()[0]) + "," +
                                         String.valueOf(lastPose.getTranslationAsFloats()[1]) + "," +
                                         String.valueOf(lastPose.getTranslationAsFloats()[2]) + "," +
                                         String.valueOf(lastPose.getRotationAsFloats()[0]) + "," +
                                         String.valueOf(lastPose.getRotationAsFloats()[1]) + "," +
                                         String.valueOf(lastPose.getRotationAsFloats()[2]) + "," +
-                                        String.valueOf(lastPose.getRotationAsFloats()[3])
+                                        String.valueOf(lastPose.getRotationAsFloats()[3])*/
                         );
+                        Log.d("Padmal", body.get("pose"));
                         // Tango Time **************************************************************
                         body.put("tango_time", String.valueOf(System.currentTimeMillis()));
                         // Point Cloud *************************************************************
