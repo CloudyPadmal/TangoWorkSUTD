@@ -79,7 +79,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class PointCloudActivity extends AppCompatActivity implements SensorEventListener {
-    private static final String TAG = PointCloudActivity.class.getSimpleName();
+    private static final String TAG = "Padmal";
 
     private static final String UX_EXCEPTION_EVENT_DETECTED = "Exception Detected: ";
     private static final String UX_EXCEPTION_EVENT_RESOLVED = "Exception Resolved: ";
@@ -276,7 +276,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     @Override
     protected void onStart() {
         super.onStart();
-
+        Log.d("Padmal", "Tango Service Started!");
         mTangoUx.start();
         bindTangoService();
         //boolean currentState = logger.getBoolean(MODE, false);
