@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="pop-2.3">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/997b6d0190fa48a4c643481cc8ccc51fd48ca8e2/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/997b6d0190fa48a4c643481cc8ccc51fd48ca8e2/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vistrav/pop/2.3/8faa116da376a3acb6c5e7dd3360864926d6b1fc/pop-2.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
