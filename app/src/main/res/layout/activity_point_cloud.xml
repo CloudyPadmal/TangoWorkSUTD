@@ -110,7 +110,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:text="Time :"
                 android:textSize="14sp" />
 
@@ -118,7 +118,7 @@
                 android:id="@+id/time_stamp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:padding="3dp"
                 android:textSize="14sp" />
 

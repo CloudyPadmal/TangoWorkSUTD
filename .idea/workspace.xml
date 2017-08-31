@@ -19,12 +19,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" />
     </list>
     <ignored path="java_point_cloud_example.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,36 +56,36 @@
       <file leaf-file-name="PointCloudActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="295" column="0" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
+            <state relative-caret-position="233">
+              <caret line="267" column="59" selection-start-line="267" selection-start-column="59" selection-end-line="267" selection-end-column="59" />
               <folding>
-                <element signature="e#0#45505#0" expanded="true" />
+                <element signature="e#0#45521#0" expanded="true" />
                 <element signature="imports" expanded="true" />
                 <element signature="e#5579#7079#0" expanded="true" />
                 <element signature="e#7078#7079#0" expanded="true" />
-                <element signature="e#11497#11887#0" expanded="true" />
-                <element signature="e#11886#11887#0" expanded="true" />
-                <element signature="e#12192#12353#0" expanded="true" />
-                <element signature="e#12352#12353#0" expanded="true" />
-                <element signature="e#13369#13410#0" expanded="true" />
-                <element signature="e#13614#14720#0" expanded="true" />
-                <element signature="e#14158#14199#0" expanded="true" />
-                <element signature="e#14294#14335#0" expanded="true" />
-                <element signature="e#14395#14425#0" expanded="true" />
-                <element signature="e#14519#14562#0" expanded="true" />
-                <element signature="e#14622#14654#0" expanded="true" />
-                <element signature="e#14719#14720#0" expanded="true" />
-                <element signature="e#16665#19599#0" expanded="true" />
-                <element signature="e#19598#19599#0" expanded="true" />
+                <element signature="e#11497#11938#0" expanded="true" />
+                <element signature="e#11937#11938#0" expanded="true" />
+                <element signature="e#12243#12369#0" expanded="true" />
+                <element signature="e#12368#12369#0" expanded="true" />
+                <element signature="e#13385#13426#0" expanded="true" />
+                <element signature="e#13630#14736#0" expanded="true" />
+                <element signature="e#14174#14215#0" expanded="true" />
+                <element signature="e#14310#14351#0" expanded="true" />
+                <element signature="e#14411#14441#0" expanded="true" />
+                <element signature="e#14535#14578#0" expanded="true" />
+                <element signature="e#14638#14670#0" expanded="true" />
+                <element signature="e#14735#14736#0" expanded="true" />
+                <element signature="e#16681#19615#0" expanded="true" />
+                <element signature="e#19614#19615#0" expanded="true" />
                 <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="e#23502#23503#0" expanded="true" />
-                <element signature="e#23548#23549#0" expanded="true" />
+                <element signature="e#23518#23519#0" expanded="true" />
+                <element signature="e#23564#23565#0" expanded="true" />
                 <element signature="docComment;method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#showsToastAndFinishOnUiThread#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="e#25029#25274#0" expanded="true" />
-                <element signature="e#25273#25274#0" expanded="true" />
+                <element signature="e#25045#25290#0" expanded="true" />
+                <element signature="e#25289#25290#0" expanded="true" />
                 <element signature="method#postCloudData#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#postWiFiData#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#postIMUData#0;class#PointCloudActivity#0" expanded="false" />
@@ -2441,7 +2438,7 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921588" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32795697" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32683486" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
@@ -2528,33 +2525,33 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#45505#0" expanded="true" />
+            <element signature="e#0#45521#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#5579#7079#0" expanded="true" />
             <element signature="e#7078#7079#0" expanded="true" />
-            <element signature="e#11497#11887#0" expanded="true" />
-            <element signature="e#11886#11887#0" expanded="true" />
-            <element signature="e#12192#12353#0" expanded="true" />
-            <element signature="e#12352#12353#0" expanded="true" />
-            <element signature="e#13369#13410#0" expanded="true" />
-            <element signature="e#13614#14720#0" expanded="true" />
-            <element signature="e#14158#14199#0" expanded="true" />
-            <element signature="e#14294#14335#0" expanded="true" />
-            <element signature="e#14395#14425#0" expanded="true" />
-            <element signature="e#14519#14562#0" expanded="true" />
-            <element signature="e#14622#14654#0" expanded="true" />
-            <element signature="e#14719#14720#0" expanded="true" />
-            <element signature="e#16665#19599#0" expanded="true" />
-            <element signature="e#19598#19599#0" expanded="true" />
+            <element signature="e#11497#11938#0" expanded="true" />
+            <element signature="e#11937#11938#0" expanded="true" />
+            <element signature="e#12243#12369#0" expanded="true" />
+            <element signature="e#12368#12369#0" expanded="true" />
+            <element signature="e#13385#13426#0" expanded="true" />
+            <element signature="e#13630#14736#0" expanded="true" />
+            <element signature="e#14174#14215#0" expanded="true" />
+            <element signature="e#14310#14351#0" expanded="true" />
+            <element signature="e#14411#14441#0" expanded="true" />
+            <element signature="e#14535#14578#0" expanded="true" />
+            <element signature="e#14638#14670#0" expanded="true" />
+            <element signature="e#14735#14736#0" expanded="true" />
+            <element signature="e#16681#19615#0" expanded="true" />
+            <element signature="e#19614#19615#0" expanded="true" />
             <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="e#23502#23503#0" expanded="true" />
-            <element signature="e#23548#23549#0" expanded="true" />
+            <element signature="e#23518#23519#0" expanded="true" />
+            <element signature="e#23564#23565#0" expanded="true" />
             <element signature="docComment;method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#showsToastAndFinishOnUiThread#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="e#25029#25274#0" expanded="true" />
-            <element signature="e#25273#25274#0" expanded="true" />
+            <element signature="e#25045#25290#0" expanded="true" />
+            <element signature="e#25289#25290#0" expanded="true" />
             <element signature="method#postCloudData#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#postWiFiData#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#postIMUData#0;class#PointCloudActivity#0" expanded="false" />
@@ -2859,36 +2856,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="295" column="0" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
+        <state relative-caret-position="233">
+          <caret line="267" column="59" selection-start-line="267" selection-start-column="59" selection-end-line="267" selection-end-column="59" />
           <folding>
-            <element signature="e#0#45505#0" expanded="true" />
+            <element signature="e#0#45521#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#5579#7079#0" expanded="true" />
             <element signature="e#7078#7079#0" expanded="true" />
-            <element signature="e#11497#11887#0" expanded="true" />
-            <element signature="e#11886#11887#0" expanded="true" />
-            <element signature="e#12192#12353#0" expanded="true" />
-            <element signature="e#12352#12353#0" expanded="true" />
-            <element signature="e#13369#13410#0" expanded="true" />
-            <element signature="e#13614#14720#0" expanded="true" />
-            <element signature="e#14158#14199#0" expanded="true" />
-            <element signature="e#14294#14335#0" expanded="true" />
-            <element signature="e#14395#14425#0" expanded="true" />
-            <element signature="e#14519#14562#0" expanded="true" />
-            <element signature="e#14622#14654#0" expanded="true" />
-            <element signature="e#14719#14720#0" expanded="true" />
-            <element signature="e#16665#19599#0" expanded="true" />
-            <element signature="e#19598#19599#0" expanded="true" />
+            <element signature="e#11497#11938#0" expanded="true" />
+            <element signature="e#11937#11938#0" expanded="true" />
+            <element signature="e#12243#12369#0" expanded="true" />
+            <element signature="e#12368#12369#0" expanded="true" />
+            <element signature="e#13385#13426#0" expanded="true" />
+            <element signature="e#13630#14736#0" expanded="true" />
+            <element signature="e#14174#14215#0" expanded="true" />
+            <element signature="e#14310#14351#0" expanded="true" />
+            <element signature="e#14411#14441#0" expanded="true" />
+            <element signature="e#14535#14578#0" expanded="true" />
+            <element signature="e#14638#14670#0" expanded="true" />
+            <element signature="e#14735#14736#0" expanded="true" />
+            <element signature="e#16681#19615#0" expanded="true" />
+            <element signature="e#19614#19615#0" expanded="true" />
             <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="e#23502#23503#0" expanded="true" />
-            <element signature="e#23548#23549#0" expanded="true" />
+            <element signature="e#23518#23519#0" expanded="true" />
+            <element signature="e#23564#23565#0" expanded="true" />
             <element signature="docComment;method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#showsToastAndFinishOnUiThread#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="e#25029#25274#0" expanded="true" />
-            <element signature="e#25273#25274#0" expanded="true" />
+            <element signature="e#25045#25290#0" expanded="true" />
+            <element signature="e#25289#25290#0" expanded="true" />
             <element signature="method#postCloudData#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#postWiFiData#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#postIMUData#0;class#PointCloudActivity#0" expanded="false" />

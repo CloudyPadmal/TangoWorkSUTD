@@ -265,7 +265,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
             @Override
             public void onClick(View view) {
                 SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
-                String now = sdf.format(new Date());
+                String now = sdf.format(new Date()) + " " + String.valueOf(System.currentTimeMillis());
                 started = !started;
                 runStop.setText(started ? "Running!" : "Stopped!");
                 mTimeStamp.setText(now);
