@@ -21,7 +21,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" />
     </list>
     <ignored path="java_point_cloud_example.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,36 +59,16 @@
       <file leaf-file-name="PointCloudActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="267" column="59" selection-start-line="267" selection-start-column="59" selection-end-line="267" selection-end-column="59" />
+            <state relative-caret-position="342">
+              <caret line="263" column="17" selection-start-line="263" selection-start-column="17" selection-end-line="263" selection-end-column="17" />
               <folding>
-                <element signature="e#0#45521#0" expanded="true" />
+                <element signature="e#0#45373#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#5579#7079#0" expanded="true" />
-                <element signature="e#7078#7079#0" expanded="true" />
-                <element signature="e#11497#11938#0" expanded="true" />
-                <element signature="e#11937#11938#0" expanded="true" />
-                <element signature="e#12243#12369#0" expanded="true" />
-                <element signature="e#12368#12369#0" expanded="true" />
-                <element signature="e#13385#13426#0" expanded="true" />
-                <element signature="e#13630#14736#0" expanded="true" />
-                <element signature="e#14174#14215#0" expanded="true" />
-                <element signature="e#14310#14351#0" expanded="true" />
-                <element signature="e#14411#14441#0" expanded="true" />
-                <element signature="e#14535#14578#0" expanded="true" />
-                <element signature="e#14638#14670#0" expanded="true" />
-                <element signature="e#14735#14736#0" expanded="true" />
-                <element signature="e#16681#19615#0" expanded="true" />
-                <element signature="e#19614#19615#0" expanded="true" />
                 <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="e#23518#23519#0" expanded="true" />
-                <element signature="e#23564#23565#0" expanded="true" />
                 <element signature="docComment;method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#showsToastAndFinishOnUiThread#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="e#25045#25290#0" expanded="true" />
-                <element signature="e#25289#25290#0" expanded="true" />
                 <element signature="method#postCloudData#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#postWiFiData#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#postIMUData#0;class#PointCloudActivity#0" expanded="false" />
@@ -104,34 +87,32 @@
       <file leaf-file-name="activity_point_cloud.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="652" column="53" selection-start-line="652" selection-start-column="33" selection-end-line="652" selection-end-column="53" />
+            <state relative-caret-position="210">
+              <caret line="110" column="49" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="49" />
               <folding>
                 <element signature="e#752#964#0" expanded="false" />
-                <element signature="e#5553#8065#0" expanded="false" />
-                <element signature="e#8075#10581#0" expanded="false" />
-                <element signature="e#10591#13106#0" expanded="false" />
-                <element signature="e#13361#15877#0" expanded="false" />
-                <element signature="e#13565#13993#0" expanded="false" />
-                <element signature="e#14007#14317#0" expanded="false" />
-                <element signature="e#14331#14761#0" expanded="false" />
-                <element signature="e#14775#15085#0" expanded="false" />
-                <element signature="e#15099#15528#0" expanded="false" />
-                <element signature="e#15542#15852#0" expanded="false" />
-                <element signature="e#15916#18432#0" expanded="false" />
-                <element signature="e#16120#16548#0" expanded="false" />
-                <element signature="e#16562#16872#0" expanded="false" />
-                <element signature="e#16886#17316#0" expanded="false" />
-                <element signature="e#17330#17640#0" expanded="false" />
-                <element signature="e#17654#18083#0" expanded="false" />
-                <element signature="e#18097#18407#0" expanded="false" />
-                <element signature="e#18468#20984#0" expanded="false" />
-                <element signature="e#21019#23535#0" expanded="false" />
-                <element signature="e#21665#21975#0" expanded="false" />
-                <element signature="e#21989#22419#0" expanded="false" />
-                <element signature="e#22433#22743#0" expanded="false" />
-                <element signature="e#22757#23186#0" expanded="false" />
-                <element signature="e#23200#23510#0" expanded="false" />
+                <element signature="e#5649#8161#0" expanded="false" />
+                <element signature="e#13457#15973#0" expanded="false" />
+                <element signature="e#13661#14089#0" expanded="false" />
+                <element signature="e#14103#14413#0" expanded="false" />
+                <element signature="e#14427#14857#0" expanded="false" />
+                <element signature="e#14871#15181#0" expanded="false" />
+                <element signature="e#15195#15624#0" expanded="false" />
+                <element signature="e#15638#15948#0" expanded="false" />
+                <element signature="e#16012#18528#0" expanded="false" />
+                <element signature="e#16216#16644#0" expanded="false" />
+                <element signature="e#16658#16968#0" expanded="false" />
+                <element signature="e#16982#17412#0" expanded="false" />
+                <element signature="e#17426#17736#0" expanded="false" />
+                <element signature="e#17750#18179#0" expanded="false" />
+                <element signature="e#18193#18503#0" expanded="false" />
+                <element signature="e#18564#21080#0" expanded="false" />
+                <element signature="e#21115#23631#0" expanded="false" />
+                <element signature="e#21761#22071#0" expanded="false" />
+                <element signature="e#22085#22515#0" expanded="false" />
+                <element signature="e#22529#22839#0" expanded="false" />
+                <element signature="e#22853#23282#0" expanded="false" />
+                <element signature="e#23296#23606#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1996,7 +1977,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="832" />
-    <option name="y" value="52" />
+    <option name="y" value="80" />
     <option name="width" value="1054" />
     <option name="height" value="998" />
   </component>
@@ -2025,6 +2006,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2045,10 +2030,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2425,7 +2406,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="832" y="52" width="1054" height="998" extended-state="0" />
+    <frame x="832" y="80" width="1054" height="998" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2436,8 +2417,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4266055" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921588" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32683486" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2447,8 +2428,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2489,30 +2470,28 @@
           <caret line="98" column="42" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
           <folding>
             <element signature="e#752#964#0" expanded="false" />
-            <element signature="e#5553#8065#0" expanded="false" />
-            <element signature="e#8075#10581#0" expanded="false" />
-            <element signature="e#10591#13106#0" expanded="false" />
-            <element signature="e#13361#15877#0" expanded="false" />
-            <element signature="e#13565#13993#0" expanded="false" />
-            <element signature="e#14007#14317#0" expanded="false" />
-            <element signature="e#14331#14761#0" expanded="false" />
-            <element signature="e#14775#15085#0" expanded="false" />
-            <element signature="e#15099#15528#0" expanded="false" />
-            <element signature="e#15542#15852#0" expanded="false" />
-            <element signature="e#15916#18432#0" expanded="false" />
-            <element signature="e#16120#16548#0" expanded="false" />
-            <element signature="e#16562#16872#0" expanded="false" />
-            <element signature="e#16886#17316#0" expanded="false" />
-            <element signature="e#17330#17640#0" expanded="false" />
-            <element signature="e#17654#18083#0" expanded="false" />
-            <element signature="e#18097#18407#0" expanded="false" />
-            <element signature="e#18468#20984#0" expanded="false" />
-            <element signature="e#21019#23535#0" expanded="false" />
-            <element signature="e#21665#21975#0" expanded="false" />
-            <element signature="e#21989#22419#0" expanded="false" />
-            <element signature="e#22433#22743#0" expanded="false" />
-            <element signature="e#22757#23186#0" expanded="false" />
-            <element signature="e#23200#23510#0" expanded="false" />
+            <element signature="e#5649#8161#0" expanded="false" />
+            <element signature="e#13457#15973#0" expanded="false" />
+            <element signature="e#13661#14089#0" expanded="false" />
+            <element signature="e#14103#14413#0" expanded="false" />
+            <element signature="e#14427#14857#0" expanded="false" />
+            <element signature="e#14871#15181#0" expanded="false" />
+            <element signature="e#15195#15624#0" expanded="false" />
+            <element signature="e#15638#15948#0" expanded="false" />
+            <element signature="e#16012#18528#0" expanded="false" />
+            <element signature="e#16216#16644#0" expanded="false" />
+            <element signature="e#16658#16968#0" expanded="false" />
+            <element signature="e#16982#17412#0" expanded="false" />
+            <element signature="e#17426#17736#0" expanded="false" />
+            <element signature="e#17750#18179#0" expanded="false" />
+            <element signature="e#18193#18503#0" expanded="false" />
+            <element signature="e#18564#21080#0" expanded="false" />
+            <element signature="e#21115#23631#0" expanded="false" />
+            <element signature="e#21761#22071#0" expanded="false" />
+            <element signature="e#22085#22515#0" expanded="false" />
+            <element signature="e#22529#22839#0" expanded="false" />
+            <element signature="e#22853#23282#0" expanded="false" />
+            <element signature="e#23296#23606#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2525,33 +2504,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#45521#0" expanded="true" />
+            <element signature="e#0#45373#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#5579#7079#0" expanded="true" />
-            <element signature="e#7078#7079#0" expanded="true" />
-            <element signature="e#11497#11938#0" expanded="true" />
-            <element signature="e#11937#11938#0" expanded="true" />
-            <element signature="e#12243#12369#0" expanded="true" />
-            <element signature="e#12368#12369#0" expanded="true" />
-            <element signature="e#13385#13426#0" expanded="true" />
-            <element signature="e#13630#14736#0" expanded="true" />
-            <element signature="e#14174#14215#0" expanded="true" />
-            <element signature="e#14310#14351#0" expanded="true" />
-            <element signature="e#14411#14441#0" expanded="true" />
-            <element signature="e#14535#14578#0" expanded="true" />
-            <element signature="e#14638#14670#0" expanded="true" />
-            <element signature="e#14735#14736#0" expanded="true" />
-            <element signature="e#16681#19615#0" expanded="true" />
-            <element signature="e#19614#19615#0" expanded="true" />
             <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="e#23518#23519#0" expanded="true" />
-            <element signature="e#23564#23565#0" expanded="true" />
             <element signature="docComment;method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#showsToastAndFinishOnUiThread#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="e#25045#25290#0" expanded="true" />
-            <element signature="e#25289#25290#0" expanded="true" />
             <element signature="method#postCloudData#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#postWiFiData#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#postIMUData#0;class#PointCloudActivity#0" expanded="false" />
@@ -2580,30 +2539,28 @@
           <caret line="98" column="42" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
           <folding>
             <element signature="e#752#964#0" expanded="false" />
-            <element signature="e#5553#8065#0" expanded="false" />
-            <element signature="e#8075#10581#0" expanded="false" />
-            <element signature="e#10591#13106#0" expanded="false" />
-            <element signature="e#13361#15877#0" expanded="false" />
-            <element signature="e#13565#13993#0" expanded="false" />
-            <element signature="e#14007#14317#0" expanded="false" />
-            <element signature="e#14331#14761#0" expanded="false" />
-            <element signature="e#14775#15085#0" expanded="false" />
-            <element signature="e#15099#15528#0" expanded="false" />
-            <element signature="e#15542#15852#0" expanded="false" />
-            <element signature="e#15916#18432#0" expanded="false" />
-            <element signature="e#16120#16548#0" expanded="false" />
-            <element signature="e#16562#16872#0" expanded="false" />
-            <element signature="e#16886#17316#0" expanded="false" />
-            <element signature="e#17330#17640#0" expanded="false" />
-            <element signature="e#17654#18083#0" expanded="false" />
-            <element signature="e#18097#18407#0" expanded="false" />
-            <element signature="e#18468#20984#0" expanded="false" />
-            <element signature="e#21019#23535#0" expanded="false" />
-            <element signature="e#21665#21975#0" expanded="false" />
-            <element signature="e#21989#22419#0" expanded="false" />
-            <element signature="e#22433#22743#0" expanded="false" />
-            <element signature="e#22757#23186#0" expanded="false" />
-            <element signature="e#23200#23510#0" expanded="false" />
+            <element signature="e#5649#8161#0" expanded="false" />
+            <element signature="e#13457#15973#0" expanded="false" />
+            <element signature="e#13661#14089#0" expanded="false" />
+            <element signature="e#14103#14413#0" expanded="false" />
+            <element signature="e#14427#14857#0" expanded="false" />
+            <element signature="e#14871#15181#0" expanded="false" />
+            <element signature="e#15195#15624#0" expanded="false" />
+            <element signature="e#15638#15948#0" expanded="false" />
+            <element signature="e#16012#18528#0" expanded="false" />
+            <element signature="e#16216#16644#0" expanded="false" />
+            <element signature="e#16658#16968#0" expanded="false" />
+            <element signature="e#16982#17412#0" expanded="false" />
+            <element signature="e#17426#17736#0" expanded="false" />
+            <element signature="e#17750#18179#0" expanded="false" />
+            <element signature="e#18193#18503#0" expanded="false" />
+            <element signature="e#18564#21080#0" expanded="false" />
+            <element signature="e#21115#23631#0" expanded="false" />
+            <element signature="e#21761#22071#0" expanded="false" />
+            <element signature="e#22085#22515#0" expanded="false" />
+            <element signature="e#22529#22839#0" expanded="false" />
+            <element signature="e#22853#23282#0" expanded="false" />
+            <element signature="e#23296#23606#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2819,34 +2776,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="652" column="53" selection-start-line="652" selection-start-column="33" selection-end-line="652" selection-end-column="53" />
+        <state relative-caret-position="210">
+          <caret line="110" column="49" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="49" />
           <folding>
             <element signature="e#752#964#0" expanded="false" />
-            <element signature="e#5553#8065#0" expanded="false" />
-            <element signature="e#8075#10581#0" expanded="false" />
-            <element signature="e#10591#13106#0" expanded="false" />
-            <element signature="e#13361#15877#0" expanded="false" />
-            <element signature="e#13565#13993#0" expanded="false" />
-            <element signature="e#14007#14317#0" expanded="false" />
-            <element signature="e#14331#14761#0" expanded="false" />
-            <element signature="e#14775#15085#0" expanded="false" />
-            <element signature="e#15099#15528#0" expanded="false" />
-            <element signature="e#15542#15852#0" expanded="false" />
-            <element signature="e#15916#18432#0" expanded="false" />
-            <element signature="e#16120#16548#0" expanded="false" />
-            <element signature="e#16562#16872#0" expanded="false" />
-            <element signature="e#16886#17316#0" expanded="false" />
-            <element signature="e#17330#17640#0" expanded="false" />
-            <element signature="e#17654#18083#0" expanded="false" />
-            <element signature="e#18097#18407#0" expanded="false" />
-            <element signature="e#18468#20984#0" expanded="false" />
-            <element signature="e#21019#23535#0" expanded="false" />
-            <element signature="e#21665#21975#0" expanded="false" />
-            <element signature="e#21989#22419#0" expanded="false" />
-            <element signature="e#22433#22743#0" expanded="false" />
-            <element signature="e#22757#23186#0" expanded="false" />
-            <element signature="e#23200#23510#0" expanded="false" />
+            <element signature="e#5649#8161#0" expanded="false" />
+            <element signature="e#13457#15973#0" expanded="false" />
+            <element signature="e#13661#14089#0" expanded="false" />
+            <element signature="e#14103#14413#0" expanded="false" />
+            <element signature="e#14427#14857#0" expanded="false" />
+            <element signature="e#14871#15181#0" expanded="false" />
+            <element signature="e#15195#15624#0" expanded="false" />
+            <element signature="e#15638#15948#0" expanded="false" />
+            <element signature="e#16012#18528#0" expanded="false" />
+            <element signature="e#16216#16644#0" expanded="false" />
+            <element signature="e#16658#16968#0" expanded="false" />
+            <element signature="e#16982#17412#0" expanded="false" />
+            <element signature="e#17426#17736#0" expanded="false" />
+            <element signature="e#17750#18179#0" expanded="false" />
+            <element signature="e#18193#18503#0" expanded="false" />
+            <element signature="e#18564#21080#0" expanded="false" />
+            <element signature="e#21115#23631#0" expanded="false" />
+            <element signature="e#21761#22071#0" expanded="false" />
+            <element signature="e#22085#22515#0" expanded="false" />
+            <element signature="e#22529#22839#0" expanded="false" />
+            <element signature="e#22853#23282#0" expanded="false" />
+            <element signature="e#23296#23606#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2856,36 +2811,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="267" column="59" selection-start-line="267" selection-start-column="59" selection-end-line="267" selection-end-column="59" />
+        <state relative-caret-position="342">
+          <caret line="263" column="17" selection-start-line="263" selection-start-column="17" selection-end-line="263" selection-end-column="17" />
           <folding>
-            <element signature="e#0#45521#0" expanded="true" />
+            <element signature="e#0#45373#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#5579#7079#0" expanded="true" />
-            <element signature="e#7078#7079#0" expanded="true" />
-            <element signature="e#11497#11938#0" expanded="true" />
-            <element signature="e#11937#11938#0" expanded="true" />
-            <element signature="e#12243#12369#0" expanded="true" />
-            <element signature="e#12368#12369#0" expanded="true" />
-            <element signature="e#13385#13426#0" expanded="true" />
-            <element signature="e#13630#14736#0" expanded="true" />
-            <element signature="e#14174#14215#0" expanded="true" />
-            <element signature="e#14310#14351#0" expanded="true" />
-            <element signature="e#14411#14441#0" expanded="true" />
-            <element signature="e#14535#14578#0" expanded="true" />
-            <element signature="e#14638#14670#0" expanded="true" />
-            <element signature="e#14735#14736#0" expanded="true" />
-            <element signature="e#16681#19615#0" expanded="true" />
-            <element signature="e#19614#19615#0" expanded="true" />
             <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="e#23518#23519#0" expanded="true" />
-            <element signature="e#23564#23565#0" expanded="true" />
             <element signature="docComment;method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#showsToastAndFinishOnUiThread#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="e#25045#25290#0" expanded="true" />
-            <element signature="e#25289#25290#0" expanded="true" />
             <element signature="method#postCloudData#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#postWiFiData#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#postIMUData#0;class#PointCloudActivity#0" expanded="false" />

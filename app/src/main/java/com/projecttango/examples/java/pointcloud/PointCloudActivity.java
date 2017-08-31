@@ -18,7 +18,6 @@ package com.projecttango.examples.java.pointcloud;
 
 import android.Manifest;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -34,8 +33,6 @@ import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -92,9 +89,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private final String CLOUD_URL = "http://202.94.70.33/tango/insert_tango_point_cloud.php";
     private final String WIFI_URL = "http://202.94.70.33/tango/insert_tango_wifi_scan.php";
     private final String IMU_URL = "http://202.94.70.33/tango/insert_tango_raw_imu.php";
-    private final String MODE = "Mode";
     private final long CLOUD_INTERVAL = 1000;
-    private final long WIFI_INTERVAL = 5000;
     private final int MM = 10000;
     private Tango mTango;
     private TangoConfig mConfig;
@@ -103,7 +98,6 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private PointCloudRajawaliRenderer mRenderer;
     private RajawaliSurfaceView mSurfaceView;
     private TextView mPointCountTextView;
-    // private TextView mAverageZTextView;
     private double mPointCloudPreviousTimeStamp;
     private boolean mIsConnected = false;
     private double mPointCloudTimeToNextUpdate = UPDATE_INTERVAL_MS;
@@ -117,7 +111,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private float[] mGravity, mGeomagnetic;
     // Custom variables
     private TextView mTime, wifiStat, cloudStat, imuStat;
-    private TextView mNodes, mTimeStamp;
+    private TextView mNodes, mTimeStamp, mEndStamp;
     private Button runStop;
     private TextView Xv, Yv, Zv, Xtv, Ytv, Ztv, Ax, Ay, Az;
     private TextView oriX, oriY, oriZ, accX, accY, accZ, gyrX, gyrY, gyrZ, magX, magY, magZ;
@@ -126,11 +120,9 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private TangoPointCloudData lastCloud;
     private double[] unityPose;
     private double[] completePose;
-    private SharedPreferences logger;
     private WifiManager wifiManager;
     private List<ScanResult> scanResults;
     private int count = 0;
-
     private boolean started = false;
 
     private DefaultRetryPolicy retryPolicy;
@@ -214,12 +206,11 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         imuStat = (TextView) findViewById(R.id.imu_stat);
         unityPose = new double[6];
         completePose = new double[13];
-        mTimeStamp = (TextView) findViewById(R.id.time_stamp);
+        mTimeStamp = (TextView) findViewById(R.id.start_time_stamp);
+        mEndStamp = (TextView) findViewById(R.id.end_time_stamp);
         runStop = (Button) findViewById(R.id.run_stop);
         mSurfaceView = (RajawaliSurfaceView) findViewById(R.id.gl_surface_view);
         queue = Volley.newRequestQueue(this);
-
-        logger = this.getSharedPreferences("Tango", Context.MODE_PRIVATE);
 
         mPointCloudManager = new TangoPointCloudManager();
         mTangoUx = setupTangoUxAndLayout();
@@ -266,9 +257,13 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
             public void onClick(View view) {
                 SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
                 String now = sdf.format(new Date()) + " " + String.valueOf(System.currentTimeMillis());
+                if (started) {
+                    mEndStamp.setText(now);
+                } else {
+                    mTimeStamp.setText(now);
+                }
                 started = !started;
                 runStop.setText(started ? "Running!" : "Stopped!");
-                mTimeStamp.setText(now);
             }
         });
     }
@@ -674,8 +669,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                     String displayText = (response.contains("Data successfully created")) ? "W S" : "W F";
                     wifiStat.setText(displayText);
                     wifiStat.setBackgroundColor(displayText.contains("W") ? Color.GREEN : Color.RED);
-                    String nodeText = NodeCount < 2 ? NodeCount + " node" : NodeCount + " nodes";
-                    mNodes.setText(nodeText);
+                    mNodes.setText(String.valueOf(NodeCount));
                 }
             }, new Response.ErrorListener() {
                 @Override

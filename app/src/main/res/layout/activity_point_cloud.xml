@@ -102,24 +102,27 @@
                 android:id="@+id/nodes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:padding="3dp"
                 android:text="N/A"
                 android:textSize="14sp" />
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Time :"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/time_stamp"
+                android:id="@+id/start_time_stamp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:padding="3dp"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/end_time_stamp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:padding="3dp"
+                android:textStyle="bold"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -151,7 +154,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="Start"
+                android:text="STOPPED!"
                 android:textSize="14sp" />
         </LinearLayout>
 
