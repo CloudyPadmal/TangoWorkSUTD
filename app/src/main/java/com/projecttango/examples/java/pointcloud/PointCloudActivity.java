@@ -33,6 +33,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -69,9 +70,11 @@ import org.rajawali3d.surface.RajawaliSurfaceView;
 import org.rajawali3d.util.ArrayUtils;
 
 import java.nio.FloatBuffer;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -86,69 +89,83 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
 
     private static final int SECS_TO_MILLISECS = 1000;
     private static final double UPDATE_INTERVAL_MS = 200.0;
-
+    private final String CLOUD_URL = "http://202.94.70.33/tango/insert_tango_point_cloud.php";
+    private final String WIFI_URL = "http://202.94.70.33/tango/insert_tango_wifi_scan.php";
+    private final String IMU_URL = "http://202.94.70.33/tango/insert_tango_raw_imu.php";
+    private final String MODE = "Mode";
+    private final long CLOUD_INTERVAL = 1000;
+    private final long WIFI_INTERVAL = 5000;
+    private final int MM = 10000;
     private Tango mTango;
     private TangoConfig mConfig;
     private TangoUx mTangoUx;
-
     private TangoPointCloudManager mPointCloudManager;
     private PointCloudRajawaliRenderer mRenderer;
     private RajawaliSurfaceView mSurfaceView;
     private TextView mPointCountTextView;
-
-   // private TextView mAverageZTextView;
+    // private TextView mAverageZTextView;
     private double mPointCloudPreviousTimeStamp;
-
     private boolean mIsConnected = false;
-
     private double mPointCloudTimeToNextUpdate = UPDATE_INTERVAL_MS;
-
     private int mDisplayRotation = 0;
-
     private SensorManager sensorManager;
     private Sensor GyroSensor, AccelSensor, MagenetSensor;
-
     private float[] OriReading;
     private float[] AccReading;
     private float[] GyroReading;
     private float[] MagReading;
     private float[] mGravity, mGeomagnetic;
-
     // Custom variables
     private TextView mTime, wifiStat, cloudStat, imuStat;
-    private TextView mNodes;
-    private TextView mCurrently;
-    private Switch modeSwitch;
+    private TextView mNodes, mTimeStamp;
+    private Button runStop;
     private TextView Xv, Yv, Zv, Xtv, Ytv, Ztv, Ax, Ay, Az;
     private TextView oriX, oriY, oriZ, accX, accY, accZ, gyrX, gyrY, gyrZ, magX, magY, magZ;
-
     private Timer timer;
-
-    private final String CLOUD_URL = "http://202.94.70.33/tango/insert_tango_point_cloud.php";
-    private final String WIFI_URL = "http://202.94.70.33/tango/insert_tango_wifi_scan.php";
-    private final String IMU_URL = "http://202.94.70.33/tango/insert_tango_raw_imu.php";
-    private final String MODE = "Mode";
-
     private TangoPoseData lastPose;
     private TangoPointCloudData lastCloud;
-
     private double[] unityPose;
     private double[] completePose;
-
     private SharedPreferences logger;
-
     private WifiManager wifiManager;
     private List<ScanResult> scanResults;
-
-    private final long CLOUD_INTERVAL = 1000;
-    private final long WIFI_INTERVAL = 5000;
-    private final int MM = 10000;
     private int count = 0;
+
+    private boolean started = false;
 
     private DefaultRetryPolicy retryPolicy;
     private RequestQueue queue;
 
     private int NodeCount = 0;
+    private UxExceptionEventListener mUxExceptionListener = new UxExceptionEventListener() {
+        @Override
+        public void onUxExceptionEvent(UxExceptionEvent uxExceptionEvent) {
+            String status = uxExceptionEvent.getStatus() == UxExceptionEvent.STATUS_DETECTED ?
+                    UX_EXCEPTION_EVENT_DETECTED : UX_EXCEPTION_EVENT_RESOLVED;
+
+            if (uxExceptionEvent.getType() == UxExceptionEvent.TYPE_LYING_ON_SURFACE) {
+                Log.i(TAG, status + "Device lying on surface");
+            }
+            if (uxExceptionEvent.getType() == UxExceptionEvent.TYPE_FEW_DEPTH_POINTS) {
+                Log.i(TAG, status + "Too few depth points");
+            }
+            if (uxExceptionEvent.getType() == UxExceptionEvent.TYPE_FEW_FEATURES) {
+                Log.i(TAG, status + "Too few features");
+            }
+            if (uxExceptionEvent.getType() == UxExceptionEvent.TYPE_MOTION_TRACK_INVALID) {
+                Log.i(TAG, status + "Invalid poses in MotionTracking");
+            }
+            if (uxExceptionEvent.getType() == UxExceptionEvent.TYPE_MOVING_TOO_FAST) {
+                Log.i(TAG, status + "Moving too fast");
+            }
+            if (uxExceptionEvent.getType() == UxExceptionEvent.TYPE_FISHEYE_CAMERA_OVER_EXPOSED) {
+                Log.i(TAG, status + "Fisheye Camera Over Exposed");
+            }
+            if (uxExceptionEvent.getType() == UxExceptionEvent.TYPE_FISHEYE_CAMERA_UNDER_EXPOSED) {
+                Log.i(TAG, status + "Fisheye Camera Under Exposed");
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -197,8 +214,8 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         imuStat = (TextView) findViewById(R.id.imu_stat);
         unityPose = new double[6];
         completePose = new double[13];
-        mCurrently = (TextView) findViewById(R.id.currently);
-        modeSwitch = (Switch) findViewById(R.id.wifi_or_pointcloud);
+        mTimeStamp = (TextView) findViewById(R.id.time_stamp);
+        runStop = (Button) findViewById(R.id.run_stop);
         mSurfaceView = (RajawaliSurfaceView) findViewById(R.id.gl_surface_view);
         queue = Volley.newRequestQueue(this);
 
@@ -244,71 +261,48 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         }
         retryPolicy = new DefaultRetryPolicy(10000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES - 1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
         timer = new Timer();
-        boolean currentState = logger.getBoolean(MODE, false);
-        modeSwitch.setChecked(currentState);
-        mCurrently.setText(currentState ? "WiFi" : "Cloud");
-        /*
-        if (!currentState) {
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    postCloudData();
-                }
-            }, CLOUD_INTERVAL, CLOUD_INTERVAL);
-        } else {
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    postWiFiData();
-                }
-            }, WIFI_INTERVAL, WIFI_INTERVAL);
-        }*/
-
-        modeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        runStop.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                logger.edit().putBoolean(MODE, isChecked).apply();
-                Toast.makeText(getApplicationContext(), "Restart!", Toast.LENGTH_LONG).show();
+            public void onClick(View view) {
+                SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
+                String now = sdf.format(new Date());
+                started = !started;
+                runStop.setText(started ? "Running!" : "Stopped!");
+                mTimeStamp.setText(now);
             }
         });
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        mRenderer.setFirstPersonView();
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
-        Log.d("Padmal", "Tango Service Started!");
         mTangoUx.start();
         bindTangoService();
-        //boolean currentState = logger.getBoolean(MODE, false);
-        //modeSwitch.setChecked(currentState);
-        //mCurrently.setText(currentState ? "WiFi" : "Cloud");
         timer = new Timer();
-       // if (!currentState) {
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    postAllData();
-                    //postCloudData();
-                }
-            }, CLOUD_INTERVAL, CLOUD_INTERVAL);
-        /*} else {
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    postWiFiData();
-                }
-            }, WIFI_INTERVAL, WIFI_INTERVAL);
-        }*/
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                postAllData();
+            }
+        }, CLOUD_INTERVAL, CLOUD_INTERVAL);
     }
 
     private void postAllData() {
-        if (count == 4) {
-            count = 0;
-            postWiFiData();
+        if (started) {
+            if (count == 4) {
+                count = 0;
+                postWiFiData();
+            }
+            count++;
+            postCloudData();
+            postIMUData();
         }
-        count++;
-        postCloudData();
-        postIMUData();
     }
 
     @Override
@@ -405,8 +399,8 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                         @Override
                         public void run() {
                             mPointCountTextView.setText(pointCountString);
-                           // mAverageZTextView.setText("Waiting");
-                           // mAverageZTextView.setBackgroundColor(Color.TRANSPARENT);
+                            // mAverageZTextView.setText("Waiting");
+                            // mAverageZTextView.setBackgroundColor(Color.TRANSPARENT);
                             wifiStat.setText("W W");
                             wifiStat.setBackgroundColor(Color.TRANSPARENT);
                             cloudStat.setText("C W");
@@ -534,36 +528,6 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         return tangoUx;
     }
 
-    private UxExceptionEventListener mUxExceptionListener = new UxExceptionEventListener() {
-        @Override
-        public void onUxExceptionEvent(UxExceptionEvent uxExceptionEvent) {
-            String status = uxExceptionEvent.getStatus() == UxExceptionEvent.STATUS_DETECTED ?
-                    UX_EXCEPTION_EVENT_DETECTED : UX_EXCEPTION_EVENT_RESOLVED;
-
-            if (uxExceptionEvent.getType() == UxExceptionEvent.TYPE_LYING_ON_SURFACE) {
-                Log.i(TAG, status + "Device lying on surface");
-            }
-            if (uxExceptionEvent.getType() == UxExceptionEvent.TYPE_FEW_DEPTH_POINTS) {
-                Log.i(TAG, status + "Too few depth points");
-            }
-            if (uxExceptionEvent.getType() == UxExceptionEvent.TYPE_FEW_FEATURES) {
-                Log.i(TAG, status + "Too few features");
-            }
-            if (uxExceptionEvent.getType() == UxExceptionEvent.TYPE_MOTION_TRACK_INVALID) {
-                Log.i(TAG, status + "Invalid poses in MotionTracking");
-            }
-            if (uxExceptionEvent.getType() == UxExceptionEvent.TYPE_MOVING_TOO_FAST) {
-                Log.i(TAG, status + "Moving too fast");
-            }
-            if (uxExceptionEvent.getType() == UxExceptionEvent.TYPE_FISHEYE_CAMERA_OVER_EXPOSED) {
-                Log.i(TAG, status + "Fisheye Camera Over Exposed");
-            }
-            if (uxExceptionEvent.getType() == UxExceptionEvent.TYPE_FISHEYE_CAMERA_UNDER_EXPOSED) {
-                Log.i(TAG, status + "Fisheye Camera Under Exposed");
-            }
-        }
-    };
-
     /**
      * First Person button onClick callback.
      */
@@ -665,7 +629,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                         // reference to the base frame
                         // translation - ordered x, y, z of the pose of the target frame with
                         // reference to the base frame
-                        String uniPose = Arrays.toString(completePose).replaceAll("\\s","");
+                        String uniPose = Arrays.toString(completePose).replaceAll("\\s", "");
                         body.put("pose", uniPose.substring(1, uniPose.length() - 1));
                         // Tango Time **************************************************************
                         body.put("tango_time", String.valueOf(System.currentTimeMillis()));
@@ -729,7 +693,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                         // User ID *****************************************************************
                         body.put("user_id", "Padmal");
                         // Pose Data ***************************************************************
-                        String uniPose = Arrays.toString(completePose).replaceAll("\\s","");
+                        String uniPose = Arrays.toString(completePose).replaceAll("\\s", "");
                         body.put("pose", uniPose.substring(1, uniPose.length() - 1));
                         // Tango Time **************************************************************
                         body.put("tango_time", String.valueOf(System.currentTimeMillis()));
@@ -793,7 +757,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                         // User ID *****************************************************************
                         body.put("user_id", "Padmal");
                         // Pose Data ***************************************************************
-                        String uniPose = Arrays.toString(completePose).replaceAll("\\s","");
+                        String uniPose = Arrays.toString(completePose).replaceAll("\\s", "");
                         body.put("pose", uniPose.substring(1, uniPose.length() - 1));
                         // Tango Time **************************************************************
                         body.put("tango_time", String.valueOf(System.currentTimeMillis()));
@@ -801,13 +765,13 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                         // Acceleration ************************************************************
                         // Gyroscope ***************************************************************
                         // Magnetic ****************************************************************
-                        String Orientation = Arrays.toString(OriReading).replaceAll("\\s","");
+                        String Orientation = Arrays.toString(OriReading).replaceAll("\\s", "");
                         body.put("orientation", Orientation.substring(1, Orientation.length() - 1));
-                        String Acceleration = Arrays.toString(AccReading).replaceAll("\\s","");
+                        String Acceleration = Arrays.toString(AccReading).replaceAll("\\s", "");
                         body.put("acceleration", Acceleration.substring(1, Acceleration.length() - 1));
-                        String Gyroscope = Arrays.toString(GyroReading).replaceAll("\\s","");
+                        String Gyroscope = Arrays.toString(GyroReading).replaceAll("\\s", "");
                         body.put("gyroscope", Gyroscope.substring(1, Gyroscope.length() - 1));
-                        String Magenetic = Arrays.toString(MagReading).replaceAll("\\s","");
+                        String Magenetic = Arrays.toString(MagReading).replaceAll("\\s", "");
                         body.put("magnetic_field", Magenetic.substring(1, Magenetic.length() - 1));
                         // Posting *****************************************************************
                         Log.d("Padmal", body.toString());
@@ -970,10 +934,10 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
 
         double[] mat = QuatToMatrix3(tempQuart);
         //rotate 90 degree
-        double[] matrixRotate90Degree =rotate90DegreeAlongZ(mat);
+        double[] matrixRotate90Degree = rotate90DegreeAlongZ(mat);
         double[] Leftmatrix = transformToLeftCoordinateSystem(matrixRotate90Degree);
-        return Matrix4ToEuler(Leftmatrix, new double[] {lastPose.getTranslationAsFloats()[0],
-        lastPose.getTranslationAsFloats()[1], lastPose.getTranslationAsFloats()[2]});
+        return Matrix4ToEuler(Leftmatrix, new double[]{lastPose.getTranslationAsFloats()[0],
+                lastPose.getTranslationAsFloats()[1], lastPose.getTranslationAsFloats()[2]});
     }
 
     private double[] QuatToMatrix3(double[] quat) {
@@ -1029,17 +993,17 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
 
         double[] rotate90degree = new double[9];
 
-        rotate90degree[0]=mat[1];
-        rotate90degree[1]=-mat[0];
-        rotate90degree[2]=mat[2];
+        rotate90degree[0] = mat[1];
+        rotate90degree[1] = -mat[0];
+        rotate90degree[2] = mat[2];
 
-        rotate90degree[3]=mat[4];
-        rotate90degree[4]=-mat[3];
-        rotate90degree[5]=mat[5];
+        rotate90degree[3] = mat[4];
+        rotate90degree[4] = -mat[3];
+        rotate90degree[5] = mat[5];
 
-        rotate90degree[6]=mat[7];
-        rotate90degree[7]=-mat[6];
-        rotate90degree[8]=mat[8];
+        rotate90degree[6] = mat[7];
+        rotate90degree[7] = -mat[6];
+        rotate90degree[8] = mat[8];
 
         return rotate90degree;
     }
@@ -1082,10 +1046,10 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         newPose[5] = leftEuler[2]; // Rotation_Z
 
         //rotate 90 degree
-        double x_90,y_90,z_90;
-        x_90=oldPose[1];
-        y_90=-oldPose[0];
-        z_90=oldPose[2];
+        double x_90, y_90, z_90;
+        x_90 = oldPose[1];
+        y_90 = -oldPose[0];
+        z_90 = oldPose[2];
 
         //to left hand coordinate system
         /*

@@ -15,34 +15,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1dc6af91-ac77-4e5f-910c-88adae19de30" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/.gitignore" afterPath="$PROJECT_DIR$/app/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/proguard-rules.pro" afterPath="$PROJECT_DIR$/app/proguard-rules.pro" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudRajawaliRenderer.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudRajawaliRenderer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/TouchViewHandler.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/TouchViewHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/WebCalls/CloudPoster.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/WebCalls/CloudPoster.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/package-info.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/package-info.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/rajawali/FrustumAxes.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/rajawali/FrustumAxes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/rajawali/Grid.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/rajawali/Grid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/rajawali/PointCloud.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/rajawali/PointCloud.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/rajawali/Points.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/rajawali/Points.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/rajawali/package-info.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/rajawali/package-info.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-v11/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-v11/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-v14/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-v14/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-w820dp/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-w820dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle.properties" afterPath="$PROJECT_DIR$/gradle.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradlew" afterPath="$PROJECT_DIR$/gradlew" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradlew.bat" afterPath="$PROJECT_DIR$/gradlew.bat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
     </list>
     <ignored path="java_point_cloud_example.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,18 +59,36 @@
       <file leaf-file-name="PointCloudActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="346" column="56" selection-start-line="346" selection-start-column="56" selection-end-line="346" selection-end-column="56" />
+            <state relative-caret-position="428">
+              <caret line="295" column="0" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
               <folding>
-                <element signature="e#0#46351#0" expanded="true" />
+                <element signature="e#0#45505#0" expanded="true" />
                 <element signature="imports" expanded="true" />
+                <element signature="e#5579#7079#0" expanded="true" />
+                <element signature="e#7078#7079#0" expanded="true" />
+                <element signature="e#11497#11887#0" expanded="true" />
+                <element signature="e#11886#11887#0" expanded="true" />
+                <element signature="e#12192#12353#0" expanded="true" />
+                <element signature="e#12352#12353#0" expanded="true" />
+                <element signature="e#13369#13410#0" expanded="true" />
+                <element signature="e#13614#14720#0" expanded="true" />
+                <element signature="e#14158#14199#0" expanded="true" />
+                <element signature="e#14294#14335#0" expanded="true" />
+                <element signature="e#14395#14425#0" expanded="true" />
+                <element signature="e#14519#14562#0" expanded="true" />
+                <element signature="e#14622#14654#0" expanded="true" />
+                <element signature="e#14719#14720#0" expanded="true" />
+                <element signature="e#16665#19599#0" expanded="true" />
+                <element signature="e#19598#19599#0" expanded="true" />
                 <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="e#22780#24280#0" expanded="true" />
-                <element signature="e#24279#24280#0" expanded="true" />
+                <element signature="e#23502#23503#0" expanded="true" />
+                <element signature="e#23548#23549#0" expanded="true" />
                 <element signature="docComment;method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#showsToastAndFinishOnUiThread#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="e#25029#25274#0" expanded="true" />
+                <element signature="e#25273#25274#0" expanded="true" />
                 <element signature="method#postCloudData#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#postWiFiData#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#postIMUData#0;class#PointCloudActivity#0" expanded="false" />
@@ -99,19 +99,7 @@
                 <element signature="method#transformToLeftCoordinateSystem#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#rotate90DegreeAlongZ#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#Matrix4ToEuler#0;class#PointCloudActivity#0" expanded="false" />
-                <marker date="1504105124650" expanded="false" signature="11660:11683" ph=" { " />
-                <marker date="1504105124650" expanded="false" signature="11698:11716" ph=" }" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -119,35 +107,34 @@
       <file leaf-file-name="activity_point_cloud.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+            <state relative-caret-position="472">
+              <caret line="652" column="53" selection-start-line="652" selection-start-column="33" selection-end-line="652" selection-end-column="53" />
               <folding>
                 <element signature="e#752#964#0" expanded="false" />
-                <element signature="e#5710#8222#0" expanded="false" />
-                <element signature="e#8232#10738#0" expanded="false" />
-                <element signature="e#10748#13263#0" expanded="false" />
-                <element signature="e#13518#16034#0" expanded="false" />
-                <element signature="e#13722#14150#0" expanded="false" />
-                <element signature="e#14164#14474#0" expanded="false" />
-                <element signature="e#14488#14918#0" expanded="false" />
-                <element signature="e#14932#15242#0" expanded="false" />
-                <element signature="e#15256#15685#0" expanded="false" />
-                <element signature="e#15699#16009#0" expanded="false" />
-                <element signature="e#16073#18589#0" expanded="false" />
-                <element signature="e#16277#16705#0" expanded="false" />
-                <element signature="e#16719#17029#0" expanded="false" />
-                <element signature="e#17043#17473#0" expanded="false" />
-                <element signature="e#17487#17797#0" expanded="false" />
-                <element signature="e#17811#18240#0" expanded="false" />
-                <element signature="e#18254#18564#0" expanded="false" />
-                <element signature="e#18625#21141#0" expanded="false" />
-                <element signature="e#21176#23692#0" expanded="false" />
-                <element signature="e#21822#22132#0" expanded="false" />
-                <element signature="e#22146#22576#0" expanded="false" />
-                <element signature="e#22590#22900#0" expanded="false" />
-                <element signature="e#22914#23343#0" expanded="false" />
-                <element signature="e#23357#23667#0" expanded="false" />
-                <element signature="e#23726#25315#0" expanded="false" />
+                <element signature="e#5553#8065#0" expanded="false" />
+                <element signature="e#8075#10581#0" expanded="false" />
+                <element signature="e#10591#13106#0" expanded="false" />
+                <element signature="e#13361#15877#0" expanded="false" />
+                <element signature="e#13565#13993#0" expanded="false" />
+                <element signature="e#14007#14317#0" expanded="false" />
+                <element signature="e#14331#14761#0" expanded="false" />
+                <element signature="e#14775#15085#0" expanded="false" />
+                <element signature="e#15099#15528#0" expanded="false" />
+                <element signature="e#15542#15852#0" expanded="false" />
+                <element signature="e#15916#18432#0" expanded="false" />
+                <element signature="e#16120#16548#0" expanded="false" />
+                <element signature="e#16562#16872#0" expanded="false" />
+                <element signature="e#16886#17316#0" expanded="false" />
+                <element signature="e#17330#17640#0" expanded="false" />
+                <element signature="e#17654#18083#0" expanded="false" />
+                <element signature="e#18097#18407#0" expanded="false" />
+                <element signature="e#18468#20984#0" expanded="false" />
+                <element signature="e#21019#23535#0" expanded="false" />
+                <element signature="e#21665#21975#0" expanded="false" />
+                <element signature="e#21989#22419#0" expanded="false" />
+                <element signature="e#22433#22743#0" expanded="false" />
+                <element signature="e#22757#23186#0" expanded="false" />
+                <element signature="e#23200#23510#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -2011,10 +1998,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="67" />
-    <option name="y" value="24" />
-    <option name="width" value="1853" />
-    <option name="height" value="1056" />
+    <option name="x" value="832" />
+    <option name="y" value="52" />
+    <option name="width" value="1054" />
+    <option name="height" value="998" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -2041,7 +2028,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2062,9 +2048,10 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2073,7 +2060,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../java_point_to_point_example" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="device.picker.selection" value="5b2c291c" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
   </component>
@@ -2149,6 +2136,54 @@
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2393,8 +2428,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="24" width="1853" height="1056" extended-state="6" />
-    <editor active="false" />
+    <frame x="832" y="52" width="1054" height="998" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3268817" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -2402,14 +2437,15 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42688173" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4266055" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921588" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32795697" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32795697" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24903154" sideWeight="0.4954751" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11309524" sideWeight="0.4954751" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -2426,7 +2462,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921588" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2457,31 +2492,30 @@
           <caret line="98" column="42" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
           <folding>
             <element signature="e#752#964#0" expanded="false" />
-            <element signature="e#5710#8222#0" expanded="false" />
-            <element signature="e#8232#10738#0" expanded="false" />
-            <element signature="e#10748#13263#0" expanded="false" />
-            <element signature="e#13518#16034#0" expanded="false" />
-            <element signature="e#13722#14150#0" expanded="false" />
-            <element signature="e#14164#14474#0" expanded="false" />
-            <element signature="e#14488#14918#0" expanded="false" />
-            <element signature="e#14932#15242#0" expanded="false" />
-            <element signature="e#15256#15685#0" expanded="false" />
-            <element signature="e#15699#16009#0" expanded="false" />
-            <element signature="e#16073#18589#0" expanded="false" />
-            <element signature="e#16277#16705#0" expanded="false" />
-            <element signature="e#16719#17029#0" expanded="false" />
-            <element signature="e#17043#17473#0" expanded="false" />
-            <element signature="e#17487#17797#0" expanded="false" />
-            <element signature="e#17811#18240#0" expanded="false" />
-            <element signature="e#18254#18564#0" expanded="false" />
-            <element signature="e#18625#21141#0" expanded="false" />
-            <element signature="e#21176#23692#0" expanded="false" />
-            <element signature="e#21822#22132#0" expanded="false" />
-            <element signature="e#22146#22576#0" expanded="false" />
-            <element signature="e#22590#22900#0" expanded="false" />
-            <element signature="e#22914#23343#0" expanded="false" />
-            <element signature="e#23357#23667#0" expanded="false" />
-            <element signature="e#23726#25315#0" expanded="false" />
+            <element signature="e#5553#8065#0" expanded="false" />
+            <element signature="e#8075#10581#0" expanded="false" />
+            <element signature="e#10591#13106#0" expanded="false" />
+            <element signature="e#13361#15877#0" expanded="false" />
+            <element signature="e#13565#13993#0" expanded="false" />
+            <element signature="e#14007#14317#0" expanded="false" />
+            <element signature="e#14331#14761#0" expanded="false" />
+            <element signature="e#14775#15085#0" expanded="false" />
+            <element signature="e#15099#15528#0" expanded="false" />
+            <element signature="e#15542#15852#0" expanded="false" />
+            <element signature="e#15916#18432#0" expanded="false" />
+            <element signature="e#16120#16548#0" expanded="false" />
+            <element signature="e#16562#16872#0" expanded="false" />
+            <element signature="e#16886#17316#0" expanded="false" />
+            <element signature="e#17330#17640#0" expanded="false" />
+            <element signature="e#17654#18083#0" expanded="false" />
+            <element signature="e#18097#18407#0" expanded="false" />
+            <element signature="e#18468#20984#0" expanded="false" />
+            <element signature="e#21019#23535#0" expanded="false" />
+            <element signature="e#21665#21975#0" expanded="false" />
+            <element signature="e#21989#22419#0" expanded="false" />
+            <element signature="e#22433#22743#0" expanded="false" />
+            <element signature="e#22757#23186#0" expanded="false" />
+            <element signature="e#23200#23510#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2494,15 +2528,33 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#46351#0" expanded="true" />
+            <element signature="e#0#45505#0" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="e#5579#7079#0" expanded="true" />
+            <element signature="e#7078#7079#0" expanded="true" />
+            <element signature="e#11497#11887#0" expanded="true" />
+            <element signature="e#11886#11887#0" expanded="true" />
+            <element signature="e#12192#12353#0" expanded="true" />
+            <element signature="e#12352#12353#0" expanded="true" />
+            <element signature="e#13369#13410#0" expanded="true" />
+            <element signature="e#13614#14720#0" expanded="true" />
+            <element signature="e#14158#14199#0" expanded="true" />
+            <element signature="e#14294#14335#0" expanded="true" />
+            <element signature="e#14395#14425#0" expanded="true" />
+            <element signature="e#14519#14562#0" expanded="true" />
+            <element signature="e#14622#14654#0" expanded="true" />
+            <element signature="e#14719#14720#0" expanded="true" />
+            <element signature="e#16665#19599#0" expanded="true" />
+            <element signature="e#19598#19599#0" expanded="true" />
             <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="e#22780#24280#0" expanded="true" />
-            <element signature="e#24279#24280#0" expanded="true" />
+            <element signature="e#23502#23503#0" expanded="true" />
+            <element signature="e#23548#23549#0" expanded="true" />
             <element signature="docComment;method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#showsToastAndFinishOnUiThread#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="e#25029#25274#0" expanded="true" />
+            <element signature="e#25273#25274#0" expanded="true" />
             <element signature="method#postCloudData#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#postWiFiData#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#postIMUData#0;class#PointCloudActivity#0" expanded="false" />
@@ -2513,8 +2565,6 @@
             <element signature="method#transformToLeftCoordinateSystem#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#rotate90DegreeAlongZ#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#Matrix4ToEuler#0;class#PointCloudActivity#0" expanded="false" />
-            <marker date="1504105124650" expanded="false" signature="11660:11683" ph=" { " />
-            <marker date="1504105124650" expanded="false" signature="11698:11716" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -2533,31 +2583,30 @@
           <caret line="98" column="42" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
           <folding>
             <element signature="e#752#964#0" expanded="false" />
-            <element signature="e#5710#8222#0" expanded="false" />
-            <element signature="e#8232#10738#0" expanded="false" />
-            <element signature="e#10748#13263#0" expanded="false" />
-            <element signature="e#13518#16034#0" expanded="false" />
-            <element signature="e#13722#14150#0" expanded="false" />
-            <element signature="e#14164#14474#0" expanded="false" />
-            <element signature="e#14488#14918#0" expanded="false" />
-            <element signature="e#14932#15242#0" expanded="false" />
-            <element signature="e#15256#15685#0" expanded="false" />
-            <element signature="e#15699#16009#0" expanded="false" />
-            <element signature="e#16073#18589#0" expanded="false" />
-            <element signature="e#16277#16705#0" expanded="false" />
-            <element signature="e#16719#17029#0" expanded="false" />
-            <element signature="e#17043#17473#0" expanded="false" />
-            <element signature="e#17487#17797#0" expanded="false" />
-            <element signature="e#17811#18240#0" expanded="false" />
-            <element signature="e#18254#18564#0" expanded="false" />
-            <element signature="e#18625#21141#0" expanded="false" />
-            <element signature="e#21176#23692#0" expanded="false" />
-            <element signature="e#21822#22132#0" expanded="false" />
-            <element signature="e#22146#22576#0" expanded="false" />
-            <element signature="e#22590#22900#0" expanded="false" />
-            <element signature="e#22914#23343#0" expanded="false" />
-            <element signature="e#23357#23667#0" expanded="false" />
-            <element signature="e#23726#25315#0" expanded="false" />
+            <element signature="e#5553#8065#0" expanded="false" />
+            <element signature="e#8075#10581#0" expanded="false" />
+            <element signature="e#10591#13106#0" expanded="false" />
+            <element signature="e#13361#15877#0" expanded="false" />
+            <element signature="e#13565#13993#0" expanded="false" />
+            <element signature="e#14007#14317#0" expanded="false" />
+            <element signature="e#14331#14761#0" expanded="false" />
+            <element signature="e#14775#15085#0" expanded="false" />
+            <element signature="e#15099#15528#0" expanded="false" />
+            <element signature="e#15542#15852#0" expanded="false" />
+            <element signature="e#15916#18432#0" expanded="false" />
+            <element signature="e#16120#16548#0" expanded="false" />
+            <element signature="e#16562#16872#0" expanded="false" />
+            <element signature="e#16886#17316#0" expanded="false" />
+            <element signature="e#17330#17640#0" expanded="false" />
+            <element signature="e#17654#18083#0" expanded="false" />
+            <element signature="e#18097#18407#0" expanded="false" />
+            <element signature="e#18468#20984#0" expanded="false" />
+            <element signature="e#21019#23535#0" expanded="false" />
+            <element signature="e#21665#21975#0" expanded="false" />
+            <element signature="e#21989#22419#0" expanded="false" />
+            <element signature="e#22433#22743#0" expanded="false" />
+            <element signature="e#22757#23186#0" expanded="false" />
+            <element signature="e#23200#23510#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2763,44 +2812,6 @@
     <entry file="jar://$USER_HOME$/.android/build-cache/52bcf19ee88fdb6f82794f3c5eeea495d54abff1/output/jars/classes.jar!/com/google/atap/tangoservice/TangoPoseData.class" />
     <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/platforms/android-25/android.jar!/android/hardware/Sensor.class" />
     <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/platforms/android-25/android.jar!/android/hardware/SensorManager.class" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding>
-            <element signature="e#752#964#0" expanded="false" />
-            <element signature="e#5710#8222#0" expanded="false" />
-            <element signature="e#8232#10738#0" expanded="false" />
-            <element signature="e#10748#13263#0" expanded="false" />
-            <element signature="e#13518#16034#0" expanded="false" />
-            <element signature="e#13722#14150#0" expanded="false" />
-            <element signature="e#14164#14474#0" expanded="false" />
-            <element signature="e#14488#14918#0" expanded="false" />
-            <element signature="e#14932#15242#0" expanded="false" />
-            <element signature="e#15256#15685#0" expanded="false" />
-            <element signature="e#15699#16009#0" expanded="false" />
-            <element signature="e#16073#18589#0" expanded="false" />
-            <element signature="e#16277#16705#0" expanded="false" />
-            <element signature="e#16719#17029#0" expanded="false" />
-            <element signature="e#17043#17473#0" expanded="false" />
-            <element signature="e#17487#17797#0" expanded="false" />
-            <element signature="e#17811#18240#0" expanded="false" />
-            <element signature="e#18254#18564#0" expanded="false" />
-            <element signature="e#18625#21141#0" expanded="false" />
-            <element signature="e#21176#23692#0" expanded="false" />
-            <element signature="e#21822#22132#0" expanded="false" />
-            <element signature="e#22146#22576#0" expanded="false" />
-            <element signature="e#22590#22900#0" expanded="false" />
-            <element signature="e#22914#23343#0" expanded="false" />
-            <element signature="e#23357#23667#0" expanded="false" />
-            <element signature="e#23726#25315#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -2809,20 +2820,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="652" column="53" selection-start-line="652" selection-start-column="33" selection-end-line="652" selection-end-column="53" />
+          <folding>
+            <element signature="e#752#964#0" expanded="false" />
+            <element signature="e#5553#8065#0" expanded="false" />
+            <element signature="e#8075#10581#0" expanded="false" />
+            <element signature="e#10591#13106#0" expanded="false" />
+            <element signature="e#13361#15877#0" expanded="false" />
+            <element signature="e#13565#13993#0" expanded="false" />
+            <element signature="e#14007#14317#0" expanded="false" />
+            <element signature="e#14331#14761#0" expanded="false" />
+            <element signature="e#14775#15085#0" expanded="false" />
+            <element signature="e#15099#15528#0" expanded="false" />
+            <element signature="e#15542#15852#0" expanded="false" />
+            <element signature="e#15916#18432#0" expanded="false" />
+            <element signature="e#16120#16548#0" expanded="false" />
+            <element signature="e#16562#16872#0" expanded="false" />
+            <element signature="e#16886#17316#0" expanded="false" />
+            <element signature="e#17330#17640#0" expanded="false" />
+            <element signature="e#17654#18083#0" expanded="false" />
+            <element signature="e#18097#18407#0" expanded="false" />
+            <element signature="e#18468#20984#0" expanded="false" />
+            <element signature="e#21019#23535#0" expanded="false" />
+            <element signature="e#21665#21975#0" expanded="false" />
+            <element signature="e#21989#22419#0" expanded="false" />
+            <element signature="e#22433#22743#0" expanded="false" />
+            <element signature="e#22757#23186#0" expanded="false" />
+            <element signature="e#23200#23510#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="346" column="56" selection-start-line="346" selection-start-column="56" selection-end-line="346" selection-end-column="56" />
+        <state relative-caret-position="428">
+          <caret line="295" column="0" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
           <folding>
-            <element signature="e#0#46351#0" expanded="true" />
+            <element signature="e#0#45505#0" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="e#5579#7079#0" expanded="true" />
+            <element signature="e#7078#7079#0" expanded="true" />
+            <element signature="e#11497#11887#0" expanded="true" />
+            <element signature="e#11886#11887#0" expanded="true" />
+            <element signature="e#12192#12353#0" expanded="true" />
+            <element signature="e#12352#12353#0" expanded="true" />
+            <element signature="e#13369#13410#0" expanded="true" />
+            <element signature="e#13614#14720#0" expanded="true" />
+            <element signature="e#14158#14199#0" expanded="true" />
+            <element signature="e#14294#14335#0" expanded="true" />
+            <element signature="e#14395#14425#0" expanded="true" />
+            <element signature="e#14519#14562#0" expanded="true" />
+            <element signature="e#14622#14654#0" expanded="true" />
+            <element signature="e#14719#14720#0" expanded="true" />
+            <element signature="e#16665#19599#0" expanded="true" />
+            <element signature="e#19598#19599#0" expanded="true" />
             <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="e#22780#24280#0" expanded="true" />
-            <element signature="e#24279#24280#0" expanded="true" />
+            <element signature="e#23502#23503#0" expanded="true" />
+            <element signature="e#23548#23549#0" expanded="true" />
             <element signature="docComment;method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#showsToastAndFinishOnUiThread#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="e#25029#25274#0" expanded="true" />
+            <element signature="e#25273#25274#0" expanded="true" />
             <element signature="method#postCloudData#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#postWiFiData#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#postIMUData#0;class#PointCloudActivity#0" expanded="false" />
@@ -2833,8 +2899,6 @@
             <element signature="method#transformToLeftCoordinateSystem#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#rotate90DegreeAlongZ#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#Matrix4ToEuler#0;class#PointCloudActivity#0" expanded="false" />
-            <marker date="1504105124650" expanded="false" signature="11660:11683" ph=" { " />
-            <marker date="1504105124650" expanded="false" signature="11698:11716" ph=" }" />
           </folding>
         </state>
       </provider>

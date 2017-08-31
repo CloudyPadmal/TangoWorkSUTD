@@ -111,16 +111,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="Currently running :"
+                android:text="Time :"
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/currently"
+                android:id="@+id/time_stamp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="3dp"
-                android:text="WiFi"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -147,14 +146,12 @@
                 android:text="@string/na"
                 android:textSize="14sp" />
 
-            <Switch
-                android:id="@+id/wifi_or_pointcloud"
+            <Button
+                android:id="@+id/run_stop"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="@string/wifi_or_pointcloud"
-                android:textOff="Cloud"
-                android:textOn="WiFi"
+                android:text="Start"
                 android:textSize="14sp" />
         </LinearLayout>
 
