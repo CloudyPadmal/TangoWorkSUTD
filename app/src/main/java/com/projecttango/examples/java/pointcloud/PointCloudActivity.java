@@ -28,6 +28,8 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.CellInfo;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
@@ -89,11 +91,12 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private final String CLOUD_URL = "http://202.94.70.33/tango/insert_tango_point_cloud.php";
     private final String WIFI_URL = "http://202.94.70.33/tango/insert_tango_wifi_scan.php";
     private final String IMU_URL = "http://202.94.70.33/tango/insert_tango_raw_imu.php";
+    private final String STEP_URL = "http://202.94.70.33/server_testing/insertIRPSMobileHeadingPlusSteps.php";
     private final long CLOUD_INTERVAL = 1000;
     private final int MM = 10000;
 
     /*************************************** Views ************************************************/
-    private TextView wifiStat, cloudStat, imuStat;
+    private TextView wifiStat, cloudStat, imuStat, stepStat;
     private TextView mNodes, mTimeStamp, mEndStamp, mSteps;
     private Button runStop;
     private RajawaliSurfaceView mSurfaceView;
@@ -116,6 +119,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private WifiManager wifiManager;
     private DefaultRetryPolicy retryPolicy;
     private RequestQueue queue;
+    private TelephonyManager tm;
 
     /*************************************** Arrays ***********************************************/
     private float[] OriReading;
@@ -131,7 +135,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private boolean mIsConnected = false;
     private double mPointCloudTimeToNextUpdate = UPDATE_INTERVAL_MS;
     private int mDisplayRotation = 0;
-    private int wifiCount = 0, cloudCount = 0, imuCount = 0, stepCount = 0;
+    private int wifiCount = 0, cloudCount = 0, imuCount = 0, stepCount = 0, heading = 0, steps = 0;
     private int count = 0;
     private boolean started = false;
     private int NodeCount = 0;
@@ -194,7 +198,23 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
 
         setupDisplay();
 
+        setupTelephones();
+
         RUN();
+    }
+
+    private void setupTelephones() {
+        tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        String IMEINumber = tm.getDeviceId();
+        String subscriberID = tm.getDeviceId();
+        String SIMSerialNumber = tm.getSimSerialNumber();
+        String networkCountryISO = tm.getNetworkCountryIso();
+        String SIMCountryISO = tm.getSimCountryIso();
+        String softwareVersion = tm.getDeviceSoftwareVersion();
+        String voiceMailNumber = tm.getVoiceMailNumber();
+        for (CellInfo i : tm.getAllCellInfo()) {
+            Log.d("Padmal", i.toString());
+        }
     }
 
     private void RUN() {
@@ -294,6 +314,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
             count++;
             postCloudData();
             postIMUData();
+            postStepData();
         }
     }
 
@@ -387,6 +408,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         cloudStat = (TextView) findViewById(R.id.cloud_stat);
         imuStat = (TextView) findViewById(R.id.imu_stat);
         mSteps = (TextView) findViewById(R.id.step_count_textview);
+        stepStat = (TextView) findViewById(R.id.step_stat);
     }
 
     /**
@@ -468,6 +490,8 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                             cloudStat.setBackgroundColor(Color.TRANSPARENT);
                             imuStat.setText("IW " + imuCount);
                             imuStat.setBackgroundColor(Color.TRANSPARENT);
+                            stepStat.setText("SW " + steps);
+                            stepStat.setBackgroundColor(Color.TRANSPARENT);
                             try {
                                 double[] DATA = tangoToPolarTransformer(lastPose.getRotationAsFloats()[0],
                                         lastPose.getRotationAsFloats()[1],
@@ -772,7 +796,6 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
             StringRequest stringRequest = new StringRequest(Request.Method.POST, WIFI_URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Log.d("padmal", response);
                     boolean success = response.contains("Data successfully created");
                     String displayText = (success) ? "WS " + wifiCount : "WF " + wifiCount;
                     if (success) {
@@ -821,8 +844,6 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                         }
                         wifiString.deleteCharAt(wifiString.length() - 1);
                         body.put("wifi_scan", wifiString.toString());
-                        // Posting *****************************************************************
-                        Log.d("Padmal", body.toString());
                         lastPose = null;
                         return body;
                     } catch (Exception e) {
@@ -839,10 +860,9 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
 
     private void postIMUData() {
         try {
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, IMU_URL, new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, IMU_URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Log.d("padmal", response);
                     boolean success = response.contains("Data successfully created");
                     String displayText = (success) ? "IS " + imuCount : "IF " + imuCount;
                     if (success) {
@@ -882,9 +902,51 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                         // Magnetic ****************************************************************
                         String Magenetic = Arrays.toString(MagReading).replaceAll("\\s", "");
                         body.put("magnetic_field", Magenetic.substring(1, Magenetic.length() - 1));
-                        // Posting *****************************************************************
-                        Log.d("Padmal", body.toString());
                         lastPose = null;
+                        return body;
+                    } catch (Exception e) {
+                        return null;
+                    }
+                }
+            };
+            stringRequest.setRetryPolicy(retryPolicy);
+            queue.add(stringRequest);
+        } catch (Exception e) {
+            /**/
+        }
+    }
+
+    private void postStepData() {
+        try {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, STEP_URL, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Log.d("Padmal", response);
+                    boolean success = response.contains("Data successfully created");
+                    String displayText = (success) ? "SS " + steps : "SF " + steps;
+                    if (success) {
+                        steps++;
+                    }
+                    stepStat.setText(displayText);
+                    stepStat.setBackgroundColor(displayText.contains("SS") ? Color.GREEN : Color.RED);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    /**/
+                }
+            }
+
+            ) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> body = new HashMap<>();
+                    try {
+                        String data = ("100,Padmal," + stepCount + "," + (String.valueOf(heading)));
+                        // User ID *****************************************************************
+                        body.put("data", data);
+                        // Reset step count
+                        stepCount = 0;
                         return body;
                     } catch (Exception e) {
                         return null;
@@ -1093,6 +1155,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                 angle = angle + 360;
             }
             mDirection.setText(String.valueOf(angle));
+            heading = angle;
         }
     }
 
