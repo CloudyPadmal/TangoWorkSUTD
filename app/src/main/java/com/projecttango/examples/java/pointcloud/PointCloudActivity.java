@@ -53,6 +53,7 @@ import com.google.atap.tangoservice.TangoInvalidException;
 import com.google.atap.tangoservice.TangoOutOfDateException;
 import com.google.atap.tangoservice.TangoPointCloudData;
 import com.google.atap.tangoservice.TangoPoseData;
+import com.projecttango.examples.java.pointcloud.Interfaces.StepListener;
 import com.projecttango.tangosupport.TangoPointCloudManager;
 import com.projecttango.tangosupport.TangoSupport;
 import com.projecttango.tangosupport.ux.TangoUx;
@@ -70,7 +71,6 @@ import java.nio.FloatBuffer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -78,7 +78,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class PointCloudActivity extends AppCompatActivity implements SensorEventListener {
+public class PointCloudActivity extends AppCompatActivity implements SensorEventListener, StepListener {
     private static final String TAG = "Padmal";
 
     private static final String UX_EXCEPTION_EVENT_DETECTED = "Exception Detected: ";
@@ -110,9 +110,10 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private float[] MagReading;
     private float[] mGravity, mGeomagnetic;
     // Custom variables
-    private TextView mTime, wifiStat, cloudStat, imuStat;
-    private TextView mNodes, mTimeStamp, mEndStamp;
+    private TextView wifiStat, cloudStat, imuStat;
+    private TextView mNodes, mTimeStamp, mEndStamp, mSteps;
     private Button runStop;
+    private int wifiCount = 0, cloudCount = 0, imuCount = 0, stepCount = 0;
     private TextView Xv, Yv, Zv, Xtv, Ytv, Ztv, Ax, Ay, Az;
     private TextView oriX, oriY, oriZ, accX, accY, accZ, gyrX, gyrY, gyrZ, magX, magY, magZ;
     private Timer timer;
@@ -124,6 +125,8 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private List<ScanResult> scanResults;
     private int count = 0;
     private boolean started = false;
+
+    private StepDetector simpleStepDetector;
 
     private DefaultRetryPolicy retryPolicy;
     private RequestQueue queue;
@@ -175,8 +178,10 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         mGravity = new float[3];
         mGeomagnetic = new float[3];
 
+        simpleStepDetector = new StepDetector();
+        simpleStepDetector.registerListener(this);
+
         mPointCountTextView = (TextView) findViewById(R.id.point_count_textview);
-        mTime = (TextView) findViewById(R.id.average_time);
         mNodes = (TextView) findViewById(R.id.nodes);
         Xv = (TextView) findViewById(R.id.x_vl);
         Yv = (TextView) findViewById(R.id.y_vl);
@@ -204,6 +209,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         wifiStat = (TextView) findViewById(R.id.wifi_stat);
         cloudStat = (TextView) findViewById(R.id.cloud_stat);
         imuStat = (TextView) findViewById(R.id.imu_stat);
+        mSteps = (TextView) findViewById(R.id.step_count_textview);
         unityPose = new double[6];
         completePose = new double[13];
         mTimeStamp = (TextView) findViewById(R.id.start_time_stamp);
@@ -227,7 +233,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         AccelSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         MagenetSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
         GyroSensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
-        sensorManager.registerListener(this, AccelSensor, SensorManager.SENSOR_DELAY_UI);
+        sensorManager.registerListener(this, AccelSensor, SensorManager.SENSOR_DELAY_FASTEST);
         sensorManager.registerListener(this, MagenetSensor, SensorManager.SENSOR_DELAY_UI);
         sensorManager.registerListener(this, GyroSensor, SensorManager.SENSOR_DELAY_UI);
 
@@ -256,14 +262,16 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
             @Override
             public void onClick(View view) {
                 SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
-                String now = sdf.format(new Date()) + " " + String.valueOf(System.currentTimeMillis());
+                String now = sdf.format(new Date());
                 if (started) {
+                    postBreakData("Stopped!", false);
                     mEndStamp.setText(now);
                 } else {
+                    postBreakData("Initiated!", true);
                     mTimeStamp.setText(now);
                 }
                 started = !started;
-                runStop.setText(started ? "Running!" : "Stopped!");
+                runStop.setText(started ? "Click to STOP!" : "Click to START!");
             }
         });
     }
@@ -394,13 +402,11 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                         @Override
                         public void run() {
                             mPointCountTextView.setText(pointCountString);
-                            // mAverageZTextView.setText("Waiting");
-                            // mAverageZTextView.setBackgroundColor(Color.TRANSPARENT);
-                            wifiStat.setText("W W");
+                            wifiStat.setText("WW " + wifiCount);
                             wifiStat.setBackgroundColor(Color.TRANSPARENT);
-                            cloudStat.setText("C W");
+                            cloudStat.setText("CW " + cloudCount);
                             cloudStat.setBackgroundColor(Color.TRANSPARENT);
-                            imuStat.setText("I W");
+                            imuStat.setText("IW " + imuCount);
                             imuStat.setBackgroundColor(Color.TRANSPARENT);
                             try {
                                 double[] DATA = newMatrix(lastPose.getRotationAsFloats()[0],
@@ -594,14 +600,62 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         });
     }
 
+    private void postBreakData(final String msg, final boolean state) {
+        try {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, WIFI_URL, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    /**/
+                }
+            }
+
+            ) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> body = new HashMap<>();
+                    try {
+                        wifiManager.startScan();
+                        // User ID *****************************************************************
+                        body.put("user_id", "Padmal");
+                        // Pose Data ***************************************************************
+                        if (state) {
+                            wifiCount = 0;
+                            cloudCount = 0;
+                            imuCount = 0;
+                            body.put("pose", "0.12345,0.12345,0.12345,0.12345,0.12345,0.12345,0.12345,0.12345,0.12345,0.12345,0.12345,0.12345,0.12345");
+                        } else {
+                            body.put("pose", "0.54321,0.54321,0.54321,0.54321,0.54321,0.54321,0.54321,0.54321,0.54321,0.54321,0.54321,0.54321,0.54321");
+                        }
+                        // Tango Time **************************************************************
+                        body.put("tango_time", String.valueOf(System.currentTimeMillis()));
+                        // Point Cloud *************************************************************
+                        body.put("wifi_scan", "999,DUMMY,999,000,DUMMY");
+                        return body;
+                    } catch (Exception e) {
+                        return null;
+                    }
+                }
+            };
+            stringRequest.setRetryPolicy(retryPolicy);
+            queue.add(stringRequest);
+        } catch (Exception e) {
+            /**/
+        }
+    }
+
     private void postCloudData() {
         try {
             StringRequest stringRequest = new StringRequest(Request.Method.POST, CLOUD_URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Calendar calendar = Calendar.getInstance();
-                    mTime.setText(String.valueOf(calendar.get(Calendar.SECOND)));
-                    String displayText = (response.contains("Data successfully created")) ? "C S" : "C F";
+                    boolean success = response.contains("Data successfully created");
+                    String displayText = (success) ? "CS " + cloudCount : "CF " + cloudCount;
+                    if (success) { cloudCount++; }
                     cloudStat.setText(displayText);
                     cloudStat.setBackgroundColor(displayText.contains("S") ? Color.GREEN : Color.RED);
                 }
@@ -664,9 +718,9 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                 @Override
                 public void onResponse(String response) {
                     Log.d("padmal", response);
-                    Calendar calendar = Calendar.getInstance();
-                    mTime.setText(String.valueOf(calendar.get(Calendar.SECOND)));
-                    String displayText = (response.contains("Data successfully created")) ? "W S" : "W F";
+                    boolean success = response.contains("Data successfully created");
+                    String displayText = (success) ? "WS " + wifiCount : "WF " + wifiCount;
+                    if (success) { wifiCount++; }
                     wifiStat.setText(displayText);
                     wifiStat.setBackgroundColor(displayText.contains("W") ? Color.GREEN : Color.RED);
                     mNodes.setText(String.valueOf(NodeCount));
@@ -732,7 +786,9 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                 @Override
                 public void onResponse(String response) {
                     Log.d("padmal", response);
-                    String displayText = (response.contains("Data successfully created")) ? "I S" : "I F";
+                    boolean success = response.contains("Data successfully created");
+                    String displayText = (success) ? "IS " + imuCount : "IF " + imuCount;
+                    if (success) { imuCount++; }
                     imuStat.setText(displayText);
                     imuStat.setBackgroundColor(displayText.contains("S") ? Color.GREEN : Color.RED);
                 }
@@ -756,15 +812,15 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                         // Tango Time **************************************************************
                         body.put("tango_time", String.valueOf(System.currentTimeMillis()));
                         // Orientation *************************************************************
-                        // Acceleration ************************************************************
-                        // Gyroscope ***************************************************************
-                        // Magnetic ****************************************************************
                         String Orientation = Arrays.toString(OriReading).replaceAll("\\s", "");
                         body.put("orientation", Orientation.substring(1, Orientation.length() - 1));
+                        // Acceleration ************************************************************
                         String Acceleration = Arrays.toString(AccReading).replaceAll("\\s", "");
                         body.put("acceleration", Acceleration.substring(1, Acceleration.length() - 1));
+                        // Gyroscope ***************************************************************
                         String Gyroscope = Arrays.toString(GyroReading).replaceAll("\\s", "");
                         body.put("gyroscope", Gyroscope.substring(1, Gyroscope.length() - 1));
+                        // Magnetic ****************************************************************
                         String Magenetic = Arrays.toString(MagReading).replaceAll("\\s", "");
                         body.put("magnetic_field", Magenetic.substring(1, Magenetic.length() - 1));
                         // Posting *****************************************************************
@@ -788,6 +844,8 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         Sensor sensor = sensorEvent.sensor;
 
         if (sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            simpleStepDetector.updateAccel(
+                    sensorEvent.timestamp, sensorEvent.values[0], sensorEvent.values[1], sensorEvent.values[2]);
             AccReading[0] = sensorEvent.values[0];
             AccReading[1] = sensorEvent.values[1];
             AccReading[2] = sensorEvent.values[2];
@@ -1055,5 +1113,11 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         newPose[1] = z_90; // New Y
         newPose[2] = x_90; // New Z
         return newPose;
+    }
+
+    @Override
+    public void stepMade(long timeNS) {
+        mSteps.setText(String.valueOf(stepCount));
+        stepCount++;
     }
 }

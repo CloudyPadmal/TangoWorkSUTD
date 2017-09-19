@@ -8,23 +8,62 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="padmal" />
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1dc6af91-ac77-4e5f-910c-88adae19de30" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-14-09-46-614.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-14-28-13-614.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-14-28-43-279.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-18-11-21-243.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-18-13-54-681.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-18-14-18-064.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-18-17-17-976.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-18-23-11-414.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-18-24-39-199.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-18-28-44-212.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-18-32-37-306.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-19-10-05-897.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-19-19-27-264.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-19-21-29-315.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-19-22-11-318.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-19-24-09-082.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-19-28-08-281.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-19-28-57-343.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-19-29-55-439.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-19-33-39-179.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-19-34-30-164.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-19-43-51-462.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-19-58-35-076.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-19-58-52-430.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-19-59-48-493.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-20-03-30-988.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-20-06-17-944.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-20-07-09-060.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-09-20-20-08-53-892.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/CircleTextView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/Interfaces/StepListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/SensorFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/StepDetector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/round_bg_blue.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/round_bg_green.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/round_bg_red.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
     </list>
     <ignored path="java_point_cloud_example.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,78 +94,15 @@
     <favorites_list name="java_point_cloud_example" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="PointCloudActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="263" column="17" selection-start-line="263" selection-start-column="17" selection-end-line="263" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#45373#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-                <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="docComment;method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="method#showsToastAndFinishOnUiThread#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="method#postCloudData#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="method#postWiFiData#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="method#postIMUData#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="method#onAccuracyChanged#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="method#generate3x3Matrix#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="method#newMatrix#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="method#QuatToMatrix3#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="method#transformToLeftCoordinateSystem#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="method#rotate90DegreeAlongZ#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="method#Matrix4ToEuler#0;class#PointCloudActivity#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_point_cloud.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="110" column="49" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="49" />
-              <folding>
-                <element signature="e#752#964#0" expanded="false" />
-                <element signature="e#5649#8161#0" expanded="false" />
-                <element signature="e#13457#15973#0" expanded="false" />
-                <element signature="e#13661#14089#0" expanded="false" />
-                <element signature="e#14103#14413#0" expanded="false" />
-                <element signature="e#14427#14857#0" expanded="false" />
-                <element signature="e#14871#15181#0" expanded="false" />
-                <element signature="e#15195#15624#0" expanded="false" />
-                <element signature="e#15638#15948#0" expanded="false" />
-                <element signature="e#16012#18528#0" expanded="false" />
-                <element signature="e#16216#16644#0" expanded="false" />
-                <element signature="e#16658#16968#0" expanded="false" />
-                <element signature="e#16982#17412#0" expanded="false" />
-                <element signature="e#17426#17736#0" expanded="false" />
-                <element signature="e#17750#18179#0" expanded="false" />
-                <element signature="e#18193#18503#0" expanded="false" />
-                <element signature="e#18564#21080#0" expanded="false" />
-                <element signature="e#21115#23631#0" expanded="false" />
-                <element signature="e#21761#22071#0" expanded="false" />
-                <element signature="e#22085#22515#0" expanded="false" />
-                <element signature="e#22529#22839#0" expanded="false" />
-                <element signature="e#22853#23282#0" expanded="false" />
-                <element signature="e#23296#23606#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="ASClass" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -1970,16 +1946,25 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" />
+        <option value="$USER_HOME$/.android/build-cache/82cda87c05540e6cd490385028bd0ea64068c65c/output/jars/classes.jar!/com/google/atap/tangoservice/TangoPoseData.class" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/Interfaces/StepListener.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/SensorFilter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/StepDetector.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/round_bg_red.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/CircleTextView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/round_bg_blue.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/round_bg_green.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="832" />
-    <option name="y" value="80" />
-    <option name="width" value="1054" />
-    <option name="height" value="998" />
+    <option name="x" value="67" />
+    <option name="y" value="24" />
+    <option name="width" value="1853" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1988,7 +1973,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -2006,10 +1991,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane />
+      </pane>
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2017,15 +2004,123 @@
               <option name="myItemId" value="java_point_cloud_example" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
+              <option name="myItemId" value="java_point_cloud_example" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="java_point_cloud_example" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java_point_cloud_example" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java_point_cloud_example" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java_point_cloud_example" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pointcloud" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java_point_cloud_example" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pointcloud" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Interfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java_point_cloud_example" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2406,30 +2501,30 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="832" y="80" width="1054" height="998" extended-state="0" />
-    <editor active="true" />
+    <frame x="67" y="24" width="1853" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3268817" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24919441" sideWeight="0.5045249" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4266055" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921588" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42580646" sideWeight="0.5019369" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42580646" sideWeight="0.4980631" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872164" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32683486" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32580644" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11309524" sideWeight="0.4954751" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42580646" sideWeight="0.5019369" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20420587" sideWeight="0.4954751" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2464,57 +2559,28 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2156">
-          <caret line="98" column="42" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
-          <folding>
-            <element signature="e#752#964#0" expanded="false" />
-            <element signature="e#5649#8161#0" expanded="false" />
-            <element signature="e#13457#15973#0" expanded="false" />
-            <element signature="e#13661#14089#0" expanded="false" />
-            <element signature="e#14103#14413#0" expanded="false" />
-            <element signature="e#14427#14857#0" expanded="false" />
-            <element signature="e#14871#15181#0" expanded="false" />
-            <element signature="e#15195#15624#0" expanded="false" />
-            <element signature="e#15638#15948#0" expanded="false" />
-            <element signature="e#16012#18528#0" expanded="false" />
-            <element signature="e#16216#16644#0" expanded="false" />
-            <element signature="e#16658#16968#0" expanded="false" />
-            <element signature="e#16982#17412#0" expanded="false" />
-            <element signature="e#17426#17736#0" expanded="false" />
-            <element signature="e#17750#18179#0" expanded="false" />
-            <element signature="e#18193#18503#0" expanded="false" />
-            <element signature="e#18564#21080#0" expanded="false" />
-            <element signature="e#21115#23631#0" expanded="false" />
-            <element signature="e#21761#22071#0" expanded="false" />
-            <element signature="e#22085#22515#0" expanded="false" />
-            <element signature="e#22529#22839#0" expanded="false" />
-            <element signature="e#22853#23282#0" expanded="false" />
-            <element signature="e#23296#23606#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#45373#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="docComment;method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#showsToastAndFinishOnUiThread#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#postCloudData#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#postWiFiData#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#postIMUData#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#onAccuracyChanged#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="e#11525#12159#0" expanded="true" />
+            <element signature="e#12158#12159#0" expanded="true" />
+            <element signature="e#12464#12590#0" expanded="true" />
+            <element signature="e#12589#12590#0" expanded="true" />
+            <element signature="e#13606#13647#0" expanded="true" />
+            <element signature="e#13851#14957#0" expanded="true" />
+            <element signature="e#14395#14436#0" expanded="true" />
+            <element signature="e#14531#14572#0" expanded="true" />
+            <element signature="e#14632#14662#0" expanded="true" />
+            <element signature="e#14756#14799#0" expanded="true" />
+            <element signature="e#14859#14891#0" expanded="true" />
+            <element signature="e#14956#14957#0" expanded="true" />
+            <element signature="e#16902#19715#0" expanded="true" />
+            <element signature="e#19714#19715#0" expanded="true" />
+            <element signature="e#25145#25390#0" expanded="true" />
+            <element signature="e#25389#25390#0" expanded="true" />
             <element signature="method#generate3x3Matrix#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#newMatrix#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#QuatToMatrix3#0;class#PointCloudActivity#0" expanded="false" />
@@ -2525,42 +2591,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="26" column="78" selection-start-line="26" selection-start-column="78" selection-end-line="26" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2156">
-          <caret line="98" column="42" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
+        <state relative-caret-position="255">
+          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
           <folding>
-            <element signature="e#752#964#0" expanded="false" />
-            <element signature="e#5649#8161#0" expanded="false" />
-            <element signature="e#13457#15973#0" expanded="false" />
-            <element signature="e#13661#14089#0" expanded="false" />
-            <element signature="e#14103#14413#0" expanded="false" />
-            <element signature="e#14427#14857#0" expanded="false" />
-            <element signature="e#14871#15181#0" expanded="false" />
-            <element signature="e#15195#15624#0" expanded="false" />
-            <element signature="e#15638#15948#0" expanded="false" />
-            <element signature="e#16012#18528#0" expanded="false" />
-            <element signature="e#16216#16644#0" expanded="false" />
-            <element signature="e#16658#16968#0" expanded="false" />
-            <element signature="e#16982#17412#0" expanded="false" />
-            <element signature="e#17426#17736#0" expanded="false" />
-            <element signature="e#17750#18179#0" expanded="false" />
-            <element signature="e#18193#18503#0" expanded="false" />
-            <element signature="e#18564#21080#0" expanded="false" />
-            <element signature="e#21115#23631#0" expanded="false" />
-            <element signature="e#21761#22071#0" expanded="false" />
-            <element signature="e#22085#22515#0" expanded="false" />
-            <element signature="e#22529#22839#0" expanded="false" />
-            <element signature="e#22853#23282#0" expanded="false" />
-            <element signature="e#23296#23606#0" expanded="false" />
+            <element signature="e#3703#3724#0" expanded="true" />
+            <element signature="e#4098#4110#0" expanded="true" />
+            <element signature="e#4344#4359#0" expanded="true" />
+            <element signature="e#4732#4744#0" expanded="true" />
+            <element signature="e#7502#7514#0" expanded="true" />
+            <element signature="e#8737#8749#0" expanded="true" />
+            <element signature="e#10017#10029#0" expanded="true" />
+            <element signature="e#11474#11486#0" expanded="true" />
+            <element signature="e#12707#12719#0" expanded="true" />
+            <element signature="e#13939#13951#0" expanded="true" />
+            <element signature="e#15399#15411#0" expanded="true" />
+            <element signature="e#16635#16647#0" expanded="true" />
+            <element signature="e#17916#17928#0" expanded="true" />
+            <element signature="e#19655#19667#0" expanded="true" />
+            <element signature="e#20926#20938#0" expanded="true" />
+            <element signature="e#22196#22208#0" expanded="true" />
+            <element signature="e#23719#23731#0" expanded="true" />
+            <element signature="e#24990#25002#0" expanded="true" />
+            <element signature="e#26302#26314#0" expanded="true" />
+            <element signature="e#27822#27834#0" expanded="true" />
+            <element signature="e#29093#29105#0" expanded="true" />
+            <element signature="e#30405#30417#0" expanded="true" />
+            <element signature="e#31924#31936#0" expanded="true" />
+            <element signature="e#33195#33207#0" expanded="true" />
+            <element signature="e#34465#34477#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2568,263 +2628,142 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/SensorFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/WebCalls/CloudPoster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/rajawali/PointCloud.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudRajawaliRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="36" column="42" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/rajawali/PointCloud.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudRajawaliRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="36" column="42" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/rajawali/PointCloud.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudRajawaliRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="36" column="42" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/rajawali/PointCloud.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/rajawali/Points.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1342">
-          <caret line="80" column="9" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.rajawali3d/rajawali/1.0.325/c6765be281fd67b754ba01292f0b8047a2252dfb/rajawali-1.0.325-sources.jar!/org/rajawali3d/ATransformable3D.java" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.rajawali3d/rajawali/1.0.325/c6765be281fd67b754ba01292f0b8047a2252dfb/rajawali-1.0.325-sources.jar!/org/rajawali3d/Object3D.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/rajawali/Points.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1342">
-          <caret line="80" column="9" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/TouchViewHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2052">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudRajawaliRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="36" column="42" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/rajawali/PointCloud.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/java/text/Format.java" />
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/java/text/NumberFormat.java" />
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/java/io/FileInputStream.java" />
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/java/util/Calendar.java" />
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/widget/Toast.java" />
-    <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.google.tango/sdk-base/1.54/jars/classes.jar!/com/google/atap/tangoservice/TangoPointCloudData.class" />
-    <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.google.tango/support-base/1.54/jars/classes.jar!/com/projecttango/tangosupport/TangoPointCloudManager.class" />
-    <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.google.tango/sdk-base/1.54/jars/classes.jar!/com/google/atap/tangoservice/Tango.class" />
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/java/text/DecimalFormat.java" />
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/java/nio/FloatBuffer.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/WebCalls/CloudPoster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/opengl/GLSurfaceView.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="636">
-          <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/net/wifi/ScanResult.java" />
-    <entry file="file://$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-v24/values-v24.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/AccessPoint.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="26" column="78" selection-start-line="26" selection-start-column="78" selection-end-line="26" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.google.tango/sdk-base/1.54/jars/classes.jar!/com/google/atap/tangoservice/TangoPoseData.class" />
-    <entry file="jar://$USER_HOME$/.android/build-cache/52bcf19ee88fdb6f82794f3c5eeea495d54abff1/output/jars/classes.jar!/com/google/atap/tangoservice/TangoPoseData.class" />
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/platforms/android-25/android.jar!/android/hardware/Sensor.class" />
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/platforms/android-25/android.jar!/android/hardware/SensorManager.class" />
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="453">
+          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/Interfaces/StepListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="110" column="49" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="49" />
-          <folding>
-            <element signature="e#752#964#0" expanded="false" />
-            <element signature="e#5649#8161#0" expanded="false" />
-            <element signature="e#13457#15973#0" expanded="false" />
-            <element signature="e#13661#14089#0" expanded="false" />
-            <element signature="e#14103#14413#0" expanded="false" />
-            <element signature="e#14427#14857#0" expanded="false" />
-            <element signature="e#14871#15181#0" expanded="false" />
-            <element signature="e#15195#15624#0" expanded="false" />
-            <element signature="e#15638#15948#0" expanded="false" />
-            <element signature="e#16012#18528#0" expanded="false" />
-            <element signature="e#16216#16644#0" expanded="false" />
-            <element signature="e#16658#16968#0" expanded="false" />
-            <element signature="e#16982#17412#0" expanded="false" />
-            <element signature="e#17426#17736#0" expanded="false" />
-            <element signature="e#17750#18179#0" expanded="false" />
-            <element signature="e#18193#18503#0" expanded="false" />
-            <element signature="e#18564#21080#0" expanded="false" />
-            <element signature="e#21115#23631#0" expanded="false" />
-            <element signature="e#21761#22071#0" expanded="false" />
-            <element signature="e#22085#22515#0" expanded="false" />
-            <element signature="e#22529#22839#0" expanded="false" />
-            <element signature="e#22853#23282#0" expanded="false" />
-            <element signature="e#23296#23606#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/round_bg_blue.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/round_bg_red.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="263" column="17" selection-start-line="263" selection-start-column="17" selection-end-line="263" selection-end-column="17" />
+        <state relative-caret-position="60">
+          <caret line="4" column="8" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/CircleTextView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
           <folding>
-            <element signature="e#0#45373#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="docComment;method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#showsToastAndFinishOnUiThread#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#postCloudData#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#postWiFiData#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#postIMUData#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#onAccuracyChanged#0;class#PointCloudActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/StepDetector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="55" column="53" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
+          <folding>
+            <element signature="e#967#968#0" expanded="false" />
+            <element signature="e#1007#1008#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/round_bg_green.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="906" column="42" selection-start-line="906" selection-start-column="42" selection-end-line="906" selection-end-column="42" />
+          <folding>
+            <element signature="e#3703#3724#0" expanded="true" />
+            <element signature="e#4098#4110#0" expanded="true" />
+            <element signature="e#4344#4359#0" expanded="true" />
+            <element signature="e#4732#4744#0" expanded="true" />
+            <element signature="e#7502#7514#0" expanded="true" />
+            <element signature="e#8737#8749#0" expanded="true" />
+            <element signature="e#10017#10029#0" expanded="true" />
+            <element signature="e#11474#11486#0" expanded="true" />
+            <element signature="e#12707#12719#0" expanded="true" />
+            <element signature="e#13939#13951#0" expanded="true" />
+            <element signature="e#15399#15411#0" expanded="true" />
+            <element signature="e#16635#16647#0" expanded="true" />
+            <element signature="e#17916#17928#0" expanded="true" />
+            <element signature="e#19655#19667#0" expanded="true" />
+            <element signature="e#20926#20938#0" expanded="true" />
+            <element signature="e#22196#22208#0" expanded="true" />
+            <element signature="e#23719#23731#0" expanded="true" />
+            <element signature="e#24990#25002#0" expanded="true" />
+            <element signature="e#26302#26314#0" expanded="true" />
+            <element signature="e#27822#27834#0" expanded="true" />
+            <element signature="e#29093#29105#0" expanded="true" />
+            <element signature="e#30405#30417#0" expanded="true" />
+            <element signature="e#31924#31936#0" expanded="true" />
+            <element signature="e#33195#33207#0" expanded="true" />
+            <element signature="e#34465#34477#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="217" column="62" selection-start-line="217" selection-start-column="62" selection-end-line="217" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#11525#12159#0" expanded="true" />
+            <element signature="e#12158#12159#0" expanded="true" />
+            <element signature="e#12464#12590#0" expanded="true" />
+            <element signature="e#12589#12590#0" expanded="true" />
+            <element signature="e#13606#13647#0" expanded="true" />
+            <element signature="e#13851#14957#0" expanded="true" />
+            <element signature="e#14395#14436#0" expanded="true" />
+            <element signature="e#14531#14572#0" expanded="true" />
+            <element signature="e#14632#14662#0" expanded="true" />
+            <element signature="e#14756#14799#0" expanded="true" />
+            <element signature="e#14859#14891#0" expanded="true" />
+            <element signature="e#14956#14957#0" expanded="true" />
+            <element signature="e#16902#19715#0" expanded="true" />
+            <element signature="e#19714#19715#0" expanded="true" />
+            <element signature="e#25145#25390#0" expanded="true" />
+            <element signature="e#25389#25390#0" expanded="true" />
             <element signature="method#generate3x3Matrix#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#newMatrix#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#QuatToMatrix3#0;class#PointCloudActivity#0" expanded="false" />
