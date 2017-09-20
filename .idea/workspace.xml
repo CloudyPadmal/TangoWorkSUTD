@@ -18,11 +18,12 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/TouchViewHandler.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/TouchViewHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" />
     </list>
     <ignored path="java_point_cloud_example.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,40 +55,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PointCloudActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PointCloudActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="-1122">
+              <caret line="396" column="32" selection-start-line="396" selection-start-column="32" selection-end-line="396" selection-end-column="32" />
               <folding>
-                <element signature="method#generate3x3Matrix#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="method#newMatrix#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#onCreate#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#RUN#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#setupDisplay#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#setupWiFi#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#setupSensors#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#setupStepCounter#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#onResume#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#onStart#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#postAllData#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#onStop#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#bindTangoService#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#initiateViews#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#initiateVariables#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#setupTangoAndServer#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#setupTangoConfig#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#startupTango#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="class#14953:19071" expanded="false" />
+                <element signature="method#onPoseAvailable#0;class#14953:19071" expanded="false" />
+                <element signature="method#onPointCloudAvailable#0;class#14953:19071" expanded="false" />
+                <element signature="method#onTangoEvent#0;class#14953:19071" expanded="false" />
+                <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#onTouchEvent#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#setDisplayRotation#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#showsToastAndFinishOnUiThread#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#postBreakData#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#postCloudData#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#postWiFiData#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#postIMUData#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#tangoToPolarTransformer#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#QuatToMatrix3#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#transformToLeftCoordinateSystem#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#rotate90DegreeAlongZ#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#Matrix4ToEuler#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#onSensorChanged#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#onAccuracyChanged#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#stepMade#0;class#PointCloudActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <file leaf-file-name="activity_point_cloud.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+            <state relative-caret-position="202">
+              <caret line="471" column="41" selection-start-line="471" selection-start-column="41" selection-end-line="471" selection-end-column="41" />
               <folding />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TouchViewHandler.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/TouchViewHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="77" column="49" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
-              <folding />
-            </state>
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
@@ -1951,10 +1978,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/CircleTextView.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/round_bg_blue.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/round_bg_green.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/TouchViewHandler.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java" />
       </list>
     </option>
   </component>
@@ -2500,7 +2527,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="24" width="1853" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3268817" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -2512,7 +2539,7 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872164" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32580644" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32580644" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42580646" sideWeight="0.5019369" order="11" side_tool="true" content_ui="tabs" />
@@ -2562,12 +2589,45 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#generate3x3Matrix#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#newMatrix#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#onCreate#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#RUN#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#setupDisplay#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#setupWiFi#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#setupSensors#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#setupStepCounter#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onResume#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onStart#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#postAllData#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onStop#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#bindTangoService#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#initiateViews#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#initiateVariables#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#setupTangoAndServer#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#setupTangoConfig#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#startupTango#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="class#14953:19071" expanded="false" />
+            <element signature="method#onPoseAvailable#0;class#14953:19071" expanded="false" />
+            <element signature="method#onPointCloudAvailable#0;class#14953:19071" expanded="false" />
+            <element signature="method#onTangoEvent#0;class#14953:19071" expanded="false" />
+            <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onTouchEvent#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#setDisplayRotation#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#showsToastAndFinishOnUiThread#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#postBreakData#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#postCloudData#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#postWiFiData#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#postIMUData#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#tangoToPolarTransformer#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#QuatToMatrix3#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#transformToLeftCoordinateSystem#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#rotate90DegreeAlongZ#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#Matrix4ToEuler#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onSensorChanged#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onAccuracyChanged#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#stepMade#0;class#PointCloudActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2576,33 +2636,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
-          <folding>
-            <element signature="e#3703#3724#0" expanded="true" />
-            <element signature="e#4098#4110#0" expanded="true" />
-            <element signature="e#4344#4359#0" expanded="true" />
-            <element signature="e#4732#4744#0" expanded="true" />
-            <element signature="e#7502#7514#0" expanded="true" />
-            <element signature="e#8737#8749#0" expanded="true" />
-            <element signature="e#10017#10029#0" expanded="true" />
-            <element signature="e#11474#11486#0" expanded="true" />
-            <element signature="e#12707#12719#0" expanded="true" />
-            <element signature="e#13939#13951#0" expanded="true" />
-            <element signature="e#15399#15411#0" expanded="true" />
-            <element signature="e#16635#16647#0" expanded="true" />
-            <element signature="e#17916#17928#0" expanded="true" />
-            <element signature="e#19655#19667#0" expanded="true" />
-            <element signature="e#20926#20938#0" expanded="true" />
-            <element signature="e#22196#22208#0" expanded="true" />
-            <element signature="e#23719#23731#0" expanded="true" />
-            <element signature="e#24990#25002#0" expanded="true" />
-            <element signature="e#26302#26314#0" expanded="true" />
-            <element signature="e#27822#27834#0" expanded="true" />
-            <element signature="e#29093#29105#0" expanded="true" />
-            <element signature="e#30405#30417#0" expanded="true" />
-            <element signature="e#31924#31936#0" expanded="true" />
-            <element signature="e#33195#33207#0" expanded="true" />
-            <element signature="e#34465#34477#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -2678,55 +2712,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.rajawali3d/rajawali/1.0.325/c6765be281fd67b754ba01292f0b8047a2252dfb/rajawali-1.0.325-sources.jar!/org/rajawali3d/cameras/Camera.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="906" column="42" selection-start-line="906" selection-start-column="42" selection-end-line="906" selection-end-column="42" />
-          <folding>
-            <element signature="e#3703#3724#0" expanded="true" />
-            <element signature="e#4098#4110#0" expanded="true" />
-            <element signature="e#4344#4359#0" expanded="true" />
-            <element signature="e#4732#4744#0" expanded="true" />
-            <element signature="e#7502#7514#0" expanded="true" />
-            <element signature="e#8737#8749#0" expanded="true" />
-            <element signature="e#10017#10029#0" expanded="true" />
-            <element signature="e#11474#11486#0" expanded="true" />
-            <element signature="e#12707#12719#0" expanded="true" />
-            <element signature="e#13939#13951#0" expanded="true" />
-            <element signature="e#15399#15411#0" expanded="true" />
-            <element signature="e#16635#16647#0" expanded="true" />
-            <element signature="e#17916#17928#0" expanded="true" />
-            <element signature="e#19655#19667#0" expanded="true" />
-            <element signature="e#20926#20938#0" expanded="true" />
-            <element signature="e#22196#22208#0" expanded="true" />
-            <element signature="e#23719#23731#0" expanded="true" />
-            <element signature="e#24990#25002#0" expanded="true" />
-            <element signature="e#26302#26314#0" expanded="true" />
-            <element signature="e#27822#27834#0" expanded="true" />
-            <element signature="e#29093#29105#0" expanded="true" />
-            <element signature="e#30405#30417#0" expanded="true" />
-            <element signature="e#31924#31936#0" expanded="true" />
-            <element signature="e#33195#33207#0" expanded="true" />
-            <element signature="e#34465#34477#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="199">
+          <caret line="276" column="16" selection-start-line="276" selection-start-column="16" selection-end-line="276" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/TouchViewHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="method#generate3x3Matrix#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#newMatrix#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#QuatToMatrix3#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#transformToLeftCoordinateSystem#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#rotate90DegreeAlongZ#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#Matrix4ToEuler#0;class#PointCloudActivity#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2738,19 +2736,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.rajawali3d/rajawali/1.0.325/c6765be281fd67b754ba01292f0b8047a2252dfb/rajawali-1.0.325-sources.jar!/org/rajawali3d/cameras/Camera.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="276" column="16" selection-start-line="276" selection-start-column="16" selection-end-line="276" selection-end-column="16" />
+        <state relative-caret-position="202">
+          <caret line="471" column="41" selection-start-line="471" selection-start-column="41" selection-end-line="471" selection-end-column="41" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/TouchViewHandler.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="77" column="49" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
-          <folding />
+        <state relative-caret-position="-1122">
+          <caret line="396" column="32" selection-start-line="396" selection-start-column="32" selection-end-line="396" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#onCreate#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#RUN#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#setupDisplay#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#setupWiFi#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#setupSensors#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#setupStepCounter#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onResume#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onStart#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#postAllData#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onStop#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#bindTangoService#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#initiateViews#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#initiateVariables#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#setupTangoAndServer#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#setupTangoConfig#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#startupTango#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="class#14953:19071" expanded="false" />
+            <element signature="method#onPoseAvailable#0;class#14953:19071" expanded="false" />
+            <element signature="method#onPointCloudAvailable#0;class#14953:19071" expanded="false" />
+            <element signature="method#onTangoEvent#0;class#14953:19071" expanded="false" />
+            <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onTouchEvent#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#setDisplayRotation#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#showsToastAndFinishOnUiThread#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#postBreakData#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#postCloudData#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#postWiFiData#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#postIMUData#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#tangoToPolarTransformer#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#QuatToMatrix3#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#transformToLeftCoordinateSystem#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#rotate90DegreeAlongZ#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#Matrix4ToEuler#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onSensorChanged#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onAccuracyChanged#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#stepMade#0;class#PointCloudActivity#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

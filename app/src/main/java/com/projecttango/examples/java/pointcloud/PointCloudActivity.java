@@ -61,8 +61,6 @@ import com.projecttango.tangosupport.ux.UxExceptionEvent;
 import com.projecttango.tangosupport.ux.UxExceptionEventListener;
 import com.vistrav.ask.Ask;
 
-import org.apache.commons.math3.linear.MatrixUtils;
-import org.apache.commons.math3.linear.RealMatrix;
 import org.rajawali3d.scene.ASceneFrameCallback;
 import org.rajawali3d.surface.RajawaliSurfaceView;
 import org.rajawali3d.util.ArrayUtils;
@@ -79,59 +77,65 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class PointCloudActivity extends AppCompatActivity implements SensorEventListener, StepListener {
-    private static final String TAG = "Padmal";
 
+    /***************************************** TAGs ***********************************************/
+    private static final String TAG = "Padmal";
     private static final String UX_EXCEPTION_EVENT_DETECTED = "Exception Detected: ";
     private static final String UX_EXCEPTION_EVENT_RESOLVED = "Exception Resolved: ";
-
+    /************************************** Constants *********************************************/
     private static final int SECS_TO_MILLISECS = 1000;
     private static final double UPDATE_INTERVAL_MS = 200.0;
+    /***************************************** URLs ***********************************************/
     private final String CLOUD_URL = "http://202.94.70.33/tango/insert_tango_point_cloud.php";
     private final String WIFI_URL = "http://202.94.70.33/tango/insert_tango_wifi_scan.php";
     private final String IMU_URL = "http://202.94.70.33/tango/insert_tango_raw_imu.php";
     private final long CLOUD_INTERVAL = 1000;
     private final int MM = 10000;
+
+    /*************************************** Views ************************************************/
+    private TextView wifiStat, cloudStat, imuStat;
+    private TextView mNodes, mTimeStamp, mEndStamp, mSteps;
+    private Button runStop;
+    private RajawaliSurfaceView mSurfaceView;
+    private TextView mPointCountTextView;
+    private TextView Xv, Yv, Zv, Xtv, Ytv, Ztv, Ax, Ay, Az;
+    private TextView oriX, oriY, oriZ, accX, accY, accZ, gyrX, gyrY, gyrZ, magX, magY, magZ;
+
+    /************************************* Utilities **********************************************/
+    private SensorManager sensorManager;
+    private Sensor GyroSensor, AccelSensor, MagenetSensor;
     private Tango mTango;
     private TangoConfig mConfig;
     private TangoUx mTangoUx;
     private TangoPointCloudManager mPointCloudManager;
     private PointCloudRajawaliRenderer mRenderer;
-    private RajawaliSurfaceView mSurfaceView;
-    private TextView mPointCountTextView;
-    private double mPointCloudPreviousTimeStamp;
-    private boolean mIsConnected = false;
-    private double mPointCloudTimeToNextUpdate = UPDATE_INTERVAL_MS;
-    private int mDisplayRotation = 0;
-    private SensorManager sensorManager;
-    private Sensor GyroSensor, AccelSensor, MagenetSensor;
+    private Timer timer;
+    private TangoPoseData lastPose;
+    private TangoPointCloudData lastCloud;
+    private StepDetector simpleStepDetector;
+    private WifiManager wifiManager;
+    private DefaultRetryPolicy retryPolicy;
+    private RequestQueue queue;
+
+    /*************************************** Arrays ***********************************************/
     private float[] OriReading;
     private float[] AccReading;
     private float[] GyroReading;
     private float[] MagReading;
     private float[] mGravity, mGeomagnetic;
-    // Custom variables
-    private TextView wifiStat, cloudStat, imuStat;
-    private TextView mNodes, mTimeStamp, mEndStamp, mSteps;
-    private Button runStop;
-    private int wifiCount = 0, cloudCount = 0, imuCount = 0, stepCount = 0;
-    private TextView Xv, Yv, Zv, Xtv, Ytv, Ztv, Ax, Ay, Az;
-    private TextView oriX, oriY, oriZ, accX, accY, accZ, gyrX, gyrY, gyrZ, magX, magY, magZ;
-    private Timer timer;
-    private TangoPoseData lastPose;
-    private TangoPointCloudData lastCloud;
-    private double[] unityPose;
     private double[] completePose;
-    private WifiManager wifiManager;
     private List<ScanResult> scanResults;
+
+    /************************************* Variables **********************************************/
+    private double mPointCloudPreviousTimeStamp;
+    private boolean mIsConnected = false;
+    private double mPointCloudTimeToNextUpdate = UPDATE_INTERVAL_MS;
+    private int mDisplayRotation = 0;
+    private int wifiCount = 0, cloudCount = 0, imuCount = 0, stepCount = 0;
     private int count = 0;
     private boolean started = false;
-
-    private StepDetector simpleStepDetector;
-
-    private DefaultRetryPolicy retryPolicy;
-    private RequestQueue queue;
-
     private int NodeCount = 0;
+    /************************************ Exceptions **********************************************/
     private UxExceptionEventListener mUxExceptionListener = new UxExceptionEventListener() {
         @Override
         public void onUxExceptionEvent(UxExceptionEvent uxExceptionEvent) {
@@ -164,79 +168,55 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_point_cloud);
+
         Ask.on(this).forPermissions(Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_WIFI_STATE,
                 Manifest.permission.CHANGE_WIFI_STATE).go();
 
-        AccReading = new float[3];
-        MagReading = new float[3];
-        OriReading = new float[3];
-        GyroReading = new float[3];
-        mGravity = new float[3];
-        mGeomagnetic = new float[3];
+        initiateVariables();
 
-        simpleStepDetector = new StepDetector();
-        simpleStepDetector.registerListener(this);
+        initiateViews();
 
-        mPointCountTextView = (TextView) findViewById(R.id.point_count_textview);
-        mNodes = (TextView) findViewById(R.id.nodes);
-        Xv = (TextView) findViewById(R.id.x_vl);
-        Yv = (TextView) findViewById(R.id.y_vl);
-        Zv = (TextView) findViewById(R.id.z_vl);
-        Xtv = (TextView) findViewById(R.id.xt_vl);
-        Ytv = (TextView) findViewById(R.id.yt_vl);
-        Ztv = (TextView) findViewById(R.id.zt_vl);
-        Ax = (TextView) findViewById(R.id.ax);
-        Ay = (TextView) findViewById(R.id.ay);
-        Az = (TextView) findViewById(R.id.az);
+        setupTangoAndServer();
 
-        oriX = (TextView) findViewById(R.id.ori_x);
-        oriY = (TextView) findViewById(R.id.ori_y);
-        oriZ = (TextView) findViewById(R.id.ori_z);
-        accX = (TextView) findViewById(R.id.acc_x);
-        accY = (TextView) findViewById(R.id.acc_y);
-        accZ = (TextView) findViewById(R.id.acc_z);
-        gyrX = (TextView) findViewById(R.id.gyr_x);
-        gyrY = (TextView) findViewById(R.id.gyr_y);
-        gyrZ = (TextView) findViewById(R.id.gyr_z);
-        magX = (TextView) findViewById(R.id.mag_x);
-        magY = (TextView) findViewById(R.id.mag_y);
-        magZ = (TextView) findViewById(R.id.mag_z);
-
-        wifiStat = (TextView) findViewById(R.id.wifi_stat);
-        cloudStat = (TextView) findViewById(R.id.cloud_stat);
-        imuStat = (TextView) findViewById(R.id.imu_stat);
-        mSteps = (TextView) findViewById(R.id.step_count_textview);
-        unityPose = new double[6];
-        completePose = new double[13];
-        mTimeStamp = (TextView) findViewById(R.id.start_time_stamp);
-        mEndStamp = (TextView) findViewById(R.id.end_time_stamp);
-        runStop = (Button) findViewById(R.id.run_stop);
-        mSurfaceView = (RajawaliSurfaceView) findViewById(R.id.gl_surface_view);
-        queue = Volley.newRequestQueue(this);
-
-        mPointCloudManager = new TangoPointCloudManager();
-        mTangoUx = setupTangoUxAndLayout();
-        mRenderer = new PointCloudRajawaliRenderer(this);
         setupRenderer();
 
-        wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-        if (!wifiManager.isWifiEnabled()) {
-            Toast.makeText(getApplicationContext(), "Enabling WIFI", Toast.LENGTH_SHORT).show();
-            wifiManager.setWifiEnabled(true);
-        }
+        setupWiFi();
 
-        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        AccelSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        MagenetSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
-        GyroSensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
-        sensorManager.registerListener(this, AccelSensor, SensorManager.SENSOR_DELAY_FASTEST);
-        sensorManager.registerListener(this, MagenetSensor, SensorManager.SENSOR_DELAY_UI);
-        sensorManager.registerListener(this, GyroSensor, SensorManager.SENSOR_DELAY_UI);
+        setupSensors();
 
+        setupStepCounter();
+
+        setupDisplay();
+
+        RUN();
+    }
+
+    private void RUN() {
+        runStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
+                String now = sdf.format(new Date());
+                if (started) {
+                    postBreakData("Stopped!", false);
+                    mEndStamp.setText(now);
+                } else {
+                    postBreakData("Initiated!", true);
+                    mTimeStamp.setText(now);
+                }
+                started = !started;
+                runStop.setText(started ? "Click to STOP!" : "Click to START!");
+            }
+        });
+    }
+
+    private void setupDisplay() {
         DisplayManager displayManager = (DisplayManager) getSystemService(DISPLAY_SERVICE);
         if (displayManager != null) {
             displayManager.registerDisplayListener(new DisplayManager.DisplayListener() {
@@ -256,24 +236,29 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                 }
             }, null);
         }
-        retryPolicy = new DefaultRetryPolicy(10000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES - 1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-        timer = new Timer();
-        runStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
-                String now = sdf.format(new Date());
-                if (started) {
-                    postBreakData("Stopped!", false);
-                    mEndStamp.setText(now);
-                } else {
-                    postBreakData("Initiated!", true);
-                    mTimeStamp.setText(now);
-                }
-                started = !started;
-                runStop.setText(started ? "Click to STOP!" : "Click to START!");
-            }
-        });
+    }
+
+    private void setupWiFi() {
+        wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+        if (!wifiManager.isWifiEnabled()) {
+            Toast.makeText(getApplicationContext(), "Enabling WIFI", Toast.LENGTH_SHORT).show();
+            wifiManager.setWifiEnabled(true);
+        }
+    }
+
+    private void setupSensors() {
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        AccelSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        MagenetSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        GyroSensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+        sensorManager.registerListener(this, AccelSensor, SensorManager.SENSOR_DELAY_FASTEST);
+        sensorManager.registerListener(this, MagenetSensor, SensorManager.SENSOR_DELAY_UI);
+        sensorManager.registerListener(this, GyroSensor, SensorManager.SENSOR_DELAY_UI);
+    }
+
+    private void setupStepCounter() {
+        simpleStepDetector = new StepDetector();
+        simpleStepDetector.registerListener(this);
     }
 
     @Override
@@ -296,6 +281,9 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         }, CLOUD_INTERVAL, CLOUD_INTERVAL);
     }
 
+    /**
+     * Post data to server according to time interval gap
+     */
     private void postAllData() {
         if (started) {
             if (count == 4) {
@@ -312,12 +300,6 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     protected void onStop() {
         super.onStop();
         timer.cancel();
-
-        // Synchronize against disconnecting while the service is being used in the OpenGL
-        // thread or in the UI thread.
-        // NOTE: DO NOT lock against this same object in the Tango callback thread.
-        // Tango.disconnect will block here until all Tango callback calls are finished.
-        // If you lock against this object in a Tango callback thread it will cause a deadlock.
         synchronized (this) {
             try {
                 mTangoUx.stop();
@@ -356,6 +338,81 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                 }
             }
         });
+    }
+
+    /**
+     * Initialize Views used in the UI
+     */
+    private void initiateViews() {
+
+        mTimeStamp = (TextView) findViewById(R.id.start_time_stamp);
+        mEndStamp = (TextView) findViewById(R.id.end_time_stamp);
+        runStop = (Button) findViewById(R.id.run_stop);
+
+        mSurfaceView = (RajawaliSurfaceView) findViewById(R.id.gl_surface_view);
+
+        mPointCountTextView = (TextView) findViewById(R.id.point_count_textview);
+        mNodes = (TextView) findViewById(R.id.nodes);
+
+        Xv = (TextView) findViewById(R.id.x_vl);
+        Yv = (TextView) findViewById(R.id.y_vl);
+        Zv = (TextView) findViewById(R.id.z_vl);
+        Xtv = (TextView) findViewById(R.id.xt_vl);
+        Ytv = (TextView) findViewById(R.id.yt_vl);
+        Ztv = (TextView) findViewById(R.id.zt_vl);
+        Ax = (TextView) findViewById(R.id.ax);
+        Ay = (TextView) findViewById(R.id.ay);
+        Az = (TextView) findViewById(R.id.az);
+
+        oriX = (TextView) findViewById(R.id.ori_x);
+        oriY = (TextView) findViewById(R.id.ori_y);
+        oriZ = (TextView) findViewById(R.id.ori_z);
+
+        accX = (TextView) findViewById(R.id.acc_x);
+        accY = (TextView) findViewById(R.id.acc_y);
+        accZ = (TextView) findViewById(R.id.acc_z);
+
+        gyrX = (TextView) findViewById(R.id.gyr_x);
+        gyrY = (TextView) findViewById(R.id.gyr_y);
+        gyrZ = (TextView) findViewById(R.id.gyr_z);
+
+        magX = (TextView) findViewById(R.id.mag_x);
+        magY = (TextView) findViewById(R.id.mag_y);
+        magZ = (TextView) findViewById(R.id.mag_z);
+
+        wifiStat = (TextView) findViewById(R.id.wifi_stat);
+        cloudStat = (TextView) findViewById(R.id.cloud_stat);
+        imuStat = (TextView) findViewById(R.id.imu_stat);
+        mSteps = (TextView) findViewById(R.id.step_count_textview);
+    }
+
+    /**
+     * Initialize variables used in
+     */
+    private void initiateVariables() {
+
+        AccReading = new float[3];
+        MagReading = new float[3];
+        OriReading = new float[3];
+        GyroReading = new float[3];
+        mGravity = new float[3];
+        mGeomagnetic = new float[3];
+        completePose = new double[13];
+    }
+
+    /**
+     * Initialize Volley and Pointcloud viewer
+     */
+    private void setupTangoAndServer() {
+
+        queue = Volley.newRequestQueue(this);
+        retryPolicy = new DefaultRetryPolicy(10000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES - 1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+
+        timer = new Timer();
+
+        mPointCloudManager = new TangoPointCloudManager();
+        mTangoUx = setupTangoUxAndLayout();
+        mRenderer = new PointCloudRajawaliRenderer(this);
     }
 
     private TangoConfig setupTangoConfig(Tango tango) {
@@ -409,11 +466,10 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                             imuStat.setText("IW " + imuCount);
                             imuStat.setBackgroundColor(Color.TRANSPARENT);
                             try {
-                                double[] DATA = newMatrix(lastPose.getRotationAsFloats()[0],
+                                double[] DATA = tangoToPolarTransformer(lastPose.getRotationAsFloats()[0],
                                         lastPose.getRotationAsFloats()[1],
                                         lastPose.getRotationAsFloats()[2],
                                         lastPose.getRotationAsFloats()[3]);
-                                unityPose = DATA;
                                 double[] oldPose = {(double) lastPose.getTranslationAsFloats()[0],
                                         (double) lastPose.getTranslationAsFloats()[1],
                                         (double) lastPose.getTranslationAsFloats()[2],
@@ -422,18 +478,15 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                                         (double) lastPose.getRotationAsFloats()[2],
                                         (double) lastPose.getRotationAsFloats()[3]};
                                 completePose = ArrayUtils.concatAllDouble(oldPose, DATA);
-                                String X = String.format("%.7f", DATA[0]);
-                                Xv.setText(X);
-                                Xtv.setText(String.format("%.7f", lastPose.getTranslationAsFloats()[0]));
-                                Ax.setText(String.format("%.7f", DATA[3]));
-                                String Y = String.format("%.7f", DATA[1]);
-                                Yv.setText(Y);
-                                Ytv.setText(String.format("%.7f", lastPose.getTranslationAsFloats()[1]));
-                                Ay.setText(String.format("%.7f", DATA[4]));
-                                String Z = String.format("%.7f", DATA[2]);
-                                Zv.setText(Z);
-                                Ztv.setText(String.format("%.7f", lastPose.getTranslationAsFloats()[2]));
-                                Az.setText(String.format("%.7f", DATA[5]));
+                                Xv.setText(String.valueOf(DATA[0]));
+                                Xtv.setText(String.valueOf(lastPose.getTranslationAsFloats()[0]));
+                                Ax.setText(String.valueOf(DATA[3]));
+                                Yv.setText(String.valueOf(DATA[1]));
+                                Ytv.setText(String.valueOf(lastPose.getTranslationAsFloats()[1]));
+                                Ay.setText(String.valueOf(DATA[4]));
+                                Zv.setText(String.valueOf(DATA[2]));
+                                Ztv.setText(String.valueOf(lastPose.getTranslationAsFloats()[2]));
+                                Az.setText(String.valueOf(DATA[5]));
                             } catch (Exception e) {
                                 Log.d("Padmal", "Error " + e.getMessage());
                             }
@@ -558,10 +611,6 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
 
     /**
      * Calculates the average depth from a point cloud buffer.
-     *
-     * @param pointCloudBuffer
-     * @param numPoints
-     * @return Average depth.
      */
     private float getAveragedDepth(FloatBuffer pointCloudBuffer, int numPoints) {
         float totalZ = 0;
@@ -586,8 +635,6 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
 
     /**
      * Display toast on UI thread.
-     *
-     * @param resId The resource id of the string resource to use. Can be formatted text.
      */
     private void showsToastAndFinishOnUiThread(final int resId) {
         runOnUiThread(new Runnable() {
@@ -600,6 +647,9 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         });
     }
 
+    /**
+     * Server Communication ************************************************************************
+     */
     private void postBreakData(final String msg, final boolean state) {
         try {
             StringRequest stringRequest = new StringRequest(Request.Method.POST, WIFI_URL, new Response.Listener<String>() {
@@ -655,7 +705,9 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                 public void onResponse(String response) {
                     boolean success = response.contains("Data successfully created");
                     String displayText = (success) ? "CS " + cloudCount : "CF " + cloudCount;
-                    if (success) { cloudCount++; }
+                    if (success) {
+                        cloudCount++;
+                    }
                     cloudStat.setText(displayText);
                     cloudStat.setBackgroundColor(displayText.contains("S") ? Color.GREEN : Color.RED);
                 }
@@ -720,7 +772,9 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                     Log.d("padmal", response);
                     boolean success = response.contains("Data successfully created");
                     String displayText = (success) ? "WS " + wifiCount : "WF " + wifiCount;
-                    if (success) { wifiCount++; }
+                    if (success) {
+                        wifiCount++;
+                    }
                     wifiStat.setText(displayText);
                     wifiStat.setBackgroundColor(displayText.contains("W") ? Color.GREEN : Color.RED);
                     mNodes.setText(String.valueOf(NodeCount));
@@ -788,7 +842,9 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                     Log.d("padmal", response);
                     boolean success = response.contains("Data successfully created");
                     String displayText = (success) ? "IS " + imuCount : "IF " + imuCount;
-                    if (success) { imuCount++; }
+                    if (success) {
+                        imuCount++;
+                    }
                     imuStat.setText(displayText);
                     imuStat.setBackgroundColor(displayText.contains("S") ? Color.GREEN : Color.RED);
                 }
@@ -839,144 +895,10 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         }
     }
 
-    @Override
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        Sensor sensor = sensorEvent.sensor;
-
-        if (sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            simpleStepDetector.updateAccel(
-                    sensorEvent.timestamp, sensorEvent.values[0], sensorEvent.values[1], sensorEvent.values[2]);
-            AccReading[0] = sensorEvent.values[0];
-            AccReading[1] = sensorEvent.values[1];
-            AccReading[2] = sensorEvent.values[2];
-            accX.setText(String.valueOf(AccReading[0]));
-            accY.setText(String.valueOf(AccReading[1]));
-            accZ.setText(String.valueOf(AccReading[2]));
-            mGravity = sensorEvent.values;
-        }
-        if (sensor.getType() == Sensor.TYPE_GYROSCOPE) {
-            GyroReading[0] = sensorEvent.values[0];
-            GyroReading[1] = sensorEvent.values[1];
-            GyroReading[2] = sensorEvent.values[2];
-            gyrX.setText(String.valueOf(GyroReading[0]));
-            gyrY.setText(String.valueOf(GyroReading[1]));
-            gyrZ.setText(String.valueOf(GyroReading[2]));
-        }
-        if (sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD) {
-            MagReading[0] = sensorEvent.values[0];
-            MagReading[1] = sensorEvent.values[1];
-            MagReading[2] = sensorEvent.values[2];
-            magX.setText(String.valueOf(MagReading[0]));
-            magY.setText(String.valueOf(MagReading[1]));
-            magZ.setText(String.valueOf(MagReading[2]));
-            mGeomagnetic = sensorEvent.values;
-        }
-        float[] R = new float[9];
-        float[] I = new float[9];
-        boolean success = SensorManager.getRotationMatrix(R, I, mGravity, mGeomagnetic);
-        if (success) {
-            float[] orientationData = new float[3];
-            SensorManager.getOrientation(R, orientationData);
-            OriReading[0] = orientationData[0]; // Azimuth
-            OriReading[1] = orientationData[1]; // Pitch
-            OriReading[2] = orientationData[2]; // Roll
-            oriX.setText(String.valueOf(OriReading[0]));
-            oriY.setText(String.valueOf(OriReading[1]));
-            oriZ.setText(String.valueOf(OriReading[2]));
-        }
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int i) {
-
-    }
-
-    private double[] generate3x3Matrix(double x, double y, double w, double z) {
-        // Calculate intermediate variables
-        double wx = w * x;
-        double wy = w * y;
-        double wz = w * z;
-        double xx = x * x;
-        double xy = x * y;
-        double xz = x * z;
-        double yy = y * y;
-        double yz = y * z;
-        double zz = z * z;
-        // Calculate second level values
-        double R00 = 1.0 - 2.0 * (yy + zz);
-        double R01 = 2.0 * (xy - wz);
-        double R02 = 2.0 * (wy + xz);
-        // middle row
-        double R10 = 2.0 * (xy + wz);
-        double R11 = 1.0 - 2.0 * (xx + zz);
-        double R12 = 2 * (-wx + yz);
-        // bottom row
-        double R20 = 2 * (-wy + xz);
-        double R21 = 2 * (wx + yz);
-        double R22 = 1.0 - 2.0 * (xx + yy);
-        // Generate Matrix
-        double[][] matrixData = {{R00, R01, R02, x}, {R10, R11, R12, y}, {R20, R21, R22, z}, {0.0, 0.0, 0.0, 1.0}};
-        RealMatrix matrix = MatrixUtils.createRealMatrix(matrixData);
-        double[][] uwTss = {{1.0, 0.0, 0.0, 0.0}, {0.0, 1.0, 0.0, 0.0}, {0.0, 0.0, -1.0, 0.0}, {0.0, 0.0, 0.0, 1.0}};
-        RealMatrix UWTSS = MatrixUtils.createRealMatrix(uwTss);
-        double[][] dTuc = {{1.0, 0.0, 0.0, 0.0}, {0.0, 1.0, 0.0, 0.0}, {0.0, 0.0, -1.0, 0.0}, {0.0, 0.0, 0.0, 1.0}};
-        RealMatrix DTUC = MatrixUtils.createRealMatrix(dTuc);
-
-        // Multiply first two matrices
-        RealMatrix UWTD = UWTSS.multiply(matrix);
-        // Multiply that matrix by last matrix
-        RealMatrix UWTUC = UWTD.multiply(DTUC);
-
-        //double[][] data = UWTUC.getData();
-        double[][] data = matrix.getData();
-        StringBuilder matmaker = new StringBuilder();
-        for (double[] line : data) {
-            for (double l : line) {
-                matmaker.append(String.valueOf(l));
-                matmaker.append(",");
-            }
-            matmaker.append("---");
-        }
-        Log.d("Padmal", matmaker.toString());
-
-        double W, X, Y, Z;
-        double dW, dX, dY, dZ;
-
-        dW = 1.0 + data[0][0] + data[1][1] + data[2][2];
-        dX = 1.0 + data[0][0] - data[1][1] - data[2][2];
-        dY = 1.0 - data[0][0] + data[1][1] - data[2][2];
-        dZ = 1.0 - data[0][0] - data[1][1] + data[2][2];
-
-        double MaxDivisor = Math.max(Math.max(Math.max(dW, dX), dY), dZ);
-
-        if (MaxDivisor == dW) {
-            W = 0.5 * Math.sqrt(dW);
-            X = (data[1][2] - data[2][1]) / (4.0 * W);
-            Y = (data[2][0] - data[0][2]) / (4.0 * W);
-            Z = (data[0][1] - data[1][0]) / (4.0 * W);
-        } else if (MaxDivisor == dX) {
-            X = 0.5 * Math.sqrt(dX);
-            Y = (data[0][1] + data[1][0]) / (4.0 * X);
-            Z = (data[0][2] + data[2][0]) / (4.0 * X);
-            W = (data[1][2] - data[2][1]) / (4.0 * X);
-        } else if (MaxDivisor == dY) {
-            Y = 0.5 * Math.sqrt(dY);
-            X = (data[0][1] + data[1][0]) / (4.0 * Y);
-            Z = (data[1][2] + data[2][1]) / (4.0 * Y);
-            W = (data[2][0] - data[0][2]) / (4.0 * Y);
-        } else {
-            Z = 0.5 * Math.sqrt(dZ);
-            X = (data[0][2] + data[2][0]) / (4.0 * Z);
-            Y = (data[1][2] + data[2][1]) / (4.0 * Z);
-            W = (data[0][1] + data[1][0]) / (4.0 * Z);
-        }
-
-        Log.d("Padmal", " W = " + W + " X = " + X + " Y = " + Y + " Z = " + Z);
-        double[] returnDouble = {W, X, Y, Z};
-        return returnDouble;
-    }
-
-    private double[] newMatrix(double x, double y, double w, double z) {
+    /**
+     * Calculations ********************************************************************************
+     */
+    private double[] tangoToPolarTransformer(double x, double y, double w, double z) {
 
         double[] tempQuart = new double[4];
         tempQuart[0] = x;
@@ -1113,6 +1035,61 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         newPose[1] = z_90; // New Y
         newPose[2] = x_90; // New Z
         return newPose;
+    }
+
+    /**
+     * Listeners for data collection ***************************************************************
+     */
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        Sensor sensor = sensorEvent.sensor;
+
+        if (sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            simpleStepDetector.updateAccel(
+                    sensorEvent.timestamp, sensorEvent.values[0], sensorEvent.values[1], sensorEvent.values[2]);
+            AccReading[0] = sensorEvent.values[0];
+            AccReading[1] = sensorEvent.values[1];
+            AccReading[2] = sensorEvent.values[2];
+            accX.setText(String.valueOf(AccReading[0]));
+            accY.setText(String.valueOf(AccReading[1]));
+            accZ.setText(String.valueOf(AccReading[2]));
+            mGravity = sensorEvent.values;
+        }
+        if (sensor.getType() == Sensor.TYPE_GYROSCOPE) {
+            GyroReading[0] = sensorEvent.values[0];
+            GyroReading[1] = sensorEvent.values[1];
+            GyroReading[2] = sensorEvent.values[2];
+            gyrX.setText(String.valueOf(GyroReading[0]));
+            gyrY.setText(String.valueOf(GyroReading[1]));
+            gyrZ.setText(String.valueOf(GyroReading[2]));
+        }
+        if (sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD) {
+            MagReading[0] = sensorEvent.values[0];
+            MagReading[1] = sensorEvent.values[1];
+            MagReading[2] = sensorEvent.values[2];
+            magX.setText(String.valueOf(MagReading[0]));
+            magY.setText(String.valueOf(MagReading[1]));
+            magZ.setText(String.valueOf(MagReading[2]));
+            mGeomagnetic = sensorEvent.values;
+        }
+        float[] R = new float[9];
+        float[] I = new float[9];
+        boolean success = SensorManager.getRotationMatrix(R, I, mGravity, mGeomagnetic);
+        if (success) {
+            float[] orientationData = new float[3];
+            SensorManager.getOrientation(R, orientationData);
+            OriReading[0] = orientationData[0]; // Azimuth
+            OriReading[1] = orientationData[1]; // Pitch
+            OriReading[2] = orientationData[2]; // Roll
+            oriX.setText(String.valueOf(OriReading[0]));
+            oriY.setText(String.valueOf(OriReading[1]));
+            oriZ.setText(String.valueOf(OriReading[2]));
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
     }
 
     @Override

@@ -199,6 +199,7 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/t_ux_vl"
                     android:fontFamily="monospace"
+                    android:maxLength="9"
                     android:gravity="center"
                     android:padding="3dp"
                     android:text="@string/na"
@@ -231,6 +232,7 @@
                     android:fontFamily="monospace"
                     android:gravity="center"
                     android:padding="3dp"
+                    android:maxLength="9"
                     android:text="@string/na"
                     android:textSize="11sp" />
             </RelativeLayout>
@@ -262,6 +264,7 @@
                     android:fontFamily="monospace"
                     android:gravity="center"
                     android:padding="3dp"
+                    android:maxLength="9"
                     android:text="@string/na"
                     android:textSize="11sp" />
 
@@ -300,6 +303,7 @@
                     android:layout_toRightOf="@id/t_ax_vl"
                     android:fontFamily="monospace"
                     android:gravity="center"
+                    android:maxLength="9"
                     android:padding="3dp"
                     android:text="@string/na"
                     android:textSize="11sp" />
@@ -331,6 +335,7 @@
                     android:fontFamily="monospace"
                     android:gravity="center"
                     android:padding="3dp"
+                    android:maxLength="9"
                     android:text="@string/na"
                     android:textSize="11sp" />
             </RelativeLayout>
@@ -360,6 +365,7 @@
                     android:layout_toRightOf="@id/t_az_vl"
                     android:fontFamily="monospace"
                     android:gravity="center"
+                    android:maxLength="9"
                     android:padding="3dp"
                     android:text="@string/na"
                     android:textSize="11sp" />
@@ -400,6 +406,7 @@
                     android:fontFamily="monospace"
                     android:gravity="center"
                     android:padding="3dp"
+                    android:maxLength="9"
                     android:text="@string/na"
                     android:textSize="11sp" />
             </RelativeLayout>
@@ -430,6 +437,7 @@
                     android:fontFamily="monospace"
                     android:gravity="center"
                     android:padding="3dp"
+                    android:maxLength="9"
                     android:text="@string/na"
                     android:textSize="11sp" />
             </RelativeLayout>
@@ -461,6 +469,7 @@
                     android:fontFamily="monospace"
                     android:gravity="center"
                     android:padding="3dp"
+                    android:maxLength="9"
                     android:text="@string/na"
                     android:textSize="11sp" />
 
