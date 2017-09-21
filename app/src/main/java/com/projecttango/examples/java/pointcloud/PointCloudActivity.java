@@ -209,6 +209,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                 } else {
                     postBreakData("Initiated!", true);
                     mTimeStamp.setText(now);
+                    mEndStamp.setText("End Time");
                 }
                 started = !started;
                 runStop.setText(started ? "Click to STOP!" : "Click to START!");
@@ -286,7 +287,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
      */
     private void postAllData() {
         if (started) {
-            if (count == 4) {
+            if (count == 44) {
                 count = 0;
                 postWiFiData();
             }
