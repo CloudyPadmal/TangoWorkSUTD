@@ -97,7 +97,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private TextView mNodes, mTimeStamp, mEndStamp, mSteps;
     private Button runStop;
     private RajawaliSurfaceView mSurfaceView;
-    private TextView mPointCountTextView;
+    private TextView mPointCountTextView, mDirection;
     private TextView Xv, Yv, Zv, Xtv, Ytv, Ztv, Ax, Ay, Az;
     private TextView oriX, oriY, oriZ, accX, accY, accZ, gyrX, gyrY, gyrZ, magX, magY, magZ;
 
@@ -287,7 +287,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
      */
     private void postAllData() {
         if (started) {
-            if (count == 44) {
+            if (count == 5) {
                 count = 0;
                 postWiFiData();
             }
@@ -354,6 +354,8 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
 
         mPointCountTextView = (TextView) findViewById(R.id.point_count_textview);
         mNodes = (TextView) findViewById(R.id.nodes);
+
+        mDirection = (TextView) findViewById(R.id.direction);
 
         Xv = (TextView) findViewById(R.id.x_vl);
         Yv = (TextView) findViewById(R.id.y_vl);
@@ -1079,12 +1081,18 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         if (success) {
             float[] orientationData = new float[3];
             SensorManager.getOrientation(R, orientationData);
-            OriReading[0] = orientationData[0]; // Azimuth
+            OriReading[0] = orientationData[0]; // Azimuth -- North = 0
             OriReading[1] = orientationData[1]; // Pitch
             OriReading[2] = orientationData[2]; // Roll
             oriX.setText(String.valueOf(OriReading[0]));
             oriY.setText(String.valueOf(OriReading[1]));
             oriZ.setText(String.valueOf(OriReading[2]));
+            // Calculate degrees
+            int angle = (int) (OriReading[0] * (180 / Math.PI));
+            if (angle < 0) {
+                angle = angle + 360;
+            }
+            mDirection.setText(String.valueOf(angle));
         }
     }
 

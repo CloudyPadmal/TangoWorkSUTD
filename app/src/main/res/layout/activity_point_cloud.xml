@@ -40,8 +40,19 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Status :"
+                android:text="DIR"
+                android:layout_weight="0.5"
+                android:fontFamily="monospace"
+                android:padding="3dp"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/direction"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:fontFamily="monospace"
+                android:padding="3dp"
                 android:textSize="11sp" />
 
             <TextView
