@@ -917,11 +917,11 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     }
 
     private void postStepData() {
+        String data = ("?data=100,Padmal," + stepCount + "," + (String.valueOf(heading)));
         try {
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, STEP_URL, new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, STEP_URL + data, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Log.d("Padmal", response);
                     boolean success = response.contains("Data successfully created");
                     String displayText = (success) ? "SS " + steps : "SF " + steps;
                     if (success) {
@@ -936,23 +936,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                     /**/
                 }
             }
-
-            ) {
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String, String> body = new HashMap<>();
-                    try {
-                        String data = ("100,Padmal," + stepCount + "," + (String.valueOf(heading)));
-                        // User ID *****************************************************************
-                        body.put("data", data);
-                        // Reset step count
-                        stepCount = 0;
-                        return body;
-                    } catch (Exception e) {
-                        return null;
-                    }
-                }
-            };
+            );
             stringRequest.setRetryPolicy(retryPolicy);
             queue.add(stringRequest);
         } catch (Exception e) {
