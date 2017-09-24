@@ -28,8 +28,6 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.telephony.CellInfo;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
@@ -119,7 +117,6 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private WifiManager wifiManager;
     private DefaultRetryPolicy retryPolicy;
     private RequestQueue queue;
-    private TelephonyManager tm;
 
     /*************************************** Arrays ***********************************************/
     private float[] OriReading;
@@ -198,23 +195,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
 
         setupDisplay();
 
-        setupTelephones();
-
         RUN();
-    }
-
-    private void setupTelephones() {
-        tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        String IMEINumber = tm.getDeviceId();
-        String subscriberID = tm.getDeviceId();
-        String SIMSerialNumber = tm.getSimSerialNumber();
-        String networkCountryISO = tm.getNetworkCountryIso();
-        String SIMCountryISO = tm.getSimCountryIso();
-        String softwareVersion = tm.getDeviceSoftwareVersion();
-        String voiceMailNumber = tm.getVoiceMailNumber();
-        for (CellInfo i : tm.getAllCellInfo()) {
-            Log.d("Padmal", i.toString());
-        }
     }
 
     private void RUN() {
