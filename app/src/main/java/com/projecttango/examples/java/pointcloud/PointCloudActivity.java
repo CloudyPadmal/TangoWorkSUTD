@@ -101,6 +101,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private TextView mPointCountTextView, mDirection;
     private TextView Xv, Yv, Zv, Xtv, Ytv, Ztv, Ax, Ay, Az;
     private TextView oriX, oriY, oriZ, accX, accY, accZ, gyrX, gyrY, gyrZ, magX, magY, magZ;
+    private TextView mThreshold;
 
     /************************************* Utilities **********************************************/
     private SensorManager sensorManager;
@@ -136,6 +137,8 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private int count = 0;
     private boolean started = false;
     private int NodeCount = 0;
+    private int clickCount = 0;
+
     /************************************ Exceptions **********************************************/
     private UxExceptionEventListener mUxExceptionListener = new UxExceptionEventListener() {
         @Override
@@ -219,6 +222,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     }
 
     private void setupDisplay() {
+        mThreshold.setText(String.valueOf((int) StepDetector.STEP_THRESHOLD));
         DisplayManager displayManager = (DisplayManager) getSystemService(DISPLAY_SERVICE);
         if (displayManager != null) {
             displayManager.registerDisplayListener(new DisplayManager.DisplayListener() {
@@ -390,6 +394,8 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         imuStat = (TextView) findViewById(R.id.imu_stat);
         mSteps = (TextView) findViewById(R.id.step_count_textview);
         stepStat = (TextView) findViewById(R.id.step_stat);
+
+        mThreshold = (TextView) findViewById(R.id.tv_threshold);
     }
 
     /**
@@ -591,24 +597,44 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     }
 
     /**
-     * First Person button onClick callback.
+     * View button onClick callback.
      */
     public void onFirstPersonClicked(View v) {
-        mRenderer.setFirstPersonView();
+        switch (clickCount) {
+            case 0:
+                mRenderer.setFirstPersonView();
+                clickCount++;
+                break;
+            case 1:
+                mRenderer.setThirdPersonView();
+                clickCount++;
+                break;
+            case 2:
+                mRenderer.setTopDownView();
+                clickCount = 0;
+                break;
+            default:
+                mRenderer.setFirstPersonView();
+                clickCount = 0;
+                break;
+        }
+
     }
 
     /**
-     * Third Person button onClick callback.
+     * Increase step threshold
      */
-    public void onThirdPersonClicked(View v) {
-        mRenderer.setThirdPersonView();
+    public void incrementThreshold(View v) {
+        StepDetector.STEP_THRESHOLD++;
+        mThreshold.setText(String.valueOf((int) StepDetector.STEP_THRESHOLD));
     }
 
     /**
-     * Top-down button onClick callback.
+     * Decrease step threshold
      */
-    public void onTopDownClicked(View v) {
-        mRenderer.setTopDownView();
+    public void decrementThreshold(View v) {
+        StepDetector.STEP_THRESHOLD--;
+        mThreshold.setText(String.valueOf((int) StepDetector.STEP_THRESHOLD));
     }
 
     @Override
@@ -907,9 +933,11 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                     String displayText = (success) ? "SS " + steps : "SF " + steps;
                     if (success) {
                         steps++;
+                        stepCount = 0;
                     }
                     stepStat.setText(displayText);
                     stepStat.setBackgroundColor(displayText.contains("SS") ? Color.GREEN : Color.RED);
+                    mSteps.setText(String.valueOf(stepCount));
                 }
             }, new Response.ErrorListener() {
                 @Override
