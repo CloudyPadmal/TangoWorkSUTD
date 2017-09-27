@@ -75,6 +75,7 @@ public class TouchViewHandler {
         if (viewMode == ViewMode.FIRST_PERSON) {
             camera.setPosition(position);
             camera.setOrientation(orientation);
+            camera.setFieldOfView(TOUCH_FOV_MAX);
         } else if (viewMode == ViewMode.TOP_DOWN) {
             camera.setPosition(position.x + topDownCameraDelta.x, TOUCH_TOP_DISTANCE,
                     position.z + topDownCameraDelta.z);

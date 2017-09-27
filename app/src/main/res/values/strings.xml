@@ -38,5 +38,6 @@
     <string name="pose_unknown">"unknown"</string>
     <string name="latest_adf_is">", Latest ADF is: "</string>
     <string name="wifi_or_pointcloud">Type</string>
+    <string name="steps">Steps</string>
 
 </resources>
