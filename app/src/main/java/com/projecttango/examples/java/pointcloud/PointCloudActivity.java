@@ -33,6 +33,7 @@ import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -86,10 +87,11 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private static final int SECS_TO_MILLISECS = 1000;
     private static final double UPDATE_INTERVAL_MS = 200.0;
     /***************************************** URLs ***********************************************/
-    private final String CLOUD_URL = "http://202.94.70.33/tango/insert_tango_point_cloud.php";
-    private final String WIFI_URL = "http://202.94.70.33/tango/insert_tango_wifi_scan.php";
-    private final String IMU_URL = "http://202.94.70.33/tango/insert_tango_raw_imu.php";
-    private final String STEP_URL = "http://202.94.70.33/server_testing/insertIRPSMobileHeadingPlusSteps.php";
+    private final String DEFAULT_IP = "202.94.70.33";
+    private String CLOUD_URL = "";
+    private String WIFI_URL = "";
+    private String IMU_URL = "";
+    private String STEP_URL = "";
     private final long CLOUD_INTERVAL = 1000;
     private final int MM = 10000;
 
@@ -102,6 +104,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private TextView Xv, Yv, Zv, Xtv, Ytv, Ztv, Ax, Ay, Az;
     private TextView oriX, oriY, oriZ, accX, accY, accZ, gyrX, gyrY, gyrZ, magX, magY, magZ;
     private TextView mThreshold;
+    private TextView mIPAddress;
 
     /************************************* Utilities **********************************************/
     private SensorManager sensorManager;
@@ -125,7 +128,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private float[] GyroReading;
     private float[] MagReading;
     private float[] mGravity, mGeomagnetic;
-    private double[] completePose;
+    private double[] completePose, previousPose;
     private List<ScanResult> scanResults;
 
     /************************************* Variables **********************************************/
@@ -205,6 +208,14 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         runStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String IP = mIPAddress.getText().toString();
+                if (IP.equals("")) {
+                    IP = DEFAULT_IP;
+                }
+                CLOUD_URL = "http://" + IP + "/tango/insert_tango_point_cloud.php";
+                WIFI_URL = "http://" + IP + "/tango/insert_tango_wifi_scan.php";
+                IMU_URL = "http://" + IP + "/tango/insert_tango_raw_imu.php";
+                STEP_URL = "http://" + IP + "/server_testing/insertIRPSMobileHeadingPlusSteps.php";
                 SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
                 String now = sdf.format(new Date());
                 if (started) {
@@ -396,6 +407,8 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         stepStat = (TextView) findViewById(R.id.step_stat);
 
         mThreshold = (TextView) findViewById(R.id.tv_threshold);
+
+        mIPAddress = (EditText) findViewById(R.id.tv_ip_address);
     }
 
     /**
@@ -410,6 +423,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         mGravity = new float[3];
         mGeomagnetic = new float[3];
         completePose = new double[13];
+        previousPose = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
     }
 
     /**
@@ -492,6 +506,11 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                                         (double) lastPose.getRotationAsFloats()[2],
                                         (double) lastPose.getRotationAsFloats()[3]};
                                 completePose = ArrayUtils.concatAllDouble(oldPose, DATA);
+                                if (completePose[0] == 0.0 && completePose[1] == 0.0) {
+                                    completePose = previousPose;
+                                } else {
+                                    previousPose = completePose;
+                                }
                                 Xv.setText(String.valueOf(DATA[0]));
                                 Xtv.setText(String.valueOf(lastPose.getTranslationAsFloats()[0]));
                                 Ax.setText(String.valueOf(DATA[3]));

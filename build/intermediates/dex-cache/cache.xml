@@ -2,175 +2,157 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d2424c4a71999bb55e8498a060e87e090f4344e5">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_cf715e18c580d7dc8fbc0af3182ad7b2c9fb9f67/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/padmal/.android/build-cache/19b5fff70a8c839cbdc7d27818f5663ef55e4945/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f34ba5ca5092591e8010cf5831bb2a1a377d4dd4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/padmal/.android/build-cache/0fcb369fd6197cfa62728c40f0024460429c2970/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ca1f7530be2cf2646f537b8c1e48ab12a0935a58/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/home/padmal/.android/build-cache/997b6d0190fa48a4c643481cc8ccc51fd48ca8e2/output/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="d1411c67de04770c9fd93aa0fcd849269c3fdb08">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_64e548d9eb30b2a55855ed5ee059e5ad777c9ecc/classes.dex" />
+        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/pre-dexed/debug/classes_64e548d9eb30b2a55855ed5ee059e5ad777c9ecc.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/padmal/.android/build-cache/ca2f3333997af1d75db066ac45b5454ce2230293/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0042b47f0d8f458f55ae04acc7fb9ba06cfafd58/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/padmal/.android/build-cache/82cda87c05540e6cd490385028bd0ea64068c65c/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="efc13805eb5be0773f7b6499c902e04e63d00bc9">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d637d5f4294e0025fe99558b644abc88ff2ae6d3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/padmal/.android/build-cache/938077d28f15a72eb9fd872e1ba01a73abc79102/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="70980042b83c6b7213e8ea2273519e9f8d047c4d">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_559626e085e21d3303efd2d5c915187bf1b0f1bf/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/padmal/.android/build-cache/926ebe6679de858e60005d46c2f6dde5c640b218/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fa89a36453b7f3752378290cc3814678ebcec0a5">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d9c7f98ea1de5034de1a25ffc42f8c1958fecb24/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/padmal/.android/build-cache/061d64d58e5131c0e235db4d931cbd6b870d9777/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3ba2ba8ac0a5ad170fb9f5b329cf34fcf650a3da/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/padmal/.android/build-cache/5f29d40d2c090774782963336e50f658e1ee6c20/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0a442f232c74f43aa6baed9a29cb13941bd10e6a">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c23293dedd14b8c1976a6fa6c4c3e41d6c4d7861/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/padmal/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-math3/3.6.1/e4ba98f1d4b3c80ec46392f25e094a6a2e58fcbf/commons-math3-3.6.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e4ba98f1d4b3c80ec46392f25e094a6a2e58fcbf">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10/commons-math3-3.6.1_ee077d0fcdfaa6c39e85cb6ec0b058dd70dd1b51/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/padmal/.android/build-cache/58cde8cb9e641c482060b7713a8bc06c24d1dce0/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d973898c7bb6bd2ce9ae4b4689a4ad7fa1174f56/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/padmal/.android/build-cache/d055772de3aaf5ba7d83e01eaf580e8b6bf7b8c6/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f0307b8fa6277dd2a81129066342bd9b01a4903b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/padmal/.android/build-cache/5a1cd294e58eb66e4c9619706fd60d06b4265950/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_34a23427d0af6dd6296ded700642eef98ec64106/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_bb4d57439892041f4fbca60dc0ec78a596023b44/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/padmal/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.3.1_be815e23351aa72dc4bb9f03a02883ccab79af4e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/home/padmal/.android/build-cache/55d1c6a33ea48cf0842aa968ba6d6dee83fafa41/output/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="150252b33b00274cc868578ade018fda0d43a3eb">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_317902aba75135b13c0e67de9704463a4656d642/classes.dex" />
+        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/pre-dexed/debug/classes_317902aba75135b13c0e67de9704463a4656d642.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/padmal/.android/build-cache/5d38e9b49eb6779242caea84633ba4cbe4261cf8/output/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/home/padmal/.android/build-cache/ca2f3333997af1d75db066ac45b5454ce2230293/output/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ed15c8cde5316220825f8bda7a1d5432da115450/classes.dex" />
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/pre-dexed/debug/classes_0042b47f0d8f458f55ae04acc7fb9ba06cfafd58.jar" />
     </item>
     <item
-        is-multidex="true"
+        is-multidex="false"
+        jar="/home/padmal/.android/build-cache/d055772de3aaf5ba7d83e01eaf580e8b6bf7b8c6/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/pre-dexed/debug/classes_f0307b8fa6277dd2a81129066342bd9b01a4903b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/padmal/.android/build-cache/926ebe6679de858e60005d46c2f6dde5c640b218/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fa89a36453b7f3752378290cc3814678ebcec0a5">
+        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/pre-dexed/debug/classes_d9c7f98ea1de5034de1a25ffc42f8c1958fecb24.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/padmal/.android/build-cache/c44691a4b7e8c2c19b613fec0f1ff02826a835cc/output/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
-        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f4d55e3e808c726acb952b86e3c7fc561ccf9f56/classes.dex" />
+        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/pre-dexed/debug/classes_f4d55e3e808c726acb952b86e3c7fc561ccf9f56.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/padmal/.android/build-cache/58cde8cb9e641c482060b7713a8bc06c24d1dce0/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/pre-dexed/debug/classes_d973898c7bb6bd2ce9ae4b4689a4ad7fa1174f56.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/padmal/.android/build-cache/19b5fff70a8c839cbdc7d27818f5663ef55e4945/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/pre-dexed/debug/classes_f34ba5ca5092591e8010cf5831bb2a1a377d4dd4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/padmal/.android/build-cache/5d38e9b49eb6779242caea84633ba4cbe4261cf8/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/pre-dexed/debug/classes_ed15c8cde5316220825f8bda7a1d5432da115450.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/padmal/.android/build-cache/0fcb369fd6197cfa62728c40f0024460429c2970/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/pre-dexed/debug/classes_ca1f7530be2cf2646f537b8c1e48ab12a0935a58.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/padmal/.android/build-cache/938077d28f15a72eb9fd872e1ba01a73abc79102/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="70980042b83c6b7213e8ea2273519e9f8d047c4d">
+        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/pre-dexed/debug/classes_559626e085e21d3303efd2d5c915187bf1b0f1bf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/padmal/.android/build-cache/82cda87c05540e6cd490385028bd0ea64068c65c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="efc13805eb5be0773f7b6499c902e04e63d00bc9">
+        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/pre-dexed/debug/classes_d637d5f4294e0025fe99558b644abc88ff2ae6d3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/padmal/.android/build-cache/5a1cd294e58eb66e4c9619706fd60d06b4265950/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/pre-dexed/debug/classes_34a23427d0af6dd6296ded700642eef98ec64106.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/padmal/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-math3/3.6.1/e4ba98f1d4b3c80ec46392f25e094a6a2e58fcbf/commons-math3-3.6.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e4ba98f1d4b3c80ec46392f25e094a6a2e58fcbf">
+        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/pre-dexed/debug/commons-math3-3.6.1_ee077d0fcdfaa6c39e85cb6ec0b058dd70dd1b51.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/padmal/.android/build-cache/061d64d58e5131c0e235db4d931cbd6b870d9777/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/pre-dexed/debug/classes_3ba2ba8ac0a5ad170fb9f5b329cf34fcf650a3da.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/padmal/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_be815e23351aa72dc4bb9f03a02883ccab79af4e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/padmal/.android/build-cache/5f29d40d2c090774782963336e50f658e1ee6c20/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0a442f232c74f43aa6baed9a29cb13941bd10e6a">
+        <dex dex="/home/padmal/Documents/SUTD/tango-examples-java/java_point_cloud_example/app/build/intermediates/pre-dexed/debug/classes_c23293dedd14b8c1976a6fa6c4c3e41d6c4d7861.jar" />
     </item>
 
 </items>

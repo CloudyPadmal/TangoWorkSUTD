@@ -17,11 +17,11 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <org.rajawali3d.surface.RajawaliSurfaceView
-        android:id="@+id/gl_surface_view"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_gravity="top" />
+        <org.rajawali3d.surface.RajawaliSurfaceView
+            android:id="@+id/gl_surface_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="top" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,10 +40,10 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="DIR"
                 android:layout_weight="0.5"
                 android:fontFamily="monospace"
                 android:padding="3dp"
+                android:text="DIR"
                 android:textSize="11sp" />
 
             <TextView
@@ -158,27 +158,51 @@
             android:orientation="horizontal"
             android:padding="5dp">
 
-            <TextView
-                android:id="@+id/start_time_stamp"
+            <TableLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="Start Time"
-                android:textSize="11sp"
-                android:textStyle="bold" />
+                android:layout_height="match_parent"
+                android:layout_weight="4">
 
-            <TextView
-                android:id="@+id/end_time_stamp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:padding="3dp"
-                android:text="End Time"
-                android:textSize="11sp"
-                android:textStyle="bold" />
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/start_time_stamp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="Start Time"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/end_time_stamp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="End Time"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center">
+
+                    <EditText
+                        android:hint="IP Address"
+                        android:textSize="11sp"
+                        android:text="202.94.70.33"
+                        android:id="@+id/tv_ip_address"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp" />
+                </TableRow>
+
+            </TableLayout>
 
             <Button
                 android:id="@+id/run_stop"
@@ -219,8 +243,8 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/t_ux_vl"
                     android:fontFamily="monospace"
-                    android:maxLength="9"
                     android:gravity="center"
+                    android:maxLength="9"
                     android:padding="3dp"
                     android:text="@string/na"
                     android:textSize="11sp" />
@@ -251,8 +275,8 @@
                     android:layout_toRightOf="@id/t_uy_vl"
                     android:fontFamily="monospace"
                     android:gravity="center"
-                    android:padding="3dp"
                     android:maxLength="9"
+                    android:padding="3dp"
                     android:text="@string/na"
                     android:textSize="11sp" />
             </RelativeLayout>
@@ -283,8 +307,8 @@
                     android:layout_weight="2"
                     android:fontFamily="monospace"
                     android:gravity="center"
-                    android:padding="3dp"
                     android:maxLength="9"
+                    android:padding="3dp"
                     android:text="@string/na"
                     android:textSize="11sp" />
 
@@ -354,8 +378,8 @@
                     android:layout_toRightOf="@id/t_ay_vl"
                     android:fontFamily="monospace"
                     android:gravity="center"
-                    android:padding="3dp"
                     android:maxLength="9"
+                    android:padding="3dp"
                     android:text="@string/na"
                     android:textSize="11sp" />
             </RelativeLayout>
@@ -425,8 +449,8 @@
                     android:layout_toRightOf="@id/t_tx_vl"
                     android:fontFamily="monospace"
                     android:gravity="center"
-                    android:padding="3dp"
                     android:maxLength="9"
+                    android:padding="3dp"
                     android:text="@string/na"
                     android:textSize="11sp" />
             </RelativeLayout>
@@ -456,8 +480,8 @@
                     android:layout_toRightOf="@id/t_ty_vl"
                     android:fontFamily="monospace"
                     android:gravity="center"
-                    android:padding="3dp"
                     android:maxLength="9"
+                    android:padding="3dp"
                     android:text="@string/na"
                     android:textSize="11sp" />
             </RelativeLayout>
@@ -488,8 +512,8 @@
                     android:layout_weight="2"
                     android:fontFamily="monospace"
                     android:gravity="center"
-                    android:padding="3dp"
                     android:maxLength="9"
+                    android:padding="3dp"
                     android:text="@string/na"
                     android:textSize="11sp" />
 
@@ -503,8 +527,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:padding="5dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="5dp">
         <!-- Orientation -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -929,7 +953,7 @@
             android:id="@+id/button_row"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/first_person_button"
@@ -943,25 +967,25 @@
                 android:id="@+id/threshold_increment"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_expand_less_black_24dp"
                 android:layout_weight="1"
-                android:onClick="incrementThreshold" />
+                android:onClick="incrementThreshold"
+                android:src="@drawable/ic_expand_less_black_24dp" />
 
             <TextView
                 android:id="@+id/tv_threshold"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="20"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:layout_weight="1"/>
+                android:text="20" />
 
             <ImageButton
                 android:id="@+id/threshold_decrement"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@drawable/ic_expand_more_black_24dp"
-                android:onClick="decrementThreshold" />
+                android:onClick="decrementThreshold"
+                android:src="@drawable/ic_expand_more_black_24dp" />
 
         </LinearLayout>
 
