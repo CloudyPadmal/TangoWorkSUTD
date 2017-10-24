@@ -8,13 +8,14 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="padmal" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="pad" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1dc6af91-ac77-4e5f-910c-88adae19de30" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/spinner_list_view.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
@@ -23,10 +24,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
     </list>
     <ignored path="java_point_cloud_example.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,18 +57,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PointCloudActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PointCloudActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="216" column="77" selection-start-line="216" selection-start-column="77" selection-end-line="216" selection-end-column="77" />
+            <state relative-caret-position="-691">
+              <caret line="904" column="0" selection-start-line="904" selection-start-column="0" selection-end-line="904" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#onStop#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#bindTangoService#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="e#16265#16273#0" expanded="true" />
                 <element signature="method#setupTangoConfig#0;class#PointCloudActivity#0" expanded="false" />
-                <element signature="method#onTangoEvent#0;class#17731:22279" expanded="false" />
-                <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
+                <element signature="method#onTangoEvent#0;class#18421:22969" expanded="false" />
                 <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#onTouchEvent#0;class#PointCloudActivity#0" expanded="false" />
                 <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
@@ -88,21 +87,34 @@
       </file>
       <file leaf-file-name="activity_point_cloud.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="585">
+              <caret line="195" column="56" selection-start-line="195" selection-start-column="56" selection-end-line="195" selection-end-column="56" />
+              <folding>
+                <element signature="e#1263#3471#0" expanded="false" />
+                <element signature="e#19981#38084#0" expanded="false" />
+                <element signature="e#20239#24264#0" expanded="false" />
+                <element signature="e#24303#28370#0" expanded="false" />
+                <element signature="e#28406#32473#0" expanded="false" />
+                <element signature="e#32508#36533#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
           <provider editor-type-id="android-designer2">
             <state />
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spinner_list_view.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/spinner_list_view.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="198" column="50" selection-start-line="198" selection-start-column="50" selection-end-line="198" selection-end-column="50" />
-              <folding>
-                <element signature="e#1263#3471#0" expanded="false" />
-                <element signature="e#20171#38274#0" expanded="false" />
-                <element signature="e#20429#24454#0" expanded="false" />
-                <element signature="e#24493#28560#0" expanded="false" />
-                <element signature="e#28596#32663#0" expanded="false" />
-                <element signature="e#32698#36723#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="165">
+              <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+              <folding />
             </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
@@ -115,6 +127,7 @@
         <option value="Interface" />
         <option value="Class" />
         <option value="resourceFile" />
+        <option value="layoutResourceFile_vertical" />
       </list>
     </option>
   </component>
@@ -1969,16 +1982,17 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/text_bg.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/StepDetector.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/spinner_list_view.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="67" />
-    <option name="y" value="24" />
+    <option name="y" value="-4" />
     <option name="width" value="1853" />
-    <option name="height" value="1056" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -2005,6 +2019,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="AndroidView">
@@ -2024,13 +2039,48 @@
               <option name="myItemId" value="java_point_cloud_example" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java_point_cloud_example" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java_point_cloud_example" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="ProjectPane">
         <subPane />
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2040,7 +2090,7 @@
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="device.picker.selection" value="5b2c291c" />
+    <property name="device.picker.selection" value="H6AKCV000379WXW" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
     <property name="VectorAssetImportPath" value="$USER_HOME$" />
   </component>
@@ -2408,7 +2458,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="24" width="1853" height="1056" extended-state="6" />
+    <frame x="67" y="-4" width="1853" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2417,8 +2467,8 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42580646" sideWeight="0.5019369" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4623656" sideWeight="0.4980631" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33038184" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16989248" sideWeight="0.4980631" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33038184" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32580644" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -2469,7 +2519,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/text_bg.xml" />
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -2505,32 +2554,32 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="78" selection-start-line="26" selection-start-column="78" selection-end-line="26" selection-end-column="78" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
-      <provider editor-type-id="android-designer2">
+      <provider editor-type-id="android-manifest">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
           <caret line="85" column="28" selection-start-line="85" selection-start-column="28" selection-end-line="85" selection-end-column="28" />
           <folding>
             <element signature="e#1263#3471#0" expanded="false" />
-            <element signature="e#20171#38274#0" expanded="false" />
-            <element signature="e#20429#24454#0" expanded="false" />
-            <element signature="e#24493#28560#0" expanded="false" />
-            <element signature="e#28596#32663#0" expanded="false" />
-            <element signature="e#32698#36723#0" expanded="false" />
+            <element signature="e#19981#38084#0" expanded="false" />
+            <element signature="e#20239#24264#0" expanded="false" />
+            <element signature="e#24303#28370#0" expanded="false" />
+            <element signature="e#28406#32473#0" expanded="false" />
+            <element signature="e#32508#36533#0" expanded="false" />
           </folding>
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
@@ -2541,9 +2590,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#onStop#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#bindTangoService#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="e#16265#16273#0" expanded="true" />
             <element signature="method#setupTangoConfig#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#onTangoEvent#0;class#17731:22279" expanded="false" />
-            <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onTangoEvent#0;class#18421:22969" expanded="false" />
             <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#onTouchEvent#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
@@ -2567,9 +2616,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#onStop#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#bindTangoService#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="e#16265#16273#0" expanded="true" />
             <element signature="method#setupTangoConfig#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#onTangoEvent#0;class#17731:22279" expanded="false" />
-            <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onTangoEvent#0;class#18421:22969" expanded="false" />
             <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#onTouchEvent#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
@@ -2586,21 +2635,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
           <folding>
             <element signature="e#1263#3471#0" expanded="false" />
-            <element signature="e#20171#38274#0" expanded="false" />
-            <element signature="e#20429#24454#0" expanded="false" />
-            <element signature="e#24493#28560#0" expanded="false" />
-            <element signature="e#28596#32663#0" expanded="false" />
-            <element signature="e#32698#36723#0" expanded="false" />
+            <element signature="e#19981#38084#0" expanded="false" />
+            <element signature="e#20239#24264#0" expanded="false" />
+            <element signature="e#24303#28370#0" expanded="false" />
+            <element signature="e#28406#32473#0" expanded="false" />
+            <element signature="e#32508#36533#0" expanded="false" />
           </folding>
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/StepDetector.java">
@@ -2622,9 +2671,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#onStop#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#bindTangoService#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="e#16265#16273#0" expanded="true" />
             <element signature="method#setupTangoConfig#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#onTangoEvent#0;class#17731:22279" expanded="false" />
-            <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onTangoEvent#0;class#18421:22969" expanded="false" />
             <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#onTouchEvent#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
@@ -2641,21 +2690,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
           <folding>
             <element signature="e#1263#3471#0" expanded="false" />
-            <element signature="e#20171#38274#0" expanded="false" />
-            <element signature="e#20429#24454#0" expanded="false" />
-            <element signature="e#24493#28560#0" expanded="false" />
-            <element signature="e#28596#32663#0" expanded="false" />
-            <element signature="e#32698#36723#0" expanded="false" />
+            <element signature="e#19981#38084#0" expanded="false" />
+            <element signature="e#20239#24264#0" expanded="false" />
+            <element signature="e#24303#28370#0" expanded="false" />
+            <element signature="e#28406#32473#0" expanded="false" />
+            <element signature="e#32508#36533#0" expanded="false" />
           </folding>
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/StepDetector.java">
@@ -2677,9 +2726,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#onStop#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#bindTangoService#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="e#16265#16273#0" expanded="true" />
             <element signature="method#setupTangoConfig#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#onTangoEvent#0;class#17731:22279" expanded="false" />
-            <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onTangoEvent#0;class#18421:22969" expanded="false" />
             <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#onTouchEvent#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
@@ -2696,21 +2745,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
           <folding>
             <element signature="e#1263#3471#0" expanded="false" />
-            <element signature="e#20171#38274#0" expanded="false" />
-            <element signature="e#20429#24454#0" expanded="false" />
-            <element signature="e#24493#28560#0" expanded="false" />
-            <element signature="e#28596#32663#0" expanded="false" />
-            <element signature="e#32698#36723#0" expanded="false" />
+            <element signature="e#19981#38084#0" expanded="false" />
+            <element signature="e#20239#24264#0" expanded="false" />
+            <element signature="e#24303#28370#0" expanded="false" />
+            <element signature="e#28406#32473#0" expanded="false" />
+            <element signature="e#32508#36533#0" expanded="false" />
           </folding>
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/StepDetector.java">
@@ -2732,9 +2781,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#onStop#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#bindTangoService#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="e#16265#16273#0" expanded="true" />
             <element signature="method#setupTangoConfig#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#onTangoEvent#0;class#17731:22279" expanded="false" />
-            <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onTangoEvent#0;class#18421:22969" expanded="false" />
             <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#onTouchEvent#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
@@ -2752,21 +2801,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/WebCalls/CloudPoster.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
           <folding>
             <element signature="e#1263#3471#0" expanded="false" />
-            <element signature="e#20171#38274#0" expanded="false" />
-            <element signature="e#20429#24454#0" expanded="false" />
-            <element signature="e#24493#28560#0" expanded="false" />
-            <element signature="e#28596#32663#0" expanded="false" />
-            <element signature="e#32698#36723#0" expanded="false" />
+            <element signature="e#19981#38084#0" expanded="false" />
+            <element signature="e#20239#24264#0" expanded="false" />
+            <element signature="e#24303#28370#0" expanded="false" />
+            <element signature="e#28406#32473#0" expanded="false" />
+            <element signature="e#32508#36533#0" expanded="false" />
           </folding>
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
@@ -2777,9 +2826,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#onStop#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#bindTangoService#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="e#16265#16273#0" expanded="true" />
             <element signature="method#setupTangoConfig#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#onTangoEvent#0;class#17731:22279" expanded="false" />
-            <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onTangoEvent#0;class#18421:22969" expanded="false" />
             <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#onTouchEvent#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
@@ -2797,21 +2846,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/WebCalls/CloudPoster.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
           <folding>
             <element signature="e#1263#3471#0" expanded="false" />
-            <element signature="e#20171#38274#0" expanded="false" />
-            <element signature="e#20429#24454#0" expanded="false" />
-            <element signature="e#24493#28560#0" expanded="false" />
-            <element signature="e#28596#32663#0" expanded="false" />
-            <element signature="e#32698#36723#0" expanded="false" />
+            <element signature="e#19981#38084#0" expanded="false" />
+            <element signature="e#20239#24264#0" expanded="false" />
+            <element signature="e#24303#28370#0" expanded="false" />
+            <element signature="e#28406#32473#0" expanded="false" />
+            <element signature="e#32508#36533#0" expanded="false" />
           </folding>
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
@@ -2822,9 +2871,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#onStop#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#bindTangoService#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="e#16265#16273#0" expanded="true" />
             <element signature="method#setupTangoConfig#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#onTangoEvent#0;class#17731:22279" expanded="false" />
-            <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onTangoEvent#0;class#18421:22969" expanded="false" />
             <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#onTouchEvent#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
@@ -2841,21 +2890,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
           <folding>
             <element signature="e#1263#3471#0" expanded="false" />
-            <element signature="e#20171#38274#0" expanded="false" />
-            <element signature="e#20429#24454#0" expanded="false" />
-            <element signature="e#24493#28560#0" expanded="false" />
-            <element signature="e#28596#32663#0" expanded="false" />
-            <element signature="e#32698#36723#0" expanded="false" />
+            <element signature="e#19981#38084#0" expanded="false" />
+            <element signature="e#20239#24264#0" expanded="false" />
+            <element signature="e#24303#28370#0" expanded="false" />
+            <element signature="e#28406#32473#0" expanded="false" />
+            <element signature="e#32508#36533#0" expanded="false" />
           </folding>
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
@@ -2866,9 +2915,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#onStop#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#bindTangoService#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="e#16265#16273#0" expanded="true" />
             <element signature="method#setupTangoConfig#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#onTangoEvent#0;class#17731:22279" expanded="false" />
-            <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onTangoEvent#0;class#18421:22969" expanded="false" />
             <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#onTouchEvent#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
@@ -2885,21 +2934,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
           <folding>
             <element signature="e#1263#3471#0" expanded="false" />
-            <element signature="e#20171#38274#0" expanded="false" />
-            <element signature="e#20429#24454#0" expanded="false" />
-            <element signature="e#24493#28560#0" expanded="false" />
-            <element signature="e#28596#32663#0" expanded="false" />
-            <element signature="e#32698#36723#0" expanded="false" />
+            <element signature="e#19981#38084#0" expanded="false" />
+            <element signature="e#20239#24264#0" expanded="false" />
+            <element signature="e#24303#28370#0" expanded="false" />
+            <element signature="e#28406#32473#0" expanded="false" />
+            <element signature="e#32508#36533#0" expanded="false" />
           </folding>
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
@@ -2910,9 +2959,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#onStop#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#bindTangoService#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="e#16265#16273#0" expanded="true" />
             <element signature="method#setupTangoConfig#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#onTangoEvent#0;class#17731:22279" expanded="false" />
-            <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onTangoEvent#0;class#18421:22969" expanded="false" />
             <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#onTouchEvent#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
@@ -2929,21 +2978,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7065">
           <caret line="471" column="41" selection-start-line="471" selection-start-column="41" selection-end-line="471" selection-end-column="41" />
           <folding>
             <element signature="e#1263#3471#0" expanded="false" />
-            <element signature="e#20171#38274#0" expanded="false" />
-            <element signature="e#20429#24454#0" expanded="false" />
-            <element signature="e#24493#28560#0" expanded="false" />
-            <element signature="e#28596#32663#0" expanded="false" />
-            <element signature="e#32698#36723#0" expanded="false" />
+            <element signature="e#19981#38084#0" expanded="false" />
+            <element signature="e#20239#24264#0" expanded="false" />
+            <element signature="e#24303#28370#0" expanded="false" />
+            <element signature="e#28406#32473#0" expanded="false" />
+            <element signature="e#32508#36533#0" expanded="false" />
           </folding>
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
@@ -2954,9 +3003,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#onStop#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#bindTangoService#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="e#16265#16273#0" expanded="true" />
             <element signature="method#setupTangoConfig#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#onTangoEvent#0;class#17731:22279" expanded="false" />
-            <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onTangoEvent#0;class#18421:22969" expanded="false" />
             <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#onTouchEvent#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
@@ -2973,21 +3022,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
           <folding>
             <element signature="e#1263#3471#0" expanded="false" />
-            <element signature="e#20171#38274#0" expanded="false" />
-            <element signature="e#20429#24454#0" expanded="false" />
-            <element signature="e#24493#28560#0" expanded="false" />
-            <element signature="e#28596#32663#0" expanded="false" />
-            <element signature="e#32698#36723#0" expanded="false" />
+            <element signature="e#19981#38084#0" expanded="false" />
+            <element signature="e#20239#24264#0" expanded="false" />
+            <element signature="e#24303#28370#0" expanded="false" />
+            <element signature="e#28406#32473#0" expanded="false" />
+            <element signature="e#32508#36533#0" expanded="false" />
           </folding>
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/CircleTextView.java">
@@ -3035,14 +3084,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/WebCalls/CloudPoster.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="24" column="75" selection-start-line="24" selection-start-column="75" selection-end-line="25" selection-end-column="80" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/Interfaces/StepListener.java">
@@ -3106,35 +3155,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="198" column="50" selection-start-line="198" selection-start-column="50" selection-end-line="198" selection-end-column="50" />
-          <folding>
-            <element signature="e#1263#3471#0" expanded="false" />
-            <element signature="e#20171#38274#0" expanded="false" />
-            <element signature="e#20429#24454#0" expanded="false" />
-            <element signature="e#24493#28560#0" expanded="false" />
-            <element signature="e#28596#32663#0" expanded="false" />
-            <element signature="e#32698#36723#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/projecttango/examples/java/pointcloud/PointCloudActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="216" column="77" selection-start-line="216" selection-start-column="77" selection-end-line="216" selection-end-column="77" />
+        <state relative-caret-position="-691">
+          <caret line="904" column="0" selection-start-line="904" selection-start-column="0" selection-end-line="904" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#onStop#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#bindTangoService#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="e#16265#16273#0" expanded="true" />
             <element signature="method#setupTangoConfig#0;class#PointCloudActivity#0" expanded="false" />
-            <element signature="method#onTangoEvent#0;class#17731:22279" expanded="false" />
-            <element signature="method#setupRenderer#0;class#PointCloudActivity#0" expanded="false" />
+            <element signature="method#onTangoEvent#0;class#18421:22969" expanded="false" />
             <element signature="method#setupTangoUxAndLayout#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#onTouchEvent#0;class#PointCloudActivity#0" expanded="false" />
             <element signature="method#getAveragedDepth#0;class#PointCloudActivity#0" expanded="false" />
@@ -3148,6 +3179,35 @@
             <element signature="method#onAccuracyChanged#0;class#PointCloudActivity#0" expanded="false" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_point_cloud.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="195" column="56" selection-start-line="195" selection-start-column="56" selection-end-line="195" selection-end-column="56" />
+          <folding>
+            <element signature="e#1263#3471#0" expanded="false" />
+            <element signature="e#19981#38084#0" expanded="false" />
+            <element signature="e#20239#24264#0" expanded="false" />
+            <element signature="e#24303#28370#0" expanded="false" />
+            <element signature="e#28406#32473#0" expanded="false" />
+            <element signature="e#32508#36533#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/spinner_list_view.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
   </component>

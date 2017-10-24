@@ -32,8 +32,11 @@ import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -87,11 +90,11 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private static final int SECS_TO_MILLISECS = 1000;
     private static final double UPDATE_INTERVAL_MS = 200.0;
     /***************************************** URLs ***********************************************/
-    private final String DEFAULT_IP = "202.94.70.33";
     private String CLOUD_URL = "";
     private String WIFI_URL = "";
     private String IMU_URL = "";
     private String STEP_URL = "";
+    private String IP = "202.94.70.33";
     private final long CLOUD_INTERVAL = 1000;
     private final int MM = 10000;
 
@@ -104,7 +107,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private TextView Xv, Yv, Zv, Xtv, Ytv, Ztv, Ax, Ay, Az;
     private TextView oriX, oriY, oriZ, accX, accY, accZ, gyrX, gyrY, gyrZ, magX, magY, magZ;
     private TextView mThreshold;
-    private TextView mIPAddress;
+    private Spinner mIPSpinner;
 
     /************************************* Utilities **********************************************/
     private SensorManager sensorManager;
@@ -136,7 +139,8 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
     private boolean mIsConnected = false;
     private double mPointCloudTimeToNextUpdate = UPDATE_INTERVAL_MS;
     private int mDisplayRotation = 0;
-    private int wifiCount = 0, cloudCount = 0, imuCount = 0, stepCount = 0, heading = 0, steps = 0;
+    private int wifiCount = 0, cloudCount = 0, imuCount = 0, stepCount = 0, steps = 0;
+    private float heading = 0;
     private int count = 0;
     private boolean started = false;
     private int NodeCount = 0;
@@ -208,10 +212,6 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
         runStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String IP = mIPAddress.getText().toString();
-                if (IP.equals("")) {
-                    IP = DEFAULT_IP;
-                }
                 CLOUD_URL = "http://" + IP + "/tango/insert_tango_point_cloud.php";
                 WIFI_URL = "http://" + IP + "/tango/insert_tango_wifi_scan.php";
                 IMU_URL = "http://" + IP + "/tango/insert_tango_raw_imu.php";
@@ -408,7 +408,25 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
 
         mThreshold = (TextView) findViewById(R.id.tv_threshold);
 
-        mIPAddress = (EditText) findViewById(R.id.tv_ip_address);
+        mIPSpinner = (Spinner) findViewById(R.id.ip_address_spinner);
+
+        final List<String> ipList = new ArrayList<>();
+        ipList.add("192.168.1.5");
+        ipList.add("202.94.70.33");
+
+        ArrayAdapter<String> ipAdapter = new ArrayAdapter<>(this, R.layout.spinner_list_view, ipList);
+        ipAdapter.setDropDownViewResource(R.layout.spinner_list_view);
+        mIPSpinner.setAdapter(ipAdapter);
+
+        mIPSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                IP = ipList.get(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {/**/}
+        });
     }
 
     /**
@@ -585,7 +603,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
                         if (lastFramePose.statusCode == TangoPoseData.POSE_VALID) {
                             mRenderer.updateCameraPose(lastFramePose);
                         }
-                    } catch (TangoErrorException e) {
+                    } catch (TangoErrorException | TangoInvalidException e) {
                         Log.e(TAG, "Could not get valid transform");
                     }
                 }
@@ -886,7 +904,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
 
     private void postIMUData() {
         try {
-            StringRequest stringRequest = new StringRequest(Request.Method.GET, IMU_URL, new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, IMU_URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     boolean success = response.contains("Data successfully created");
@@ -1162,7 +1180,7 @@ public class PointCloudActivity extends AppCompatActivity implements SensorEvent
             oriY.setText(String.valueOf(OriReading[1]));
             oriZ.setText(String.valueOf(OriReading[2]));
             // Calculate degrees
-            int angle = (int) (OriReading[0] * (180 / Math.PI));
+            float angle = (float) (OriReading[0] * (180 / Math.PI));
             if (angle < 0) {
                 angle = angle + 360;
             }
